@@ -56,6 +56,7 @@ function Logo() {
 function PortfolioLogo() {
   const { theme, setTheme } = useTheme();
   const logoStyles = {
+    display: 'block',
     paddingLeft: 40,
     paddingRight: 40,
     paddingTop: 12,
@@ -110,14 +111,14 @@ export default function Navbar() {
   }
 
   return (
-    <div className="mx-auto py-8 container max-w-7xl">
+    <div className="mx-auto py-6 md:py-8 container max-w-7xl">
       <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
         <div className="">
           {/* <Logo /> */}
           <PortfolioLogo></PortfolioLogo>
         </div>
 
-        <div className="flex flex-row justify-end items-center max-w-full">
+        <div className="flex flex-row justify-center md:justify-end items-center max-w-full">
           <LayoutGroup>
             <nav
               className="flex flex-row items-start relative px-2 pb-0 fade md:overflow-auto scroll-pr-6"
