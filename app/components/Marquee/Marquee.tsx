@@ -159,7 +159,7 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
           <p
             key={idx}
             className={clsx(
-              "px-4 font-mono text-2xl md:text-4xl leading-relaxed",
+              "px-4 font-mono text-2xl md:text-4xl md:leading-relaxed",
               // `text-[${colors[idx % colors.length]}]`,
               [1, 5].includes(idx)
                 ? "font-bold"
