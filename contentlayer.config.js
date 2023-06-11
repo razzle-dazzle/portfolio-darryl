@@ -80,8 +80,9 @@ export const Project = defineDocumentType(() => ({
   computedFields,
 }));
 
+// more examples here on the official blog start: https://github.com/shadcn/next-contentlayer/blob/main/contentlayer.config.js
 export default makeSource({
-  contentDirPath: 'content',
+  contentDirPath: './content',
   documentTypes: [Project],
   mdx: {
     remarkPlugins: [remarkGfm],
