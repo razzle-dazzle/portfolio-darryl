@@ -40,7 +40,7 @@ next-env.d.ts
 .contentlayer
 
 # built content
-content/*
+# content/*
 
 # ignoring built JS
 lib/_all-db.js
