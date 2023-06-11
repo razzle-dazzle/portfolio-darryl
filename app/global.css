@@ -96,7 +96,7 @@ table {
   margin: 0 !important;
 }
 
-// styles for rehyping
+/* styles for rehyping */
 [data-rehype-pretty-code-fragment] code {
   @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
   counter-reset: line;
