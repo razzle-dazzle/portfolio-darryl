@@ -19,6 +19,8 @@ export default function Navbar() {
   return (
     <div className="mx-auto py-6 md:py-8 container max-w-7xl">
       <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
+
+
         <div>
           <Logo></Logo>
         </div>
@@ -44,7 +46,7 @@ export default function Navbar() {
                         }
                       )}
                     >
-                      <span className="relative py-[8px] px-[32px] text-sm md:text-2xl text-neutral-800 dark:text-neutral-100">
+                      <span className="relative py-2 px-4 md:px-8 text-sm md:text-2xl text-neutral-800 dark:text-neutral-100">
                         {name.toUpperCase()}
                         {path === pathname ? (
                           <motion.div

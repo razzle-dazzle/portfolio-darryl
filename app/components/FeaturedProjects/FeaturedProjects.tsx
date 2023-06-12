@@ -18,6 +18,13 @@ const featuredProjects: FeaturedProject[] = [
     stack: ["ios", "android", "expo", "react", "redux", "nativebase", "typescript"],
   },
   {
+    url: "/hostshare",
+    title: "Hostshare",
+    description: "I completed a 2-day hackathon project for Hostshare for their candidate frontend developer test. The brief was to build 3 main pages from the Airbnb website (home, search results and property listing pages) but not feature complete.",
+    image: "/projects/hostshare/hostshare_featured.jpg",
+    stack: ["nextjs", "react", "typescript", "tailwind", "sass", "vercel", "npm"],
+  },
+  {
     url: "/herding-cats-app",
     title: "Herding Cats",
     description: "Herding Cats is an app to help people organise social events with relative ease. The app began as a responsive web app, which we later ported over to React Native. The app allows users to create events and invite people, while managing attendance all in one place.",
@@ -59,13 +66,13 @@ const FeaturedProjects = ({}: Props) => {
   //   });
 
   return (
-    <div className="max-w-7xl m-auto py-4 md:py-12 md:px-6 mb-12 relative">
+    <div className="max-w-7xl m-auto py-4 md:py-12 md:px-6 relative">
       {/* The shadow text */}
       <p className="hidden md:block text-2xl md:text-[110px] relative text-neutral-300 dark:text-neutral-700 font-bold z-10 leading-normal opacity-40 uppercase overflow-hidden whitespace-nowrap mb-24">
         Featured Projects
       </p>
       {/* The smaller text */}
-      <h2 className="md:leading-[160px] font-500 text-2xl md:text-6xl mb-6 md:mb-24 z-20 md:absolute inset-0 bottom-[unset] md:left-[114px] md:top-[100px] text-black dark:text-[#1795FF] uppercase">
+      <h2 className="md:leading-[160px] font-500 text-2xl md:text-6xl mb-6 md:mb-24 z-20 md:absolute inset-0 bottom-[unset] md:left-[114px] md:top-[100px] text-black dark:text-white uppercase">
         Featured Projects
       </h2>
       {featuredProjects.map((project, index) => {
@@ -74,7 +81,7 @@ const FeaturedProjects = ({}: Props) => {
         );
       })}
 
-      <div className="flex flex-row gap-4 justify-end items-center">
+      <div className="flex flex-row gap-4 justify-end items-center mt-12">
         <Link
           className="text-orange-300 font-medium text-xl"
           href={NAV_ITEMS.projects.path}

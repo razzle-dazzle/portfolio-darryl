@@ -9,12 +9,10 @@ type ProjectListItemProps = {
 };
 
 const ProjectListItem = ({ project }: ProjectListItemProps) => {
-  // console.log({ here: "#############\n", project });
   return (
     <div
       className="mb-4 p-4 bg-neutral-200 dark:bg-neutral-800"
       style={{
-        // backgroundColor: "#282c34",
         boxShadow: "inset 0 0 0 1px rgb(255 255 255/.1)",
         borderRadius: "12px",
       }}
@@ -24,9 +22,9 @@ const ProjectListItem = ({ project }: ProjectListItemProps) => {
         className="flex flex-col space-y-1"
         href={`${NAV_ITEMS.projects.path}/${project.slug}`}
       >
-        <div className="w-full flex flex-row gap-6">
+        <div className="w-full flex flex-row gap-4 md:gap-6 items-center">
           {project.thumbnail && (
-            <div className="relative w-16 md:w-20 h-16 md:h-20 flex flex-[80px] flex-grow-0">
+            <div className="relative w-16 md:w-20 h-16 md:h-20 flex flex-[80px] flex-grow-0 flex-shrink-0">
               <Image
                 alt={project.title}
                 height={80}
@@ -40,17 +38,21 @@ const ProjectListItem = ({ project }: ProjectListItemProps) => {
                   width: "100%",
                   // height: 'auto',
                   objectFit: "cover",
-                  borderRadius: '4px',
+                  borderRadius: "4px",
                 }}
               />
             </div>
           )}
-          <div>
-            <p className="text-lg md:text-2xl mb-1 text-neutral-800 dark:text-neutral-200">{project.title}</p>
-            <p className="text-xs md:text-md font-light mb-0.5 text-neutral-800 dark:text-neutral-200">{project.summary}</p>
-            <p className="text-xs italic font-bold text-neutral-800 dark:text-neutral-200">
-              Completed: {project.publishedAt}
+          <div className="flex flex-col">
+            <p className="text-lg md:text-2xl mb-1.5 text-neutral-800 dark:text-neutral-200 line-clamp-1">
+              {project.title}
             </p>
+            <p className="text-xs md:text-md font-light text-neutral-800 dark:text-neutral-200 line-clamp-2 mb-0">
+              {project.summary}
+            </p>
+            {/* <p className="text-xs italic font-bold text-neutral-800 dark:text-neutral-200">
+              Completed: {project.publishedAt}
+            </p> */}
           </div>
           {/* <ViewCounter
                 allViews={allViews}

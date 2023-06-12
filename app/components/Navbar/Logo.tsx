@@ -4,6 +4,8 @@ import { useTheme } from "@wits/next-themes";
 import Link from "next/link";
 
 function PortfolioLogo() {
+  const thisYear = new Date().getFullYear();
+  
   const { theme, setTheme } = useTheme();
   const logoStyles = {
     display: 'block',
@@ -54,7 +56,7 @@ function PortfolioLogo() {
         ...logoStylesThemed,
       }}
     >
-      {"Portfolio 2023".toUpperCase()}
+      {`Portfolio ${thisYear}`.toUpperCase()}
     </Link>
   );
 }
