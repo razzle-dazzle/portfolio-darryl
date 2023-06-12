@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
+          alignItems: 'flex-end',
           justifyContent: 'center',
           backgroundImage: 'url(https://darryloctober.co.uk/og-image.png)', // this will be the image in the /public folder when hosted
         }}
@@ -30,7 +30,8 @@ export async function GET(req: NextRequest) {
             marginRight: 190,
             display: 'flex',
             fontSize: 130,
-            fontFamily: 'Kaisei Tokumin',
+            // fontFamily: 'Kaisei Tokumin',
+            // fontFamily: 'sans-serif',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             color: 'white',
