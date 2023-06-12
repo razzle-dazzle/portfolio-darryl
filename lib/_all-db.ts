@@ -69,6 +69,7 @@ export type Stack =
   | "framer"
   | "java"
   | "grails"
+  | "vercel"
   ;
 
 interface Project {
@@ -3255,7 +3256,7 @@ export const projects: Project[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "canteen",
-    stack: ["nextjs", "react", "mui", "typescript", "shopify", "graphql", "pwa", "sass"],
+    stack: ["nextjs", "react", "mui", "typescript", "shopify", "graphql", "pwa", "sass", "vercel"],
   },
   {
     id: 148,
@@ -3319,6 +3320,27 @@ export const projects: Project[] = [
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-api",
     stack: ["aws", "nodejs", "express", "dynamodb", "typescript"],
+  },
+  {
+    id: 151,
+    featured: 0,
+    alias: "/hostshare",
+    title: "Hostshare Candidate Project",
+    description: "I completed a 2-day hackathon project for Hostshare for their candidate frontend developer test. The brief was to build 3 main pages from the Airbnb website (home, search results and property listing pages) but not feature complete",
+    description_secondary: "The project was to demonstrate how I would go about building a similar copy, using Hostshare branding and assets. The data feed and framework (NextJS/Tailwind) were prescribed and part of the brief.",
+    type: 9,
+    url: "https://hostshare-darryl-october.vercel.app/",
+    completed: "2023-06-12",
+    company: "Hostshare",
+    framework: "nextjs",
+    client: "",
+    client_website: "",
+    zoom_slider_mode: "imac",
+    active: 1,
+    created: "2023-06-12 09:00:00",
+    modified: "2023-06-12 09:00:00",
+    images: "hostshare",
+    stack: ["nextjs", "react", "typescript", "tailwind", "sass", "vercel", "npm"],
   },
 ];
 

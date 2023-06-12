@@ -6,102 +6,8 @@ import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { NAV_ITEMS } from "app/constants";
 import ThemeSwitch from "../ThemeSwitch";
-import { useTheme } from "@wits/next-themes";
+import Logo from './Logo';
 
-function Logo() {
-  return (
-    <Link aria-label="Darryl October" href="/">
-      <motion.svg
-        className="text-black dark:text-white h-[25px] md:h-[37px]"
-        width="25"
-        height="37"
-        viewBox="0 0 232 316"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          initial={{
-            opacity: 0,
-            pathLength: 0,
-          }}
-          animate={{
-            opacity: 1,
-            pathLength: 1,
-          }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
-          d="M39 316V0"
-          stroke="currentColor"
-          strokeWidth={78}
-        />
-        <motion.path
-          initial={{ x: -200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
-          d="M232 314.998H129.852L232 232.887V314.998Z"
-          fill="currentColor"
-        />
-      </motion.svg>
-    </Link>
-  );
-}
-
-function PortfolioLogo() {
-  const { theme, setTheme } = useTheme();
-  const logoStyles = {
-    display: 'block',
-    paddingLeft: 40,
-    paddingRight: 40,
-    paddingTop: 12,
-    paddingBottom: 12,
-    fontWeight: 500,
-    fontSize: 20,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: 'transparent',
-    borderStyle: 'solid',
-    backgroundColor: 'transparent',
-  };
-  let logoStylesThemed = {};
-  if (theme === 'light') {
-    logoStylesThemed = {
-      color: "#171717",
-      borderColor: "#1795FF",
-      // linear gradient BG must match the page body BG
-      background: 'linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
-      // border: '2px solid transparent',
-    }
-  } else {
-    logoStylesThemed = {
-      color: "#A1DEFF",
-      // borderColor: "#1795FF",
-      // linear gradient BG must match the page body BG
-      background: 'linear-gradient(#171717, #171717) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
-      // border: '2px solid transparent',
-    }
-    
-  }
-  return (
-    <Link
-      href={"/"}
-      style={{
-        whiteSpace: 'nowrap',
-        ...logoStyles,
-        
-        ...logoStylesThemed,
-      }}
-    >
-      {"Portfolio 2023".toUpperCase()}
-    </Link>
-  );
-}
 
 export default function Navbar() {
   // support for active page - @todo - can be improved!
@@ -113,9 +19,8 @@ export default function Navbar() {
   return (
     <div className="mx-auto py-6 md:py-8 container max-w-7xl">
       <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
-        <div className="">
-          {/* <Logo /> */}
-          <PortfolioLogo></PortfolioLogo>
+        <div>
+          <Logo></Logo>
         </div>
 
         <div className="flex flex-row justify-center md:justify-end items-center max-w-full">

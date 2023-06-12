@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'url(https://darryloctober.co.uk/og-bg.png)', // this will be the image in the /public folder when hosted
+          backgroundImage: 'url(https://darryloctober.co.uk/og-image.png)', // this will be the image in the /public folder when hosted
         }}
       >
         <div

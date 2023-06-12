@@ -14,7 +14,7 @@ export const NAV_ITEMS = {
 } as const;
 
 export const Constants = {
-  defaultTheme: "system", // system, dark or light
+  defaultTheme: "dark", // system, dark or light
 } as const;
 
 /**

@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import localFont from "next/font/local";
 import { ServerThemeProvider, ThemeProvider } from "@wits/next-themes";
 import { Constants } from "./constants";
+import Footer from './components/Footer';
 // import 'swiper/css'; // this causes a font error in console
 // modules styles
 // import 'swiper/css/navigation'
@@ -67,15 +68,15 @@ const libre = localFont({
   display: "swap",
 });
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Darryl October",
-    template: "%s | Darryl October",
+    template: "%s | Darryl October - Front End Engineer",
   },
   description: "Developer, writer, and creator.",
   openGraph: {
     title: "Darryl October",
-    description: "Developer, writer, and creator.",
+    description: "Front End Engineer and tech enthusiast.",
     url: "https://darryloctober.co.uk",
     siteName: "Darryl October",
     locale: "es-ES",
@@ -96,10 +97,10 @@ const metadata: Metadata = {
     title: "Darryl October",
     card: "summary_large_image",
   },
-  verification: {
-    google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-    yandex: "14d2e73487fa6c71",
-  },
+  // verification: {
+  //   google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
+  //   yandex: "14d2e73487fa6c71",
+  // },
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -121,6 +122,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               {children}
               {/* <Analytics /> */}
             </main>
+            <Footer></Footer>
           </body>
         {/* <ThemeProvider attribute="class" defaultTheme={Constants.defaultTheme}>
 
