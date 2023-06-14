@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
   // const allViews = await getViewsCount();
 
   return (
-    <section className="w-full max-w-7xl m-auto relative mt-0 md:mt-12">
+    <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12">
       <h1 className="font-500 text-3xl mb-6 text-black dark:text-white uppercase">Projects</h1>
       {allProjects
         .sort((a, b) => {

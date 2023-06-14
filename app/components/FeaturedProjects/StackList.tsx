@@ -12,7 +12,7 @@ function StackIcons({ icons, flip }: Props) {
     // </div>
     <div className={clsx(
       "flex flex-row flex-wrap gap-2 justify-center my-2",
-      flip ? "md:justify-start" : "md:justify-end",
+      flip ? "md:justify-end" : "md:justify-start",
     )}>
       {icons.map((icon) => (
         <img

@@ -44,6 +44,13 @@ const featuredProjects: FeaturedProject[] = [
     description: "Arcturus web app helps businesses turn climate risk into competitive advantage. The Paris climate accord aims to keep the temperature increase on the planet to 1.5 ̊C by 2100. Arcturus helps business manage and understand their carbon emmissions, amongst other things. My role was to update the app with new features and bug fixes.",
     image: "/projects/arc-app/arc-app_featured.jpg",
     stack: ["aws", "python", "graphql", "angular", "typescript", "mui"],
+  },
+  {
+    url: "/canteen",
+    title: "Canteen",
+    description: "A lunch delivery service, based in Barcelona. The website uses Shopify Storefront API to handle product listings and checkout with a customized NextJS app to handle the UI. I also used Material Design for the UI framework.",
+    image: "/projects/canteen/canteen_featured.jpg",
+    stack: ["nextjs", "react", "mui", "typescript", "shopify", "graphql", "pwa", "sass", "vercel"],
   }
 
 ]
@@ -66,13 +73,13 @@ const FeaturedProjects = ({}: Props) => {
   //   });
 
   return (
-    <div className="max-w-7xl m-auto py-4 md:py-12 md:px-6 relative">
+    <div className="max-w-7xl m-auto py-4 md:py-12 relative overflow-hidden">
       {/* The shadow text */}
-      <p className="hidden md:block text-2xl md:text-[110px] relative text-neutral-300 dark:text-neutral-700 font-bold z-10 leading-normal opacity-40 uppercase overflow-hidden whitespace-nowrap mb-24">
+      <p className="hidden xl:block text-2xl xl:text-[110px] relative text-neutral-300 dark:text-neutral-700 font-400 z-10 leading-normal opacity-40 uppercase overflow-hidden whitespace-nowrap mb-24 lg:left-[114px]">
         Featured Projects
       </p>
       {/* The smaller text */}
-      <h2 className="md:leading-[160px] font-500 text-2xl md:text-6xl mb-6 md:mb-24 z-20 md:absolute inset-0 bottom-[unset] md:left-[114px] md:top-[100px] text-black dark:text-white uppercase">
+      <h2 className="xl:leading-[150px] font-bold text-xl md:text-3xl xl:text-4xl mb-6 xl:mb-24 z-20 xl:absolute inset-0 bottom-[unset] xl:top-[100px] text-black dark:text-white">
         Featured Projects
       </h2>
       {featuredProjects.map((project, index) => {
@@ -86,7 +93,7 @@ const FeaturedProjects = ({}: Props) => {
           className="text-orange-300 font-medium text-xl"
           href={NAV_ITEMS.projects.path}
         >
-          View all projects &raquo;
+          See all projects &raquo;
         </Link>
       </div>
     </div>

@@ -61,7 +61,7 @@ export default async function Projects({ params }) {
   // ]);
 
   return (
-    <section className="w-full max-w-7xl m-auto relative pb-8">
+    <section className="container xl:max-w-7xl m-auto relative pb-8">
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(post.structuredData)}
       </script>
