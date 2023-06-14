@@ -17,7 +17,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="mx-auto py-6 md:py-8 container max-w-7xl">
+    <div className="mx-auto py-6 md:py-8 container xl:max-w-7xl">
       <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
 
 

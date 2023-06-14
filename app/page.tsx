@@ -9,16 +9,16 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   return (
     <>
-      <section className="max-w-7xl m-auto my-4 md:mb-36 relative pb-4 md:pb-8 md:mt-16">
-        <div className="relative w-[calc(100vw-2rem)] h-[33vw] md:w-[640px] md:h-[210px] lg:w-[1280px] lg:h-[418px]">
+      <section className="max-w-7xl m-auto my-4 md:mb-36 relative pb-4 md:pb-8 md:mt-16 xl:min-h-[55vh]">
+        <div className="relative w-[calc(100vw-3rem)] h-[33vw] md:w-[640px] md:h-[216px] lg:w-[960px] lg:h-[340px] xl:w-[1280px] xl:h-[436px]">
           <FrontendHeading></FrontendHeading>
         </div>
-        <aside className="my-6 md:my-0 md:absolute md:top-[255px] md:right-0 md:w-[406px]">
-          <div className="ml-auto mr-0 max-w-[460px]">
+        <aside className="my-6 lg:my-0 md:absolute lg:top-[210px] xl:top-[272px] md:right-0 w-full lg:w-[300px] xl:w-[420px]">
+          <div className="ml-auto mr-0 lg:max-w-[460px]">
             <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
               About
             </h2>
-            <p className="my-5  text-neutral-800 dark:text-neutral-200 text-md">
+            <p className="my-5 text-neutral-800 dark:text-neutral-200 text-sm lg:text-md xl:text-lg !leading-snug">
               <Balancer ratio={0.8}>
                 Builder of high-end web applications, commercial web solutions,
                 single page applications, responsive & mobile friendly websites.
@@ -29,7 +29,7 @@ export default async function HomePage() {
           </div>
         </aside>
       </section>
-      <section className="py-2 ml-[-1rem] mr-[-1rem] md:max-w-full md:m-auto md:py-16 bg-neutral-100 dark:bg-transparent overflow-hidden min-h-[180px] md:min-h-[425px]">
+      <section className="py-2 md:max-w-full md:m-auto md:py-16 overflow-hidden min-h-[180px] md:min-h-[425px]">
         <Marquee></Marquee>
       </section>
       <section className="py-8 md:py-16">
