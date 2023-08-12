@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { Stack } from 'lib/_all-db';
+import { StackIcon } from 'lib/_all-db';
 
 interface Props {
-  icons: Stack[];
+  icons: StackIcon[];
   /** If true, icons will be aligned right */
   flip?: boolean;
 }

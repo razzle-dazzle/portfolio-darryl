@@ -1,4 +1,4 @@
-import { Stack } from 'lib/_all-db';
+import { StackIcon } from 'lib/_all-db';
 
 export { default } from './FeaturedProjects';
 
@@ -13,5 +13,5 @@ export interface FeaturedProject {
   /** Featured Image URL */
   image: string;
   /** List of tech icons */
-  stack: Stack[];
+  stack: StackIcon[];
 }

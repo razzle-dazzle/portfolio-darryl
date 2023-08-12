@@ -1,4 +1,4 @@
-export type Stack =
+export type StackIcon =
   | "typescript"
   | "javascript"
   | "html5"
@@ -72,7 +72,7 @@ export type Stack =
   | "vercel"
   ;
 
-interface Project {
+export interface ProjectType {
   id: number;
   /** Used to make some projects feature on the home page */
   featured: number;
@@ -106,7 +106,7 @@ interface Project {
   /** The images directory. This needs to match the folder name in projects/file.jpg */
   images: string;
   /** List of tech icons */
-  stack?: Stack[];
+  stack?: StackIcon[];
 }
 interface ProjectTypes {
   id: number;
@@ -119,7 +119,7 @@ interface ProjectPeople {
   role: string;
 }
 
-export const projects: Project[] = [
+export const projects: ProjectType[] = [
   {
     id: 1,
     featured: 0,
