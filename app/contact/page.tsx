@@ -9,10 +9,14 @@ export const metadata: Metadata = {
 export default async function ContactPage() {
   return (
     <section className="w-full max-w-7xl m-auto relative text-black dark:text-white mt-12 md:mt-20">
-      <h1 className="font-500 text-[50px] mb-12 text-center">Let's Work Together</h1>
-      <p className="text-md text-center font-light">Please consider me for your next project!</p>
+      <h1 className="font-500 text-[50px] mb-12 text-center">
+        Let's Work Together
+      </h1>
+      <p className="text-md text-center font-light">
+        Please consider me for your next project!
+      </p>
 
-      <Link href={"mailto:daz@darryloctober.co.uk"}>
+      <Link href={"mailto:daz@darryloctober.co.uk"} target="_blank">
         <div className="flex flex-col items-center my-20">
           <svg
             xmlns="http://www.w3.org/2000/svg"
