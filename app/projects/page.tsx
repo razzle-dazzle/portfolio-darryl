@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { allProjects } from "contentlayer/generated";
 import ProjectListItem from "app/components/ProjectListItem/ProjectListItem";
-import IconsCloud from './IconsCloud';
-import { ProjectType, StackIcon, projects } from 'lib/_all-db';
+import IconsCloud from "./IconsCloud";
+import { ProjectType, StackIcon, projects } from "lib/_all-db";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,13 +14,14 @@ const cloudData = buildCloud(projects);
 
 export default async function ProjectsPage() {
   // const allViews = await getViewsCount();
-  
+
   return (
     <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12">
-      <h1 className="font-500 text-3xl mb-6 text-black dark:text-white uppercase">Projects</h1>
-      <div className='px-4 my-8'>
+      <h1 className="font-500 text-3xl mb-6 text-black dark:text-white uppercase">
+        Projects
+      </h1>
+      <div className="my-16">
         <IconsCloud data={cloudData}></IconsCloud>
-
       </div>
       {/* {allProjects
         .sort((a, b) => {
@@ -46,17 +47,17 @@ export default async function ProjectsPage() {
   );
 }
 
-
 function buildCloud(items: ProjectType[]): Record<StackIcon, number> {
   const counts: Record<StackIcon, number> = {} as Record<StackIcon, number>;
-  items.forEach(p => {
-    p.stack && p.stack.forEach((_icon: StackIcon) => {
-      if (counts[_icon]) {
-        counts[_icon]++;
-      } else {
-        counts[_icon] = 1;
-      }
-    });
+  items.forEach((p) => {
+    p.stack &&
+      p.stack.forEach((_icon: StackIcon) => {
+        if (counts[_icon]) {
+          counts[_icon]++;
+        } else {
+          counts[_icon] = 1;
+        }
+      });
   });
-  return counts
+  return counts;
 }

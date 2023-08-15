@@ -78,7 +78,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   // console.log(Object.keys(data));
 
   const handleClick = (icon: StackIcon) => {
-    console.log(icon);
+    // console.log(icon);
     setFilterBy(icon);
   };
 
@@ -130,94 +130,97 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   let iconIndexOffsetCounter = 0;
   return (
     <React.Fragment>
-      {filterBy && (<h2 className='text-black dark:text-white'>Filter by: {filterBy}</h2>)}
-      <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
-        {patternsList.map((pattern, index) => {
-          // how many icons do we need to show?
-          const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
-          // get the next set of 'n' icons
-          const iconsSet = iconsList
-            .slice(iconIndexOffsetCounter, iconIndexOffsetCounter + iconsToShow)
-            .map((i) => i[0]);
+      {<h2 className='text-black dark:text-white my-6'>{filterBy ? `Filter by: ${filterBy}`: 'Showing all projects'}</h2>}
+      <div className='px-0 md:px-6'>
+        <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
+          {patternsList.map((pattern, index) => {
+            // how many icons do we need to show?
+            const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
+            // get the next set of 'n' icons
+            const iconsSet = iconsList
+              .slice(iconIndexOffsetCounter, iconIndexOffsetCounter + iconsToShow)
+              .map((i) => i[0]);
 
-          // improve this...
-          // build a similar list of icons based on the pattern - use empty string if pattern has a zero
-          let setCounter = -1;
-          const icons: string[] = pattern.map((p) => {
-            if (p === 1) {
-              setCounter++;
-              return iconsSet[setCounter];
-            } else {
-              return "";
-            }
-          });
+            // improve this...
+            // build a similar list of icons based on the pattern - use empty string if pattern has a zero
+            let setCounter = -1;
+            const icons: string[] = pattern.map((p) => {
+              if (p === 1) {
+                setCounter++;
+                return iconsSet[setCounter];
+              } else {
+                return "";
+              }
+            });
 
-          iconIndexOffsetCounter += iconsToShow;
-          return (
-            <React.Fragment key={index}>
-              {getBlock(pattern, icons as StackIcon[])}
-            </React.Fragment>
-          );
-        })}
+            iconIndexOffsetCounter += iconsToShow;
+            return (
+              <React.Fragment key={index}>
+                {getBlock(pattern, icons as StackIcon[])}
+              </React.Fragment>
+            );
+          })}
 
-        {/* ROW 1 */}
-        {/* <IconBlockThreeByThree
-          pattern={patterns.p1 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockThreeByThree
-          pattern={patterns.p2 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockFull pattern={patterns.p3 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockFull pattern={patterns.p4 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockThreeByThree
-          pattern={patterns.p5 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockThreeByThree
-          pattern={patterns.p6 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree> */}
+          {/* ROW 1 */}
+          {/* <IconBlockThreeByThree
+            pattern={patterns.p1 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockThreeByThree
+            pattern={patterns.p2 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockFull pattern={patterns.p3 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockFull pattern={patterns.p4 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockThreeByThree
+            pattern={patterns.p5 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockThreeByThree
+            pattern={patterns.p6 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree> */}
 
-        {/* ROW 2 */}
-        {/* <IconBlockTwoByThree
-          pattern={patterns.p7 as Tile2}
-          icons={[]}
-        ></IconBlockTwoByThree>
-        <IconBlockThreeByThree
-          pattern={patterns.p8 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockFull pattern={patterns.p9 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockFull pattern={patterns.p10 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockFull pattern={patterns.p11 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockThreeByThree
-          pattern={patterns.p12 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockOneByThree pattern={patterns.p13 as Tile3} icons={[]}></IconBlockOneByThree> */}
+          {/* ROW 2 */}
+          {/* <IconBlockTwoByThree
+            pattern={patterns.p7 as Tile2}
+            icons={[]}
+          ></IconBlockTwoByThree>
+          <IconBlockThreeByThree
+            pattern={patterns.p8 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockFull pattern={patterns.p9 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockFull pattern={patterns.p10 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockFull pattern={patterns.p11 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockThreeByThree
+            pattern={patterns.p12 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockOneByThree pattern={patterns.p13 as Tile3} icons={[]}></IconBlockOneByThree> */}
 
-        {/* ROW 3 */}
-        {/* <IconBlockThreeByThree
-          pattern={patterns.p14 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockThreeByThree
-          pattern={patterns.p15 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockFull pattern={patterns.p16 as Tile4} icons={[]}></IconBlockFull>
-        <IconBlockFull pattern={patterns.p17 as Tile4} icons={[]}></IconBlockFull>
+          {/* ROW 3 */}
+          {/* <IconBlockThreeByThree
+            pattern={patterns.p14 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockThreeByThree
+            pattern={patterns.p15 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockFull pattern={patterns.p16 as Tile4} icons={[]}></IconBlockFull>
+          <IconBlockFull pattern={patterns.p17 as Tile4} icons={[]}></IconBlockFull>
 
-        <IconBlockThreeByThree
-          pattern={patterns.p18 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree>
-        <IconBlockThreeByThree
-          pattern={patterns.p19 as Tile1}
-          icons={[]}
-        ></IconBlockThreeByThree> */}
+          <IconBlockThreeByThree
+            pattern={patterns.p18 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree>
+          <IconBlockThreeByThree
+            pattern={patterns.p19 as Tile1}
+            icons={[]}
+          ></IconBlockThreeByThree> */}
+        </div>
+
       </div>
     </React.Fragment>
   );

@@ -44,18 +44,11 @@ const IconImage = ({
           // objectFit: "contain",
           borderRadius: 0,
           aspectRatio: 1,
+          // dropShadow: '0px 0px 10px black',
         }}
         alt={filename}
       ></Image>
     </a>
-    // <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-2 md:p-6 my-6 w-full">
-    //   <div className="flex flex-row justify-start flex-wrap gap-2 md:gap-4">
-    //     {icons.map((icon) => (
-    //       <img title={icon} key={icon} className='h-[32px] w-[32px] md:h-[60px] md:w-[60px] rounded-md border-[1px] p-1 border-black border-solid bg-white' src={`/icons/${icon}.svg`} />
-    //     ))}
-    //   </div>
-
-    // </div>
   );
 };
 export default IconImage;

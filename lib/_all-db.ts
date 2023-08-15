@@ -120,6 +120,9 @@ interface ProjectPeople {
   role: string;
 }
 
+// project icons needed to be used:
+// svelte, netlify, vue, fauna
+
 export const projects: ProjectType[] = [
   {
     id: 1,
@@ -3389,7 +3392,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-app",
-    stack: ["ios", "apple", "android", "expo", "react", "redux", "nativebase", "typescript"],
+    stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
   },
   // {
   //   id: 149,
