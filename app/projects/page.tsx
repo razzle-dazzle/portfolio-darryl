@@ -18,7 +18,10 @@ export default async function ProjectsPage() {
   return (
     <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12">
       <h1 className="font-500 text-3xl mb-6 text-black dark:text-white uppercase">Projects</h1>
-      <IconsCloud data={cloudData}></IconsCloud>
+      <div className='px-4 my-8'>
+        <IconsCloud data={cloudData}></IconsCloud>
+
+      </div>
       {/* {allProjects
         .sort((a, b) => {
           const aDate = new Date(a.publishedAt);
