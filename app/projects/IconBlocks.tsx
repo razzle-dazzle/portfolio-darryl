@@ -1,28 +1,42 @@
-"use client";
+// "use client";
 import React from "react";
 import Image from "next/image";
 import { StackIcon } from "lib/_all-db";
-import { IconBit } from './IconsCloud';
-
-
+import { IconBit } from "./IconsCloud";
 
 const MyGridThreeByThree = [...Array.from(Array(9))];
 const MyGridTwoByThree = [...Array.from(Array(6))];
 const MyGridOneByThree = [...Array.from(Array(3))];
+const MyGridOneByOne = [...Array.from(Array(1))];
 
 interface IconBlockThreeByThreeProps
-  extends IconBlockBase<[IconBit, IconBit, IconBit, IconBit, IconBit, IconBit, IconBit, IconBit, IconBit]> {}
+  extends IconBlockBase<
+    [
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit,
+      IconBit
+    ]
+  > {}
 export const IconBlockThreeByThree = ({
   pattern,
   icons,
 }: IconBlockThreeByThreeProps) => {
   return (
-    <div className="col-span-3 row-span-3 grid grid-cols-3 grid-rows-3">
+    <div className="col-span-3 row-span-3 grid grid-cols-3 grid-rows-3 gap-2">
       {/* className="grid grid-cols-3 grid-rows-3" */}
       {MyGridThreeByThree.map((_, index) => {
         return (
-          <div className="col-span-1 row-span-1 flex justify-center items-center" key={index}>
-            {pattern[index] === 1 ? "yes" : ""}
+          <div
+            className="col-span-1 row-span-1 flex justify-center items-center relative"
+            key={index}
+          >
+            {icons[index] && <IconSquare filename={icons[index]} tileSize='s'></IconSquare>}
           </div>
         );
       })}
@@ -36,19 +50,24 @@ interface IconBlockBase<T = [IconBit]> {
 }
 
 interface IconBlockTwoByThreeProps
-  extends IconBlockBase<[IconBit, IconBit, IconBit, IconBit, IconBit, IconBit]> {}
+  extends IconBlockBase<
+    [IconBit, IconBit, IconBit, IconBit, IconBit, IconBit]
+  > {}
 
-export const IconBlockTwoByThree = ({ pattern, icons }: IconBlockTwoByThreeProps) => {
-  let iconIndexCounter = 0;
+export const IconBlockTwoByThree = ({
+  pattern,
+  icons,
+}: IconBlockTwoByThreeProps) => {
   return (
-    <div className="col-span-2 row-span-3 grid grid-cols-2 grid-rows-3">
+    <div className="col-span-2 row-span-3 grid grid-cols-2 grid-rows-3 gap-2">
       {/* className="grid grid-cols-3 grid-rows-3" */}
       {MyGridTwoByThree.map((_, index) => {
         return (
-          <div className="col-span-1 row-span-1 flex justify-center items-center aspect-square" key={index}>
-            {pattern[index] === 1 ? (
-              icons[iconIndexCounter] ? iconIndexCounter++ : null
-            ) : ""}
+          <div
+            className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            key={index}
+          >
+            {icons[index] && <IconSquare filename={icons[index]} tileSize='s'></IconSquare>}
           </div>
         );
       })}
@@ -56,15 +75,22 @@ export const IconBlockTwoByThree = ({ pattern, icons }: IconBlockTwoByThreeProps
   );
 };
 
-interface IconBlockOneByThreeProps extends IconBlockBase<[IconBit, IconBit, IconBit]> {}
-export const IconBlockOneByThree = ({ pattern, icons }: IconBlockOneByThreeProps) => {
+interface IconBlockOneByThreeProps
+  extends IconBlockBase<[IconBit, IconBit, IconBit]> {}
+export const IconBlockOneByThree = ({
+  pattern,
+  icons,
+}: IconBlockOneByThreeProps) => {
   return (
-    <div className="col-span-1 row-span-3 grid grid-cols-1 grid-rows-3">
+    <div className="col-span-1 row-span-3 grid grid-cols-1 grid-rows-3 gap-2">
       {/* className="grid grid-cols-3 grid-rows-3" */}
       {MyGridOneByThree.map((_, index) => {
         return (
-          <div className="col-span-1 row-span-1 flex justify-center items-center aspect-square" key={index}>
-            {pattern[index] === 1 ? "yes" : ""}
+          <div
+            className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            key={index}
+          >
+            {icons[index] && <IconSquare filename={icons[index]} tileSize='s'></IconSquare>}
           </div>
         );
       })}
@@ -76,24 +102,29 @@ interface IconBlockFullProps extends IconBlockBase<[IconBit]> {}
 
 export const IconBlockFull = ({ pattern, icons }: IconBlockFullProps) => {
   return (
-    <div className="col-span-3 row-span-3 grid grid-cols-1 grid-rows-1">
-      <div className="flex justify-center items-center aspect-square">
-        {"yes"}
+    <div className="col-span-3 row-span-3 grid grid-cols-1 grid-rows-1 gap-2">
+      <div className="flex justify-center items-center aspect-square relative">
+        {icons[0] && <IconSquare filename={icons[0]} tileSize='l'></IconSquare>}
       </div>
     </div>
   );
 };
 
-function IconSquare({ filename }) {
+const IconSquare = ({ filename, tileSize }: { filename: string, tileSize: 's' | 'm' | 'l' }) => {
+  const widthHeight = tileSize === 's' ? 50 : tileSize === 'm' ? 100 : 200;
   return (
     <Image
       src={`icons/${filename}.svg`}
-      fill={true}
+      // fill={true}
+      width={widthHeight}
+      height={widthHeight}
+      
       priority
-      sizes="(max-width: 40px) 100vw, 60px"
+      // sizes="(max-width: 32px) 100vw, 60px"
       style={{
-        objectFit: "contain",
-        borderRadius: 3,
+        // objectFit: "contain",
+        borderRadius: 0,
+        aspectRatio: 1,
       }}
       alt={filename}
     ></Image>
@@ -106,4 +137,4 @@ function IconSquare({ filename }) {
 
     // </div>
   );
-}
+};

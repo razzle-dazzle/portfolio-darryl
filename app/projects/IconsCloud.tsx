@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React, { ReactNode } from "react";
 import {
   IconBlockThreeByThree,
@@ -46,6 +46,7 @@ type Tile4 = [IconBit];
 type PatternBitTypes = Tile1 | Tile2 | Tile3 | Tile4;
 
 export const IconsCloud = ({ data }: IconsCloudProps) => {
+  // console.log(Object.keys(data).sort());
   // console.log(Object.keys(data));
   const patterns: Record<string, PatternBitTypes> = {
     // row 1
@@ -128,16 +129,31 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
       }
     }
   };
-  let iconIndexOffsetCounter = 0;
 
+  let iconIndexOffsetCounter = 0;
   return (
     <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
       {patternsList.map((pattern, index) => {
-        const iconsToShow = pattern.filter((isSet) => 1).length;
-        const icons = iconsList
+        
+        // how many icons do we need to show?
+        const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
+        // get the next set of 'n' icons
+        const iconsSet = iconsList
           .slice(iconIndexOffsetCounter, iconIndexOffsetCounter + iconsToShow)
           .map((i) => i[0]);
-        // const offset = iconIndexOffsetCounter;
+        
+        // improve this...
+        // build a similar list of icons based on the pattern - use empty string if pattern has a zero
+        let setCounter = -1;
+        const icons: string[] = pattern.map(p => {
+          if (p === 1) {
+            setCounter++;
+            return iconsSet[setCounter];
+          } else {
+            return '';
+          }
+        });
+
         iconIndexOffsetCounter += iconsToShow;
         return (
           <React.Fragment key={index}>
