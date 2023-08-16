@@ -19,6 +19,8 @@ export const marqueeTexts: string[][] = [
     "DRY",
     "KPIs",
     "Pimcore",
+    "Web Components",
+    "Vite",
   ],
   [
     "Typescript",

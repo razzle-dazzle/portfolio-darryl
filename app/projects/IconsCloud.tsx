@@ -78,7 +78,6 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   // console.log(Object.keys(data));
 
   const handleClick = (icon: StackIcon) => {
-    // console.log(icon);
     setFilterBy(icon);
   };
 

@@ -20,19 +20,17 @@ interface ProjectBoxProps {
 
 const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
   // const [swiper, setSwiper] = React.useState<Swiper>();
+  // console.log(project)
   return (
     <Link
-      href={`${NAV_ITEMS.projects.path}/${project.url}`}
+      href={`${NAV_ITEMS.projects.path}${project.alias}`}
       className={clsx("text-orange-300 font-medium text-md md:text-lg")}
     >
-      <div
-        className="grid grid-cols-12 mb-4 md:mb-16 lg:mb-32 gap-5 md:gap-10"
-        
-      >
+      <div className="grid grid-cols-12 mb-4 md:mb-16 lg:mb-32 gap-5 md:gap-10">
         <div
           className={clsx(
-            "project-image col-span-12 md:col-span-6 relative flex",
-            flip ? "md:order-last md:justify-end" : ""
+            "project-image col-span-12 md:col-span-6 relative flex"
+            // flip ? "md:order-last md:justify-end" : ""
           )}
         >
           {/* <SwiperSlider onSwiper={setSwiper}>
@@ -70,38 +68,53 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
           </div>
         </div>
         <div className="project-desc flex col-span-12 md:col-span-6 text-neutral-800 dark:text-neutral-200 justify-self-stretch">
-          <div
-            className={clsx(
-              // flip ? "md:pr-4" : "md:pl-4",
-              "flex flex-col justify-around w-full"
-            )}
-          >
+          <div className={clsx("flex flex-col justify-around w-full")}>
             <div>
               <h3
                 className={clsx(
-                  "font-bold text-xl md:text-3xl uppercase mb-4 text-neutral-800 dark:text-neutral-200 text-center",
-                  flip ? "md:text-right" : "md:text-left"
+                  "font-bold text-xl md:text-3xl mb-4 text-neutral-800 dark:text-neutral-200 text-center",
+                  // flip ? "md:text-right" : "md:text-left"
+                  "md:text-left" // remove if using flip
                 )}
               >
                 {project.title}
               </h3>
+              {project.role && (
+                <p>
+                  <span className="text-blue-600">function </span>
+                  <span className="text-orange-300">{project.role.replaceAll(' ', '')}</span>
+                  <span className="text-orange-300 font-light"> {"( ) {"}</span>
+                </p>
+              )}
               <p
                 className={clsx(
-                  "mb-2 text-sm md:text-lg text-center font-thin",
-                  flip ? "md:text-right" : "md:text-left"
+                  "my-1 pl-8 text-sm md:text-lg text-center font-thin",
+                  // flip ? "md:text-right" : "md:text-left"
+                  "md:text-left" // remove if using flip
                 )}
               >
-                <Balancer ratio={0.6}>{project.description}</Balancer>
+                <Balancer ratio={0.6}>
+                  {project.description}. {project.description_secondary}
+                </Balancer>
               </p>
+              {project.role && (
+                <p>
+                  <span className="text-orange-300 font-light"> {"}"}</span>
+                </p>
+              )}
             </div>
 
-            <StackIcons icons={project.stack} flip={flip}></StackIcons>
+            <StackIcons
+              icons={project.stack}
+              // flip={flip}
+            ></StackIcons>
 
             <div
               className={clsx(
                 "text-orange-300",
                 "flex flex-row gap-4 items-center justify-end my-2 md:my-0",
-                flip ? "md:justify-end" : "md:justify-start"
+                // flip ? "md:justify-end" : "md:justify-start"
+                "md:justify-start" // remove if using flip
               )}
             >
               View project &raquo;

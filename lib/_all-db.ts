@@ -107,7 +107,8 @@ export interface ProjectType {
   /** The images directory. This needs to match the folder name in projects/file.jpg */
   images: string;
   /** List of tech icons */
-  stack?: StackIcon[];
+  stack: StackIcon[];
+  role?: string;
 }
 interface ProjectTypes {
   id: number;
@@ -3158,9 +3159,10 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "wolf-digital",
     stack: ["apache", "php", "pimcore", "twig", "react", "typescript", "javascript", "sass", "html5", "webpack", "npm", "uikit", "css3", "storybook"],
+    role: "Senior Developer",
   },
   {
-    id: 138,
+    id: 139,
     featured: 0,
     alias: "/dgtls-storybook-whitelabel",
     title: "DGTLS Storybook Whitelabel",
@@ -3183,7 +3185,7 @@ export const projects: ProjectType[] = [
   },
   // VHV, Lindner, Ecostor, DGTLS Whitelabel Storybook (mono repo),...
   {
-    id: 139,
+    id: 140,
     featured: 0,
     alias: "/roadsurfer-spots",
     title: "Roadsurfer Spots",
@@ -3203,6 +3205,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "roadsurfer-spots",
     stack: ["apache", "php", "pimcore", "twig", "react", "redux", "typescript", "sass", "html5", "css3", "mui"],
+    role: "Senior Developer",
   },
   {
     id: 140,
@@ -3246,6 +3249,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "aotg",
     stack: ["ios", "apple", "android", "aws", "react", "typescript", "pwa", "cypress", "jest", "auth0"],
+    role: "Lead Developer",
   },
   {
     id: 142,
@@ -3274,7 +3278,7 @@ export const projects: ProjectType[] = [
     alias: "/herding-cats-app",
     title: "Herding Cats Native App",
     description: "Herding Cats is an app to help people organise social events with relative ease",
-    description_secondary: "The app began as a responsive web app, which we later ported over to React Native. The app allows users to create events and invite people, while managing attendance all in one place.",
+    description_secondary: "The app began as a responsive web app, which we later ported over to an Expo/React Native project. The app allows users to create events and invite people, while managing attendance all in one place. The app is available on the Apple AppStore.",
     type: 16,
     url: "https://herdcats.io/",
     completed: "2022-11-06",
@@ -3288,6 +3292,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "herdcats-app",
     stack: ["ios", "apple", "android", "aws", "dynamodb", "firebase", "nodejs", "express", "sendgrid", "expo", "react", "typescript"],
+    role: "Lead Developer",
   },
   {
     id: 144,
@@ -3309,6 +3314,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "arc-app",
     stack: ["aws", "python", "graphql", "angular", "typescript", "mui", "tailwind"],
+    role: "Lead Developer",
   },
   {
     id: 145,
@@ -3357,8 +3363,8 @@ export const projects: ProjectType[] = [
     featured: 0,
     alias: "/canteen",
     title: "Canteen",
-    description: "A lunch delivery service, based in Barcelona",
-    description_secondary: "The website uses Shopify Storefront API to handle product listings and checkout.",
+    description: "A lunch delivery service, based in Barcelona, Spain",
+    description_secondary: "The website uses the Shopify Storefront API to handle product listings and checkout with a customized NextJS app to handle the UI. I also used Material Design for the UI framework. The site also has an orders dashboard which uses the Admin API, written in NextJS/Tailwind.",
     type: 21,
     url: "",
     completed: "2022-09-28",
@@ -3372,6 +3378,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "canteen",
     stack: ["nextjs", "react", "mui", "typescript", "shopify", "graphql", "apollo", "pwa", "sass", "vercel"],
+    role: "Lead Developer",
   },
   {
     id: 148,
@@ -3379,10 +3386,10 @@ export const projects: ProjectType[] = [
     alias: "/pocket-barcelona-app",
     title: "Pocket Barcelona App",
     description: "An app for tourists and expats visiting and living in Barcelona",
-    description_secondary: "Pocket Barcelona features a comprehensive directory, itinerary planner, going-out tips, a map for handy navigation and much more! The project is funded and run independently by local Barcelona expats.",
+    description_secondary: "Pocket Barcelona features a comprehensive directory, itinerary planner, going-out tips, an expat blog, a map for handy navigation and much more! The project is funded and run independently by local expats based in Barcelona.",
     type: 17,
     url: "",
-    completed: "2023-05-21",
+    completed: "2023-08-15",
     company: "",
     framework: "react",
     client: "",
@@ -3393,6 +3400,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-app",
     stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
+    role: "Lead Developer",
   },
   // {
   //   id: 149,
@@ -3456,6 +3464,7 @@ export const projects: ProjectType[] = [
     modified: "2023-06-12 09:00:00",
     images: "hostshare",
     stack: ["nextjs", "react", "typescript", "tailwind", "sass", "vercel", "npm"],
+    role: "Frontend Developer",
   },
   {
     id: 152,

@@ -1,11 +1,10 @@
 "use client";
+import React from 'react';
 import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
-
 // Relative import to your image file
 import MyLightImage from "../../../public/main-title.svg";
 import MyDarkImage from "../../../public/main-title_dark.svg";
-import React from 'react';
 
 function FrontendHeading() {
   const { theme } = useTheme();

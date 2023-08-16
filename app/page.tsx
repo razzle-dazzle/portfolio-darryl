@@ -13,12 +13,12 @@ export default async function HomePage() {
         <div className="relative w-[calc(100vw-3rem)] h-[33vw] md:w-[640px] md:h-[216px] lg:w-[960px] lg:h-[340px] xl:w-[1280px] xl:h-[436px]">
           <FrontendHeading></FrontendHeading>
         </div>
-        <aside className="my-6 lg:my-0 md:absolute lg:top-[210px] xl:top-[272px] md:right-0 w-full lg:w-[300px] xl:w-[420px]">
-          <div className="ml-auto mr-0 lg:max-w-[460px]">
-            <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-              About
+        <aside className="my-1 sm:my-3 md:my-6 lg:my-0 md:absolute lg:top-[210px] xl:top-[272px] md:right-0 w-full lg:w-[300px] xl:w-[420px]">
+          <div className="ml-auto mr-0 lg:max-w-[460px] flex">
+            <h2 className="font-regular text-xl text-neutral-800 dark:text-neutral-200 sm:basis-[100px] leading-[20px] hidden sm:block">
+              ABOUT
             </h2>
-            <p className="my-5 text-neutral-800 dark:text-neutral-200 text-sm lg:text-md xl:text-lg !leading-snug">
+            <p className="text-neutral-800 dark:text-neutral-200 text-sm lg:text-md xl:text-lg !leading-snug flex-grow my-0">
               <Balancer ratio={0.8}>
                 Builder of high-end web applications, commercial web solutions,
                 single page applications, responsive & mobile friendly websites.

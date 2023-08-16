@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
 import Link from "next/link";
+import { getThemedIcon } from "app/utils/utils";
 
 const IconImage = ({
   filename,
@@ -15,8 +16,7 @@ const IconImage = ({
 }) => {
   const { theme, setTheme } = useTheme();
   const widthHeight = tileSize === "s" ? 62 : tileSize === "m" ? 104 : 210;
-  const themeMode = theme === "dark" || theme === "light" ? theme : "light";
-  const src = `/icons/${themeMode}/${filename}.${themeMode}mode.svg`;
+  const iconSrc = getThemedIcon(theme, filename);
   const handleClickEvent = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
@@ -34,7 +34,7 @@ const IconImage = ({
       }}
     >
       <Image
-        src={src}
+        src={iconSrc}
         // fill={true}
         width={widthHeight}
         height={widthHeight}
