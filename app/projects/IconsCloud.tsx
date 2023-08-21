@@ -129,7 +129,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   let iconIndexOffsetCounter = 0;
   return (
     <React.Fragment>
-      {<h2 className='text-black dark:text-white my-6'>{filterBy ? `Filter by: ${filterBy}`: 'Showing all projects'}</h2>}
+      
       <div className='px-0 md:px-6'>
         <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
           {patternsList.map((pattern, index) => {
@@ -221,6 +221,14 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         </div>
 
       </div>
+      {<p className='text-black dark:text-white my-8 text-center text-sm font-300'>{filterBy ? (
+        <React.Fragment>
+          <span className='inline-block'>
+            Filtering by:
+          </span>
+          <span className='inline-block pl-1 text-red-700 font-bold'>{filterBy}</span>
+        </React.Fragment>
+      ): ''}</p>}
     </React.Fragment>
   );
 };

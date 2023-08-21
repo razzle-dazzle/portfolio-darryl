@@ -18,7 +18,7 @@ export default async function HomePage() {
             <h2 className="font-regular text-xl text-neutral-800 dark:text-neutral-200 sm:basis-[100px] leading-[20px] hidden sm:block">
               ABOUT
             </h2>
-            <p className="text-neutral-800 dark:text-neutral-200 text-sm lg:text-md xl:text-lg !leading-snug flex-grow my-0">
+            <p className="text-neutral-800 dark:text-neutral-200 text-sm lg:text-md xl:text-xl !leading-snug flex-grow my-0">
               <Balancer ratio={0.8}>
                 Builder of high-end web applications, commercial web solutions,
                 single page applications, responsive & mobile friendly websites.

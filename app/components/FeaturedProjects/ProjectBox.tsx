@@ -26,7 +26,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
       href={`${NAV_ITEMS.projects.path}${project.alias}`}
       className={clsx("text-orange-300 font-medium text-md md:text-lg")}
     >
-      <div className="grid grid-cols-12 mb-4 md:mb-16 lg:mb-32 gap-5 md:gap-10">
+      <article className="grid grid-cols-12 mb-12 md:mb-16 lg:mb-32 gap-5 md:gap-10">
         <div
           className={clsx(
             "project-image col-span-12 md:col-span-6 relative flex"
@@ -70,15 +70,15 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
         <div className="project-desc flex col-span-12 md:col-span-6 text-neutral-800 dark:text-neutral-200 justify-self-stretch">
           <div className={clsx("flex flex-col justify-around w-full")}>
             <div>
-              <h3
+              <h2
                 className={clsx(
-                  "font-bold text-xl md:text-3xl mb-4 text-neutral-800 dark:text-neutral-200 text-center",
+                  "font-bold text-xl md:text-3xl mb-4 text-neutral-800 dark:text-neutral-200",
                   // flip ? "md:text-right" : "md:text-left"
                   "md:text-left" // remove if using flip
                 )}
               >
                 {project.title}
-              </h3>
+              </h2>
               {project.role && (
                 <p>
                   <span className="text-blue-600">function </span>
@@ -88,14 +88,16 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
               )}
               <p
                 className={clsx(
-                  "my-1 pl-8 text-sm md:text-lg text-center font-thin",
+                  "my-1 px-8 text-sm md:text-lg text-left font-thin",
                   // flip ? "md:text-right" : "md:text-left"
-                  "md:text-left" // remove if using flip
+                  "md:text-left", // remove if using flip
+                  "line-clamp-5"
                 )}
               >
-                <Balancer ratio={0.6}>
-                  {project.description}. {project.description_secondary}
-                </Balancer>
+                {project.description}. {project.description_secondary}
+                {/* <Balancer ratio={0.6} className='line-clamp-5'>
+                  
+                </Balancer> */}
               </p>
               {project.role && (
                 <p>
@@ -121,7 +123,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };

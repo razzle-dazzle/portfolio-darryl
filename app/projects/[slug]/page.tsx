@@ -4,6 +4,8 @@ import { Mdx } from "app/components/mdx";
 import { allProjects } from "contentlayer/generated";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
+import Image from "next/image";
+import { getProjectImages } from 'app/utils/utils';
 
 export async function generateMetadata({
   params,
@@ -50,7 +52,6 @@ export async function generateMetadata({
 
 export default async function Projects({ params }) {
   const post = allProjects.find((post) => post.slug === params.slug);
-
   if (!post) {
     notFound();
   }
@@ -59,28 +60,53 @@ export default async function Projects({ params }) {
   //   getViewsCount(),
   //   getTweets(post.tweetIds),
   // ]);
+  const projectImages = getProjectImages(post);
 
   return (
-    <section className="container xl:max-w-7xl m-auto relative pb-8">
-      <script type="application/ld+json" suppressHydrationWarning>
-        {JSON.stringify(post.structuredData)}
-      </script>
-      <div>
+    <section>
+      <div className="container xl:max-w-7xl m-auto relative pb-8">
         <h1 className="font-bold text-3xl text-black dark:text-white">
           <Balancer>{post.title}</Balancer>
         </h1>
-        <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm">
-          <div className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md px-2 py-1 tracking-tighter">
-            {post.publishedAt}
-          </div>
-          <div className="h-[0.2em] bg-neutral-50 dark:bg-neutral-800 mx-2" />
-          {/* <ViewCounter allViews={allViews} slug={post.slug} trackView /> */}
-        </div>
-        {/* <Mdx code={post.body.code} tweets={tweets} /> */}
-        <Mdx code={post.body.code} tweets={{}} />
 
-        <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
-          <Link href="/projects">&laquo; Back to all projects</Link>
+      </div>
+      <div className="w-full h-[200px] md:h-[380px] md:min-w-[120px] lg:h-[380px] relative overflow-hidden">
+        {(projectImages.featured || projectImages.original) && (
+          <Image
+            src={projectImages.featured || projectImages.original}
+            fill={true}
+            sizes="(max-width: 768px) 95vw, (max-width: 1200px) 500px, 600px"
+            // width="0"
+            // height="0"
+            style={{
+              // objectFit: "contain",
+              objectFit: "cover",
+              borderRadius: 8,
+            }}
+            alt={post.title}
+          />
+        )}
+        
+      </div>
+      <div className="container xl:max-w-7xl m-auto relative pb-8">
+        <script type="application/ld+json" suppressHydrationWarning>
+          {JSON.stringify(post.structuredData)}
+        </script>
+        <div>
+          
+          <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm">
+            <div className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md px-2 py-1 tracking-tighter">
+              {post.publishedAt}
+            </div>
+            <div className="h-[0.2em] bg-neutral-50 dark:bg-neutral-800 mx-2" />
+            {/* <ViewCounter allViews={allViews} slug={post.slug} trackView /> */}
+          </div>
+          {/* <Mdx code={post.body.code} tweets={tweets} /> */}
+          <Mdx code={post.body.code} tweets={{}} />
+
+          <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
+            <Link href="/projects">&laquo; Back to all projects</Link>
+          </div>
         </div>
       </div>
     </section>

@@ -31,6 +31,7 @@ const computedFields = {
       thumbnail: doc.thumbnail,
       largeImage: doc.largeImage,
       featured: doc.featured,
+      images: doc.images,
       image: doc.image
         ? `https://darryloctober.co.uk${doc.image}`
         : `https://darryloctober.co.uk/og?title=${doc.title}`,
@@ -75,6 +76,10 @@ export const Project = defineDocumentType(() => ({
     },
     image: {
       type: 'string',
+    },
+    images: {
+      type: 'string',
+      required: true,
     },
   },
   computedFields,

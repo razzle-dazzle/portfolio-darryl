@@ -17,12 +17,13 @@ export default async function ProjectsPage() {
 
   return (
     <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12">
-      <h1 className="font-500 text-3xl mb-6 text-black dark:text-white uppercase">
-        Projects
-      </h1>
+      
       <div className="my-16">
         <IconsCloud data={cloudData}></IconsCloud>
       </div>
+      <h1 className="font-700 text-3xl mb-12 text-black dark:text-white">
+        Project Showcase
+      </h1>
       {/* {allProjects
         .sort((a, b) => {
           const aDate = new Date(a.publishedAt);

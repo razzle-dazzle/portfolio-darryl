@@ -26,7 +26,7 @@ function StackIcons({ icons, flip }: Props) {
           <img
             title={icon}
             key={icon}
-            className="h-[44px] w-[44px]"
+            className="h-[25px] w-[25px] md:h-[40px] md:w-[40px]"
             // rounded-md border-1 p-1 border-neutral-800 border-solid bg-white
             src={iconSrc}
           />

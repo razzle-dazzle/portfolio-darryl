@@ -28,3 +28,8 @@ Create a `.env` file similar to `.env.example`.
 4. Commit and deploy to main.
 
 > Note: The large images should be a screenshot from the site and the small should be 120x120, but it doesn't have to be square.
+
+
+## Rebuild contentlayer type
+
+Simply delete the .contentlayer folder and do `pnpm run build-all`

@@ -121,6 +121,16 @@ interface ProjectPeople {
   role: string;
 }
 
+/** Available image paths for project images */
+export interface ProjectImageCollection {
+  original: string;
+  small: string;
+  medium: string;
+  large: string;
+  /** Note: This file might not exist */
+  featured: string;
+}
+
 // project icons needed to be used:
 // svelte, netlify, vue, fauna
 
