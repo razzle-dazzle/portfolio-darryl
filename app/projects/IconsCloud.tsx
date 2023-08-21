@@ -69,9 +69,8 @@ const patterns: Record<string, PatternBitTypes> = {
   p19: [1, 1, 0, 0, 0, 0, 0, 0, 0],
 };
 
-
 export const IconsCloud = ({ data }: IconsCloudProps) => {
-  const [filterBy, setFilterBy] = React.useState<string>('');
+  const [filterBy, setFilterBy] = React.useState<string>("");
   const iconsList = Array.from(Object.entries(data));
   const patternsList = Object.values(patterns);
   // console.log(Object.keys(data).sort());
@@ -129,15 +128,17 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   let iconIndexOffsetCounter = 0;
   return (
     <React.Fragment>
-      
-      <div className='px-0 md:px-6'>
+      <div className="px-0 md:px-6">
         <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
           {patternsList.map((pattern, index) => {
             // how many icons do we need to show?
             const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
             // get the next set of 'n' icons
             const iconsSet = iconsList
-              .slice(iconIndexOffsetCounter, iconIndexOffsetCounter + iconsToShow)
+              .slice(
+                iconIndexOffsetCounter,
+                iconIndexOffsetCounter + iconsToShow
+              )
               .map((i) => i[0]);
 
             // improve this...
@@ -219,16 +220,25 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             icons={[]}
           ></IconBlockThreeByThree> */}
         </div>
-
       </div>
-      {<p className='text-black dark:text-white my-8 text-center text-sm font-300'>{filterBy ? (
-        <React.Fragment>
-          <span className='inline-block'>
-            Filtering by:
-          </span>
-          <span className='inline-block pl-1 text-red-700 font-bold'>{filterBy}</span>
-        </React.Fragment>
-      ): ''}</p>}
+      {
+        <p className="text-black dark:text-white my-8 text-center text-sm font-300">
+          {
+            <React.Fragment>
+              {filterBy ? (
+                <React.Fragment>
+                  <span className="inline-block">Filtering by:</span>
+                  <span className="inline-block pl-1 text-red-700 font-bold">
+                    {filterBy}
+                  </span>
+                </React.Fragment>
+              ) : (
+                <span> </span>
+              )}
+            </React.Fragment>
+          }
+        </p>
+      }
     </React.Fragment>
   );
 };
