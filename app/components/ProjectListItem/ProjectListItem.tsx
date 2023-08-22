@@ -57,8 +57,8 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
                   </div>
                 )}
                 <div className="flex flex-col flex-grow-1">
-                  <p className="md:text-2xl font-bold mb-2 md:mb-4">Website</p>
-                  <p className="text-sm md:text-[22px] text-neutral-800 dark:text-neutral-200 leading-relaxed">
+                  <p className="md:text-2xl font-bold mb-2 md:mb-4 text-black dark:text-white">Website</p>
+                  <p className="text-sm md:text-[22px] text-neutral-800 dark:text-white leading-relaxed">
                     {project.summary}
                   </p>
                   {/* <p className="text-xs italic font-bold text-neutral-800 dark:text-neutral-200">

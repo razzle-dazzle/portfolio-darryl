@@ -3244,7 +3244,7 @@ export const projects: ProjectType[] = [
     featured: 0,
     alias: "/ahead-of-the-game",
     title: "Ahead of the Game",
-    description: "A revamp of the a Movember (charity) rugby app, ported to the Australian Football League",
+    description: "A revamp of the rugby app for Movember (charity), ported to the Australian Football League market",
     description_secondary: "The app aimed to help young people deal with mental health issues, in the context of Rugby teams in UK and Australia.",
     type: 17,
     url: "https://play.google.com/store/apps/details?id=com.movember.aotg.mhr",
