@@ -51,7 +51,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
           ))}
         </SwiperSlider> */}
 
-          <div className="w-full h-[200px] md:h-[380px] md:min-w-[120px] lg:h-[380px] relative overflow-hidden">
+          <div className="w-full h-[80vw] md:h-[480px] md:min-w-[120px] lg:h-[480px] relative overflow-hidden">
             <Image
               src={project.image}
               fill={true}
@@ -64,6 +64,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
                 borderRadius: 8,
               }}
               alt={project.title}
+              quality={90}
             />
           </div>
         </div>
