@@ -62,7 +62,7 @@ export default async function ProjectsPage() {
             }
 
             return (
-              <React.Fragment>
+              <React.Fragment key={pIndex}>
                 {heading ? (
                   <h2 className={
                     clsx(

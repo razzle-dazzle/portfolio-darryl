@@ -37,16 +37,17 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
             <div className="flex flex-col space-y-1">
               <div className="w-full flex flex-row gap-4 md:gap-12 xl:gap-20 items-start">
                 {project.thumbnail && (
-                  <div className="relative w-[40vw] md:w-[460px] h-[30vw] md:h-[320px] flex flex-grow-0 flex-shrink-0">
+                  <div className="relative w-[40vw] h-[30vw] md:w-[470px] md:h-[354px] flex flex-grow-0 flex-shrink-0">
                     <Image
                       alt={project.title}
                       // height={80}
                       // width={80}
                       fill={true}
                       sizes="(max-width: 500px) 100vw, 120px"
-                      src={project.featured.toLowerCase() === 'no' ? projectImages.large : projectImages.featured}
+                      // src={project.featured.toLowerCase() === 'no' ? projectImages.large : projectImages.featured}
+                      src={projectImages.featured}
                       className="rounded md:rounded-xl"
-                      quality={100}
+                      quality={96}
                       style={{
                         width: "100%",
                         // height: 'auto',

@@ -65,25 +65,25 @@ export default async function Projects({ params }) {
   return (
     <section>
       <div className="container xl:max-w-7xl m-auto relative pb-8">
-        <h1 className="font-bold text-3xl text-black dark:text-white">
+        <h1 className="text-7xl font-medium text-black dark:text-white">
           <Balancer>{post.title}</Balancer>
+          <span className='text-gray-400 text-sm md:text-[20px]'>{post.publishedAt.substring(0, 4)}</span>
         </h1>
 
       </div>
-      <div className="w-full h-[200px] md:h-[380px] md:min-w-[120px] lg:h-[380px] relative overflow-hidden">
+      <div className="w-full h-[66vw] md:min-w-[120px] relative overflow-hidden">
         {(projectImages.featured || projectImages.original) && (
           <Image
             src={projectImages.featured || projectImages.original}
             fill={true}
             sizes="(max-width: 768px) 95vw, (max-width: 1200px) 500px, 600px"
-            // width="0"
-            // height="0"
             style={{
               // objectFit: "contain",
               objectFit: "cover",
-              borderRadius: 8,
             }}
             alt={post.title}
+            priority
+            quality={100}
           />
         )}
         

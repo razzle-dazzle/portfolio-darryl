@@ -3480,7 +3480,7 @@ export const projects: ProjectType[] = [
     id: 152,
     featured: 0,
     alias: "/darryl-portfolio-2023",
-    title: "My Portfolio 2023",
+    title: "My Portfolio Rebuild",
     description: "I rebuilt my web and digital portfolio to bring it up to date and showcase all the projects that I have worked on over the years.",
     description_secondary: "",
     type: 9,
@@ -3494,7 +3494,7 @@ export const projects: ProjectType[] = [
     active: 1,
     created: "2023-07-18 09:00:00",
     modified: "2023-07-18 09:00:00",
-    images: "hostshare",
+    images: "darryl-portfolio-2023",
     stack: ["nextjs", "react", "typescript", "tailwind", "vercel", "npm", "figma", "turbopack", "trello", "framer"],
   },
   // TO ADD: Pocket Barcelona blog website
