@@ -66,13 +66,17 @@ export default async function ProjectsPage() {
                 {heading ? (
                   <h2 className={
                     clsx(
-                      "text-4xl md:text-8xl font-500 text-black dark:text-white my-3 mt-0 md:my-6 py-3 md:py-6 border-t-gray-200 md:pt-16 md:mb-0 md:col-span-3",
-                      pIndex === 0 ? '' : 'border-t'
+                      "text-4xl md:text-8xl font-500 text-black dark:text-white md:col-span-3",
+                      
+                      // handle a separator like a HR - by adding margin/padding
+                      "my-3 mt-0 md:my-6 py-3 md:py-6 md:pt-16 md:mb-0",
+                      // pIndex === 0 ? '' : 'border-t-gray-200 border-t', // HR hidden for now
+                      "mb-[-20px] md:mb-[-40px]",
                     )
                   }>
                     {heading}
                     {thisProjectYear !== thisYear ? (
-                      <span className="text-xl text-gray-400 dark:text-gray-400 inline-block pl-3">
+                      <span className="text-xl text-gray-400 dark:text-gray-400 inline-block pl-4">
                         Archive
                       </span>
                     ) : null}

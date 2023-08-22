@@ -29,7 +29,7 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
             <div className="mb-4">
               <h2 className="text-xl md:text-3xl mb-1.5 text-black dark:text-white font-bold">
                 {project.title}
-                <span className="text-sm md:text-lg inline-block pl-2 text-gray-400">
+                <span className="text-sm md:text-lg inline-block pl-4 text-gray-400">
                   {project.publishedAt.substring(0, 4)}
                 </span>
               </h2>
