@@ -4,6 +4,7 @@ import ProjectListItem from "app/components/ProjectListItem/ProjectListItem";
 import IconsCloud from "./IconsCloud";
 import { ProjectType, StackIcon, projects } from "lib/_all-db";
 import React from "react";
+import clsx from 'clsx';
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -33,7 +34,7 @@ export default async function ProjectsPage() {
         Project Showcase
       </h1>
 
-      <div className="grid columns-1 md:columns-3 gap-4 md:gap-16">
+      <div className="grid columns-1 md:columns-3 gap-8 md:gap-12">
         {allProjects
           .sort((a, b) => {
             const aDate = new Date(a.publishedAt);
@@ -48,7 +49,7 @@ export default async function ProjectsPage() {
 
             return -1;
           })
-          .map((project) => {
+          .map((project, pIndex) => {
             const thisProjectYear = new Date(
               `${project.publishedAt} 09:00:00`
             ).getFullYear();
@@ -63,7 +64,12 @@ export default async function ProjectsPage() {
             return (
               <React.Fragment>
                 {heading ? (
-                  <h2 className="text-8xl font-500 text-black dark:text-white my-6 md:mt-16 md:mb-0 md:col-span-3">
+                  <h2 className={
+                    clsx(
+                      "text-4xl md:text-8xl font-500 text-black dark:text-white my-3 mt-0 md:my-6 py-3 md:py-6 border-t-gray-200 md:pt-16 md:mb-0 md:col-span-3",
+                      pIndex === 0 ? '' : 'border-t'
+                    )
+                  }>
                     {heading}
                     {thisProjectYear !== thisYear ? (
                       <span className="text-xl text-gray-400 dark:text-gray-400 inline-block pl-3">
