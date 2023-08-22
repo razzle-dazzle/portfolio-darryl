@@ -77,7 +77,7 @@ export interface ProjectType {
   id: number;
   /** Used to make some projects feature on the home page */
   featured: number;
-  /** The URL for the project */
+  /** The relative URL for the project, like "/my-project" */
   alias: string;
   /** The main title */
   title: string;
@@ -86,7 +86,7 @@ export interface ProjectType {
   description_secondary: string;
   /** Type, taken from project types list */
   type: number;
-  /** The URL for the website - can also be empty string */
+  /** The external URL for the website, full URI. Could also be empty string */
   url: string;
   /** Required, like 2020-12-01. This determines the order in the /projects page */
   completed: string;
@@ -108,9 +108,9 @@ export interface ProjectType {
   images: string;
   /** List of tech icons */
   stack: StackIcon[];
-  role?: string;
+  role: string;
 }
-interface ProjectTypes {
+export interface ProjectTypes {
   id: number;
   title: string;
 }
@@ -154,7 +154,8 @@ export const projects: ProjectType[] = [
     created: "2010-06-01 00:00:00",
     modified: "2014-02-24 10:51:27",
     images: "evoluted-pimlicoplumbers",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 2,
@@ -175,7 +176,8 @@ export const projects: ProjectType[] = [
     created: "2010-06-01 00:00:00",
     modified: "2014-04-02 21:21:57",
     images: "evoluted-inameit",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 3,
@@ -197,7 +199,8 @@ export const projects: ProjectType[] = [
     created: "2010-07-01 00:00:00",
     modified: "2014-02-24 10:52:31",
     images: "evoluted-surmerestates",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 4,
@@ -219,7 +222,8 @@ export const projects: ProjectType[] = [
     created: "2010-07-01 00:00:00",
     modified: "2014-03-04 16:38:57",
     images: "evoluted-lmcbuyinggroups",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
 
   {
@@ -241,7 +245,8 @@ export const projects: ProjectType[] = [
     created: "2010-07-01 00:00:00",
     modified: "2014-03-04 16:37:42",
     images: "evoluted-nottinghamshirelmc",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 6,
@@ -262,7 +267,8 @@ export const projects: ProjectType[] = [
     created: "2010-08-01 00:00:00",
     modified: "2014-03-04 16:23:22",
     images: "evoluted-stayboutique",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 7,
@@ -284,7 +290,8 @@ export const projects: ProjectType[] = [
     created: "2010-09-01 00:00:00",
     modified: "2014-03-04 16:27:09",
     images: "evoluted-cpuk",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 8,
@@ -306,7 +313,8 @@ export const projects: ProjectType[] = [
     created: "2010-09-01 00:00:00",
     modified: "2014-03-04 16:26:17",
     images: "evoluted-yuban",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 9,
@@ -327,7 +335,8 @@ export const projects: ProjectType[] = [
     created: "2010-09-01 00:00:00",
     modified: "2014-03-04 16:24:23",
     images: "evoluted-game",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 10,
@@ -349,7 +358,8 @@ export const projects: ProjectType[] = [
     created: "2010-10-01 00:00:00",
     modified: "2014-03-04 16:30:10",
     images: "evoluted-mare",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 11,
@@ -370,7 +380,8 @@ export const projects: ProjectType[] = [
     created: "2010-11-01 00:00:00",
     modified: "2014-03-04 16:53:46",
     images: "evoluted-mentortraining",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 12,
@@ -392,7 +403,8 @@ export const projects: ProjectType[] = [
     created: "2010-10-01 00:00:00",
     modified: "2014-03-04 16:41:11",
     images: "evoluted-fundamentals",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 13,
@@ -413,7 +425,8 @@ export const projects: ProjectType[] = [
     created: "2010-11-01 00:00:00",
     modified: "2014-03-04 16:41:52",
     images: "evoluted-w00t",
-    stack: ["apache", "php", "mysql", "wordpress", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "wordpress", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 14,
@@ -434,7 +447,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 16:44:54",
     images: "evoluted-mediserve",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 15,
@@ -455,7 +469,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 12:32:20",
     images: "evoluted-frankknighton",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 16,
@@ -476,7 +491,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 16:44:23",
     images: "evoluted-faifarms",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 17,
@@ -498,7 +514,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 16:43:49",
     images: "evoluted-efn",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 18,
@@ -519,7 +536,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 16:42:38",
     images: "evoluted-mfp",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 19,
@@ -541,7 +559,8 @@ export const projects: ProjectType[] = [
     created: "2011-04-01 00:00:00",
     modified: "2014-04-02 21:21:35",
     images: "evoluted-ecj",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 20,
@@ -563,7 +582,8 @@ export const projects: ProjectType[] = [
     created: "2011-05-01 00:00:00",
     modified: "2014-03-04 16:46:50",
     images: "evoluted-theinsuranceservice",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 21,
@@ -585,7 +605,8 @@ export const projects: ProjectType[] = [
     created: "2011-06-01 00:00:00",
     modified: "2014-03-04 12:30:16",
     images: "evoluted-glaveytoons",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 22,
@@ -607,7 +628,8 @@ export const projects: ProjectType[] = [
     created: "2011-07-01 00:00:00",
     modified: "2015-10-03 13:58:21",
     images: "evoluted-fgcl-email",
-    stack: ["html5", "javascript", "css3"]
+    stack: ["html5", "javascript", "css3"],
+    role: "Web Developer",
   },
   // {
   //   id: 23,
@@ -648,7 +670,8 @@ export const projects: ProjectType[] = [
     created: "2011-08-01 00:00:00",
     modified: "2014-03-04 16:47:29",
     images: "evoluted-save-on-van-service",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 25,
@@ -669,7 +692,8 @@ export const projects: ProjectType[] = [
     created: "2011-08-01 00:00:00",
     modified: "2014-03-04 16:30:53",
     images: "evoluted-save-on",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 26,
@@ -690,7 +714,8 @@ export const projects: ProjectType[] = [
     created: "2011-09-01 00:00:00",
     modified: "2014-03-04 16:34:22",
     images: "evoluted-save-on-servicing",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 27,
@@ -712,7 +737,8 @@ export const projects: ProjectType[] = [
     created: "2011-09-01 00:00:00",
     modified: "2014-03-04 16:33:47",
     images: "evoluted-agg-pro",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 28,
@@ -733,7 +759,8 @@ export const projects: ProjectType[] = [
     created: "2011-09-01 00:00:00",
     modified: "2014-03-04 16:32:29",
     images: "evoluted-sallys-little-bag",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 29,
@@ -755,7 +782,8 @@ export const projects: ProjectType[] = [
     created: "2011-10-01 00:00:00",
     modified: "2014-03-04 12:24:00",
     images: "evoluted-5ma",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 30,
@@ -777,7 +805,8 @@ export const projects: ProjectType[] = [
     created: "2011-10-01 00:00:00",
     modified: "2014-03-23 16:04:30",
     images: "evoluted-canning-conveyor",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 31,
@@ -799,7 +828,8 @@ export const projects: ProjectType[] = [
     created: "2008-06-01 00:00:00",
     modified: "2016-01-30 09:29:01",
     images: "discoverecclesall",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3", "bootstrap"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3", "bootstrap"],
+    role: "Web Developer",
   },
   {
     id: 32,
@@ -820,7 +850,8 @@ export const projects: ProjectType[] = [
     created: "2008-07-01 00:00:00",
     modified: "2014-03-04 12:42:21",
     images: "greedygreek",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 33,
@@ -842,7 +873,8 @@ export const projects: ProjectType[] = [
     created: "2008-08-01 00:00:00",
     modified: "2014-03-04 12:47:28",
     images: "globaltax",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 34,
@@ -864,7 +896,8 @@ export const projects: ProjectType[] = [
     created: "2008-09-01 00:00:00",
     modified: "2014-03-04 15:47:28",
     images: "mts",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 35,
@@ -886,7 +919,8 @@ export const projects: ProjectType[] = [
     created: "2008-10-01 00:00:00",
     modified: "2016-01-30 09:29:35",
     images: "mfm",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 36,
@@ -907,7 +941,8 @@ export const projects: ProjectType[] = [
     created: "2008-10-01 00:00:00",
     modified: "2014-02-24 14:23:42",
     images: "dsaunderson",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 37,
@@ -929,7 +964,8 @@ export const projects: ProjectType[] = [
     created: "2008-11-01 00:00:00",
     modified: "2016-01-30 09:30:01",
     images: "gclp",
-    stack: ["apache", "php", "mysql", "wordpress", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "wordpress", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 38,
@@ -951,7 +987,8 @@ export const projects: ProjectType[] = [
     created: "2008-12-01 00:00:00",
     modified: "2014-03-04 12:46:28",
     images: "kps",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 39,
@@ -973,7 +1010,8 @@ export const projects: ProjectType[] = [
     created: "2009-01-01 00:00:00",
     modified: "2014-03-04 15:48:22",
     images: "leopoldsquare",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 40,
@@ -994,7 +1032,8 @@ export const projects: ProjectType[] = [
     created: "2009-02-01 00:00:00",
     modified: "2014-03-04 16:08:13",
     images: "barbel",
-    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 41,
@@ -1016,7 +1055,8 @@ export const projects: ProjectType[] = [
     created: "2009-03-01 00:00:00",
     modified: "2014-03-04 16:08:57",
     images: "adplace",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 42,
@@ -1037,7 +1077,8 @@ export const projects: ProjectType[] = [
     created: "2009-04-01 00:00:00",
     modified: "2014-03-04 16:09:24",
     images: "tinytotyoga",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 43,
@@ -1058,7 +1099,8 @@ export const projects: ProjectType[] = [
     created: "2009-05-01 00:00:00",
     modified: "2014-03-04 16:09:46",
     images: "diamondpythons",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 44,
@@ -1079,7 +1121,8 @@ export const projects: ProjectType[] = [
     created: "2009-06-01 00:00:00",
     modified: "2014-03-04 16:10:28",
     images: "ridgefield",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 45,
@@ -1100,7 +1143,8 @@ export const projects: ProjectType[] = [
     created: "2009-07-01 00:00:00",
     modified: "2014-03-04 16:11:17",
     images: "oakwell",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 46,
@@ -1121,7 +1165,8 @@ export const projects: ProjectType[] = [
     created: "2009-08-01 00:00:00",
     modified: "2014-03-04 12:45:26",
     images: "luh",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 47,
@@ -1142,7 +1187,8 @@ export const projects: ProjectType[] = [
     created: "2009-08-01 00:00:00",
     modified: "2014-03-04 16:12:12",
     images: "littleacorns",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 48,
@@ -1164,7 +1210,8 @@ export const projects: ProjectType[] = [
     created: "2009-09-01 00:00:00",
     modified: "2014-03-04 16:13:15",
     images: "diversity",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 49,
@@ -1186,7 +1233,8 @@ export const projects: ProjectType[] = [
     created: "2009-10-01 00:00:00",
     modified: "2014-03-04 16:16:01",
     images: "domcomenergy",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 50,
@@ -1208,7 +1256,8 @@ export const projects: ProjectType[] = [
     created: "2009-10-01 00:00:00",
     modified: "2014-02-24 14:30:03",
     images: "gkt",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 51,
@@ -1230,7 +1279,8 @@ export const projects: ProjectType[] = [
     created: "2009-11-01 00:00:00",
     modified: "2014-03-04 16:15:07",
     images: "tradesheffield",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 52,
@@ -1252,7 +1302,8 @@ export const projects: ProjectType[] = [
     created: "2009-12-01 00:00:00",
     modified: "2014-03-04 16:35:52",
     images: "cassieraine",
-    stack: ["apache", "php", "mysql", "wordpress", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "wordpress", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 53,
@@ -1273,7 +1324,8 @@ export const projects: ProjectType[] = [
     created: "2010-01-01 00:00:00",
     modified: "2014-03-04 16:36:22",
     images: "fabriksalons",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 54,
@@ -1294,7 +1346,8 @@ export const projects: ProjectType[] = [
     created: "2010-02-01 00:00:00",
     modified: "2014-03-04 12:41:42",
     images: "ignitegas",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 55,
@@ -1316,7 +1369,8 @@ export const projects: ProjectType[] = [
     created: "2010-04-01 00:00:00",
     modified: "2014-03-04 12:41:08",
     images: "birdandbee",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 56,
@@ -1338,7 +1392,8 @@ export const projects: ProjectType[] = [
     created: "2010-07-01 00:00:00",
     modified: "2014-03-04 16:36:54",
     images: "centa",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 57,
@@ -1359,7 +1414,8 @@ export const projects: ProjectType[] = [
     created: "2010-08-01 00:00:00",
     modified: "2014-03-04 16:39:49",
     images: "room4you",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 58,
@@ -1381,7 +1437,8 @@ export const projects: ProjectType[] = [
     created: "2010-09-01 00:00:00",
     modified: "2014-03-04 16:23:38",
     images: "tmfm",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 59,
@@ -1403,7 +1460,8 @@ export const projects: ProjectType[] = [
     created: "2010-10-01 00:00:00",
     modified: "2014-03-04 12:38:28",
     images: "mustt",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 60,
@@ -1425,7 +1483,8 @@ export const projects: ProjectType[] = [
     created: "2010-10-01 00:00:00",
     modified: "2014-03-04 16:28:22",
     images: "huntersmith",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 61,
@@ -1447,7 +1506,8 @@ export const projects: ProjectType[] = [
     created: "2010-10-01 00:00:00",
     modified: "2014-03-04 12:39:21",
     images: "mollyrouge",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 62,
@@ -1469,7 +1529,8 @@ export const projects: ProjectType[] = [
     created: "2010-11-01 00:00:00",
     modified: "2014-03-04 12:34:33",
     images: "s8",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 63,
@@ -1490,7 +1551,8 @@ export const projects: ProjectType[] = [
     created: "2010-11-01 00:00:00",
     modified: "2014-03-04 12:35:19",
     images: "bigbuddha",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 64,
@@ -1511,7 +1573,8 @@ export const projects: ProjectType[] = [
     created: "2010-12-01 00:00:00",
     modified: "2014-03-04 12:33:40",
     images: "gvdc",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 65,
@@ -1532,7 +1595,8 @@ export const projects: ProjectType[] = [
     created: "2011-01-01 00:00:00",
     modified: "2014-03-04 16:45:39",
     images: "wigs",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 66,
@@ -1553,7 +1617,8 @@ export const projects: ProjectType[] = [
     created: "2011-02-01 00:00:00",
     modified: "2014-03-04 16:46:04",
     images: "liviapalmiero",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 67,
@@ -1574,7 +1639,8 @@ export const projects: ProjectType[] = [
     created: "2011-07-01 00:00:00",
     modified: "2014-03-04 12:28:32",
     images: "rubab-sounds",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 68,
@@ -1597,7 +1663,8 @@ export const projects: ProjectType[] = [
     created: "2011-09-01 00:00:00",
     modified: "2015-10-03 13:57:14",
     images: "tolli",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 69,
@@ -1619,7 +1686,8 @@ export const projects: ProjectType[] = [
     created: "2011-11-01 00:00:00",
     modified: "2015-10-03 13:54:08",
     images: "latinospirit",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 70,
@@ -1641,7 +1709,8 @@ export const projects: ProjectType[] = [
     created: "2012-02-01 00:00:00",
     modified: "2014-03-04 12:17:59",
     images: "discoverecclesall-v2",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 71,
@@ -1663,7 +1732,8 @@ export const projects: ProjectType[] = [
     created: "2012-04-01 00:00:00",
     modified: "2014-03-04 12:17:13",
     images: "kentishrooms",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 72,
@@ -1685,7 +1755,8 @@ export const projects: ProjectType[] = [
     created: "2011-04-01 00:00:00",
     modified: "2014-03-04 12:27:57",
     images: "darryl-blog",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 73,
@@ -1706,7 +1777,8 @@ export const projects: ProjectType[] = [
     created: "2011-06-01 00:00:00",
     modified: "2014-02-24 16:55:38",
     images: "darryl-portfolio",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 74,
@@ -1729,7 +1801,8 @@ export const projects: ProjectType[] = [
     created: "2012-08-22 00:00:00",
     modified: "2015-10-03 13:55:39",
     images: "roussillon-life",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 75,
@@ -1752,7 +1825,8 @@ export const projects: ProjectType[] = [
     created: "2012-12-21 00:00:00",
     modified: "2015-10-03 13:50:44",
     images: "hanham",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 76,
@@ -1775,7 +1849,8 @@ export const projects: ProjectType[] = [
     created: "2012-12-20 00:00:00",
     modified: "2015-10-03 13:49:48",
     images: "the-exchange-london",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 77,
@@ -1798,7 +1873,8 @@ export const projects: ProjectType[] = [
     created: "2012-11-22 00:00:00",
     modified: "2015-10-03 13:52:29",
     images: "ebury",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 78,
@@ -1820,7 +1896,8 @@ export const projects: ProjectType[] = [
     created: "2013-07-15 00:00:00",
     modified: "2014-03-04 12:01:47",
     images: "dollis",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 79,
@@ -1843,7 +1920,8 @@ export const projects: ProjectType[] = [
     created: "2013-04-22 00:00:00",
     modified: "2015-10-03 13:47:08",
     images: "hta",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 80,
@@ -1866,7 +1944,8 @@ export const projects: ProjectType[] = [
     created: "2013-08-09 00:00:00",
     modified: "2015-10-21 19:36:41",
     images: "sheerwater",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 81,
@@ -1888,7 +1967,8 @@ export const projects: ProjectType[] = [
     created: "2013-04-04 00:00:00",
     modified: "2015-10-21 19:39:17",
     images: "tsp-safety",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   // {
   //   id: 82,
@@ -1932,7 +2012,8 @@ export const projects: ProjectType[] = [
     created: "1900-01-00 00:00:00",
     modified: "2015-10-03 13:41:54",
     images: "andreaianni",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 84,
@@ -1954,7 +2035,8 @@ export const projects: ProjectType[] = [
     created: "1900-01-00 00:00:00",
     modified: "2015-10-03 13:44:40",
     images: "boxingrabbit",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   // {
   //   id: 85,
@@ -1996,7 +2078,8 @@ export const projects: ProjectType[] = [
     created: "1900-01-00 00:00:00",
     modified: "2015-01-24 13:10:02",
     images: "hive-of-activity",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 87,
@@ -2019,7 +2102,8 @@ export const projects: ProjectType[] = [
     created: "2014-01-10 00:00:00",
     modified: "2015-10-03 13:31:59",
     images: "kew",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 88,
@@ -2042,7 +2126,8 @@ export const projects: ProjectType[] = [
     created: "2014-02-27 15:04:52",
     modified: "2015-10-03 13:29:47",
     images: "aylesbury",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 89,
@@ -2065,7 +2150,8 @@ export const projects: ProjectType[] = [
     created: "2014-02-27 15:06:34",
     modified: "2016-01-30 09:22:46",
     images: "foxhill",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Web Developer",
   },
   {
     id: 90,
@@ -2088,7 +2174,8 @@ export const projects: ProjectType[] = [
     created: "2014-02-27 15:07:20",
     modified: "2015-10-03 13:30:03",
     images: "trevenson",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 91,
@@ -2110,14 +2197,15 @@ export const projects: ProjectType[] = [
     created: "2014-03-04 17:00:16",
     modified: "2015-10-03 13:45:41",
     images: "photography",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 92,
     featured: 0,
     alias: "/darryl-october-recordings",
     title: "Darryl October Recordings",
-    description: "A simply webpage to host some personal musical recordings",
+    description: "A simple webpage to host some personal musical recordings",
     description_secondary:
       "I built the site using HTML5 audio to experiment with new HTML5 tags and to house some of my recordings.",
     type: 4,
@@ -2132,7 +2220,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-04 17:02:01",
     modified: "2015-10-03 13:48:00",
     images: "recordings",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 93,
@@ -2155,7 +2244,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-04 17:10:01",
     modified: "2015-10-21 19:35:33",
     images: "hftia",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 94,
@@ -2177,7 +2267,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-04 17:11:35",
     modified: "2015-10-03 13:43:37",
     images: "northhill",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 95,
@@ -2200,7 +2291,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-05 11:37:39",
     modified: "2015-10-03 13:31:40",
     images: "greatsuffolkstreet",
-    stack: []
+    stack: [],
+    role: "Photographer",
   },
   {
     id: 96,
@@ -2224,6 +2316,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:31:08",
     images: "pear-tree-court",
     stack: [],
+    role: "Frontend Web Developer",
   },
   {
     id: 97,
@@ -2247,6 +2340,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:31:25",
     images: "shirland-mews",
     stack: [],
+    role: "Frontend Web Developer",
   },
   {
     id: 98,
@@ -2269,7 +2363,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-23 16:01:14",
     modified: "2015-10-21 19:38:02",
     images: "wigs-2013",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 99,
@@ -2291,7 +2386,8 @@ export const projects: ProjectType[] = [
     created: "2014-03-23 16:11:38",
     modified: "2014-03-23 16:11:38",
     images: "booking-system",
-    stack: ["bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 100,
@@ -2314,7 +2410,8 @@ export const projects: ProjectType[] = [
     created: "2014-06-01 20:01:23",
     modified: "2015-10-03 13:39:20",
     images: "roussillon-life-v2",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 101,
@@ -2336,7 +2433,8 @@ export const projects: ProjectType[] = [
     created: "2014-06-01 20:08:24",
     modified: "2015-10-21 19:34:04",
     images: "langham-court",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 102,
@@ -2358,7 +2456,8 @@ export const projects: ProjectType[] = [
     created: "2014-06-01 20:09:45",
     modified: "2015-10-21 19:33:29",
     images: "our-enterprise",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 103,
@@ -2380,7 +2479,8 @@ export const projects: ProjectType[] = [
     created: "2014-06-01 20:11:25",
     modified: "2015-10-21 19:32:03",
     images: "mind-the-gap",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 104,
@@ -2403,7 +2503,8 @@ export const projects: ProjectType[] = [
     created: "2014-12-28 16:16:37",
     modified: "2015-10-03 13:40:48",
     images: "chapelton",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 105,
@@ -2426,7 +2527,8 @@ export const projects: ProjectType[] = [
     created: "2014-12-28 16:34:44",
     modified: "2015-10-03 13:24:27",
     images: "aylesburynow",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 106,
@@ -2449,7 +2551,8 @@ export const projects: ProjectType[] = [
     created: "2014-12-28 16:47:56",
     modified: "2015-10-03 13:29:03",
     images: "oakgrove",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 107,
@@ -2472,7 +2575,8 @@ export const projects: ProjectType[] = [
     created: "2014-12-28 16:56:56",
     modified: "2015-10-03 13:25:41",
     images: "lsestates",
-    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"]
+    stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Frontend Web Developer",
   },
   {
     id: 108,
@@ -2495,7 +2599,8 @@ export const projects: ProjectType[] = [
     created: "2015-01-24 14:15:43",
     modified: "2015-10-03 13:05:49",
     images: "reed-ad15register",
-    stack: ["bootstrap", "html5", "javascript", "css3"]
+    stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 109,
@@ -2519,6 +2624,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:05:41",
     images: "reed-ad15generic",
     stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 110,
@@ -2542,6 +2648,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:05:11",
     images: "reed-lovemondays",
     stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 111,
@@ -2565,6 +2672,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:05:18",
     images: "reed-whyyou",
     stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 112,
@@ -2588,6 +2696,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-03 13:05:04",
     images: "reed-ad15sector",
     stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 113,
@@ -2611,6 +2720,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-17 14:55:17",
     images: "reed-ad15generic2",
     stack: ["bootstrap", "html5", "javascript", "css3"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 114,
@@ -2634,6 +2744,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 09:53:13",
     images: "startupstartup",
     stack: ["dotnet", "csharp", "typescript", "angular", "sass", "html5", "aws", "webpack", "npm"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 115,
@@ -2657,6 +2768,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 00:15:55",
     images: "afhuk",
     stack: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+    role: "Lead Developer",
   },
   {
     id: 116,
@@ -2680,6 +2792,7 @@ export const projects: ProjectType[] = [
     modified: "2015-10-17 13:30:34",
     images: "lts",
     stack: ["wordpress", "apache", "php", "html5", "sass", "javascript", "bootstrap", "css3"],
+    role: "Lead Developer",
   },
   {
     id: 117,
@@ -2703,6 +2816,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 09:59:25",
     images: "reedcommercial",
     stack: ["apache", "wordpress", "php", "mysql", "html5", "sass", "css3", "javascript", "bootstrap"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 118,
@@ -2726,6 +2840,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 09:59:03",
     images: "reedcommercial-landing-mountains",
     stack: ["apache", "wordpress", "php", "html5", "sass", "javascript"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 119,
@@ -2749,6 +2864,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 09:58:56",
     images: "reedcommercial-landing-meadow",
     stack: ["apache", "wordpress", "php", "html5", "sass", "javascript"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 120,
@@ -2771,6 +2887,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 09:58:48",
     images: "reedcommercial-landing-girl",
     stack: ["apache", "wordpress", "php", "html5", "sass", "javascript"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 121,
@@ -2792,7 +2909,8 @@ export const projects: ProjectType[] = [
     created: "2016-01-30 09:47:57",
     modified: "2016-01-30 09:48:07",
     images: "startupstartupblog",
-    stack: ["csharp", "dotnet", "angular", "typescript", "html5", "sass"]
+    stack: ["csharp", "dotnet", "angular", "typescript", "html5", "sass"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 122,
@@ -2815,6 +2933,7 @@ export const projects: ProjectType[] = [
     modified: "2016-01-30 10:21:51",
     images: "mondaylabs",
     stack: ["angular", "typescript", "javascript", "html5", "sass"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 123,
@@ -2836,7 +2955,8 @@ export const projects: ProjectType[] = [
     created: "2016-01-30 10:03:48",
     modified: "2016-01-30 10:03:48",
     images: "startupstartuprecruitment",
-    stack: ["dotnet", "html5", "sass", "javascript"]
+    stack: ["dotnet", "html5", "sass", "javascript"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 124,
@@ -2859,7 +2979,8 @@ export const projects: ProjectType[] = [
     created: "2016-01-30 10:06:22",
     modified: "2016-01-30 10:12:52",
     images: "startupstartupjobs",
-    stack: ["csharp", "dotnet", "angular", "typescript", "html5", "sass"]
+    stack: ["csharp", "dotnet", "angular", "typescript", "html5", "sass"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 125,
@@ -2882,6 +3003,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:26:16",
     images: "materiom",
     stack: ["symfony", "php", "mysql"],
+    role: "Photographer",
   },
   {
     id: 126,
@@ -2903,7 +3025,8 @@ export const projects: ProjectType[] = [
     created: "2020-05-22 14:38:04",
     modified: "2020-05-24 12:23:44",
     images: "travels",
-    stack: ["fuse", "angular", "html5", "typescript", "sass", "npm"]
+    stack: ["fuse", "angular", "html5", "typescript", "sass", "npm"],
+    role: "Lead Developer",
   },
   {
     id: 127,
@@ -2925,7 +3048,8 @@ export const projects: ProjectType[] = [
     created: "2020-05-22 14:41:41",
     modified: "2020-05-24 10:41:08",
     images: "esoftbannerservice",
-    stack: ["ruby", "rails", "aws"]
+    stack: ["ruby", "rails", "aws"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 128,
@@ -2948,6 +3072,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:22:30",
     images: "reemote",
     stack: ["apache", "php", "mysql", "gulp", "html5", "bootstrap", "sass"],
+    role: "Lead Developer",
   },
   {
     id: 129,
@@ -2970,6 +3095,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:40:48",
     images: "esoftconnect",
     stack: ["nodejs", "fuse", "angular", "mui", "typescript", "sass", "ruby", "rails", "mongodb", "redis", "stripe"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 130,
@@ -2992,6 +3118,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:22:20",
     images: "esoftshine",
     stack: ["nodejs", "fuse", "angular", "typescript", "mui", "sass", "java", "grails", "mysql", "stripe"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 131,
@@ -3014,6 +3141,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:20:48",
     images: "parkius",
     stack: ["fuse", "angular", "typescript", "dotnet", "python", "mui", "html5", "sass", "css3"],
+    role: "Lead Frontend Developer",
   },
   {
     id: 132,
@@ -3036,6 +3164,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 09:55:44",
     images: "pocketbarcelona",
     stack: ["fuse", "angular", "heroku", "typescript", "mui", "npm", "mysql", "php", "trello"],
+    role: "Lead Developer",
   },
   {
     id: 133,
@@ -3058,6 +3187,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-29 11:13:34",
     images: "serviceclubuiux",
     stack: ["figma", "trello"],
+    role: "UX/UI Designer",
   },
   {
     id: 134,
@@ -3080,6 +3210,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:27:11",
     images: "serviceclubdevops",
     stack: ["aws", "mongodb", "redis", "mailchimp", "trello"],
+    role: "DevOps Developer",
   },
   {
     id: 135,
@@ -3102,6 +3233,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:11:49",
     images: "serviceclubpo",
     stack: ["aws", "react", "mongodb", "redis", "typescript", "nodejs", "html5", "bootstrap", "trello"],
+    role: "Product Owner",
   },
   {
     id: 136,
@@ -3124,6 +3256,7 @@ export const projects: ProjectType[] = [
     modified: "2020-05-24 12:12:42",
     images: "unichoices",
     stack: ["wordpress", "php", "mysql", "typescript", "javascript", "sass", "css3", "html5", "bootstrap", "jquery", "mailchimp"],
+    role: "Lead Developer",
   },
   // ---------------------------------------------------
   {
@@ -3147,6 +3280,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "kraemmel",
     stack: ["apache", "php", "pimcore", "twig", "jquery", "typescript", "javascript", "sass", "html5"],
+    role: "Senior Frontend Developer",
   },
   {
     id: 138,
@@ -3169,7 +3303,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "wolf-digital",
     stack: ["apache", "php", "pimcore", "twig", "react", "typescript", "javascript", "sass", "html5", "webpack", "npm", "uikit", "css3", "storybook"],
-    role: "Senior Developer",
+    role: "Senior Frontend Developer",
   },
   {
     id: 139,
@@ -3192,6 +3326,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "wolf-digital",
     stack: ["storybook", "lerna", "react", "redux", "angular", "typescript", "javascript", "sass", "html5", "twig", "uikit", "yarn", "tailwind", "webpack"],
+    role: "Senior Frontend Developer",
   },
   // VHV, Lindner, Ecostor, DGTLS Whitelabel Storybook (mono repo),...
   {
@@ -3215,7 +3350,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "roadsurfer-spots",
     stack: ["apache", "php", "pimcore", "twig", "react", "redux", "typescript", "sass", "html5", "css3", "mui"],
-    role: "Senior Developer",
+    role: "Senior Frontend Developer",
   },
   {
     id: 140,
@@ -3238,6 +3373,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "printable-invoices",
     stack: ["nodejs", "fuse", "angular", "typescript", "sass", "html5"],
+    role: "Lead Developer",
   },
   {
     id: 141,
@@ -3281,6 +3417,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "herdcats-web",
     stack: ["aws", "dynamodb", "nodejs", "express", "sendgrid", "react", "typescript", "cloudflare"],
+    role: "Lead Developer",
   },
   {
     id: 143,
@@ -3346,6 +3483,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "arc-storybook",
     stack: ["react", "mui", "rollup", "typescript", "github-packages"],
+    role: "Lead Developer",
   },
   {
     id: 146,
@@ -3367,6 +3505,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "arc-dashboard",
     stack: ["nextjs", "react", "mui", "typescript", "graphql", "apollo", "aws", "amplify", "figma"],
+    role: "Lead Developer",
   },
   {
     id: 147,
@@ -3453,6 +3592,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-api",
     stack: ["aws", "nodejs", "express", "dynamodb", "typescript"],
+    role: "Lead Developer",
   },
   {
     id: 151,
@@ -3474,7 +3614,7 @@ export const projects: ProjectType[] = [
     modified: "2023-06-12 09:00:00",
     images: "hostshare",
     stack: ["nextjs", "react", "typescript", "tailwind", "sass", "vercel", "npm"],
-    role: "Frontend Developer",
+    role: "Lead Developer",
   },
   {
     id: 152,
@@ -3496,6 +3636,7 @@ export const projects: ProjectType[] = [
     modified: "2023-07-18 09:00:00",
     images: "darryl-portfolio-2023",
     stack: ["nextjs", "react", "typescript", "tailwind", "vercel", "npm", "figma", "turbopack", "trello", "framer"],
+    role: "Lead Developer",
   },
   // TO ADD: Pocket Barcelona blog website
   // Marta Portfolio

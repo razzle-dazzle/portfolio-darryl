@@ -1,62 +1,70 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Mdx } from "app/components/mdx";
-import { allProjects } from "contentlayer/generated";
+// import { Mdx } from "app/components/mdx";
+// import { allProjects } from "contentlayer/generated";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 import Image from "next/image";
-import { getProjectImages } from "app/utils/utils";
+import {
+  getProjectImages,
+  getProjectImages2,
+  getProjectTypeFromId,
+} from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import { PropsWithChildren } from "react";
+import { projects } from "lib/_all-db";
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
-  const project = allProjects.find((post) => post.slug === params.slug);
-  if (!project) {
-    return;
-  }
+// export async function generateMetadata({
+//   params,
+// }): Promise<Metadata | undefined> {
+//   const project = projects.find((post) => post.alias.substring(1) === params.slug);
+//   if (!project) {
+//     return;
+//   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug,
-  } = project;
-  const ogImage = image
-    ? `https://darryloctober.co.uk${image}`
-    : `https://darryloctober.co.uk/og?title=${title}`;
+//   const {
+//     title,
+//     completed,
+//     description,
+//     image,
+//     alias,
+//   } = project;
+//   const ogImage = image
+//     ? `https://darryloctober.co.uk${image}`
+//     : `https://darryloctober.co.uk/og?title=${title}`;
 
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `https://darryloctober.co.uk/blog/${slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
-}
+//   return {
+//     title,
+//     description,
+//     openGraph: {
+//       title,
+//       description,
+//       type: "article",
+//       publishedTime: completed,
+//       url: `https://darryloctober.co.uk/projects${alias}`,
+//       images: [
+//         {
+//           url: ogImage,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title,
+//       description,
+//       images: [ogImage],
+//     },
+//   };
+// }
 
 export default async function Projects({ params }) {
-  const post = allProjects.find((post) => post.slug === params.slug);
-  if (!post) {
+  // const post = allProjects.find((post) => post.slug === params.slug);
+  const project = projects.find(
+    (post) => post.alias.substring(1) === params.slug
+  );
+  if (!project) {
     notFound();
   }
 
@@ -64,19 +72,21 @@ export default async function Projects({ params }) {
   //   getViewsCount(),
   //   getTweets(post.tweetIds),
   // ]);
-  const projectImages = getProjectImages(post);
+  const projectImages = getProjectImages2(project);
 
   return (
     <section className="text-black dark:text-white">
       <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8">
-        <ProjectBreadcrumbs text={post.title}></ProjectBreadcrumbs>
+        <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
         <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white">
-          <span>{post.title}</span>
+          <span>{project.title}</span>
           <span className="text-gray-400 text-sm md:text-[20px] inline-block pl-4">
-            {post.publishedAt.substring(0, 4)}
+            {project.completed}
           </span>
         </h1>
-        <p className="tracking-tight text-2xl my-4 md:mb-8">{post.summary}</p>
+        <p className="tracking-tight text-2xl my-4 md:mb-8">
+          {project.description}
+        </p>
       </div>
       <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
         {(projectImages.featured || projectImages.original) && (
@@ -88,17 +98,37 @@ export default async function Projects({ params }) {
               // objectFit: "contain",
               objectFit: "cover",
             }}
-            alt={post.title}
+            alt={project.title}
             priority
             quality={100}
           />
         )}
       </div>
       <div className="container xl:max-w-7xl m-auto relative pb-8">
-        <script type="application/ld+json" suppressHydrationWarning>
+        {/* <script type="application/ld+json" suppressHydrationWarning>
           {JSON.stringify(post.structuredData)}
-        </script>
-        <div className="my-12">
+        </script> */}
+        {/* post.structuredData will be like this... */}
+        {/* '@context': 'https://schema.org',
+        '@type': 'ProjectPosting',
+        headline: doc.title,
+        datePublished: doc.publishedAt,
+        dateModified: doc.publishedAt,
+        description: doc.summary,
+        thumbnail: doc.thumbnail,
+        largeImage: doc.largeImage,
+        featured: doc.featured,
+        images: doc.images,
+        image: doc.image
+          ? `https://darryloctober.co.uk${doc.image}`
+          : `https://darryloctober.co.uk/og?title=${doc.title}`,
+        url: `https://darryloctober.co.uk/projects/${doc._raw.flattenedPath}`,
+        author: {
+          '@type': 'Person',
+          name: 'Darryl October',
+        }, */}
+
+        <div className="my-10 md:my-20">
           {/* <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm">
             <div className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md px-2 py-1 tracking-tighter">
               {post.publishedAt}
@@ -119,17 +149,10 @@ export default async function Projects({ params }) {
                 <TitleComponent>Project Details</TitleComponent>
               </div>
               <div className="basis-full md:basis-2/3 text-xl">
-                {post.summary}
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas totam iure tempora quam ab officia, voluptatibus enim
-                consequatur nesciunt, quaerat aliquid. Id iure, ad aut quibusdam
-                quia voluptates distinctio itaque. Consectetur non modi dolorum
-                aspernatur eius, nihil alias, illo obcaecati animi ducimus rem
-                nam ipsam tempore necessitatibus debitis cum deleniti quis odit
-                qui quam? Nesciunt ullam itaque praesentium aliquid obcaecati,
-                minus quia maxime fugit magni aspernatur veritatis officiis.
-                Nisi quasi consectetur temporibus. Voluptatibus ipsa unde
-                ducimus accusamus ad, ratione magni?
+                {/* <p className="my-4 mt-0">{project.description}</p> */}
+                {(project.description_secondary || project.description) && (
+                  <p className="my-4 mt-0">{project.description_secondary || project.description}</p>
+                )}
               </div>
             </div>
 
@@ -138,22 +161,11 @@ export default async function Projects({ params }) {
               <div className="basis-full md:basis-1/3">
                 <TitleComponent>Role</TitleComponent>
 
-                <ProjectChip text="FOOBAR"></ProjectChip>
+                <ProjectChip>{project.role}</ProjectChip>
               </div>
               <div className="basis-full md:basis-2/3 text-xl">
                 <TitleComponent>Stack</TitleComponent>
-                <StackIcons
-                  icons={[
-                    "apache",
-                    "php",
-                    "mysql",
-                    "html5",
-                    "javascript",
-                    "jquery",
-                    "css3",
-                  ]}
-                  iconSize="large"
-                ></StackIcons>
+                <StackIcons icons={project.stack} iconSize="large"></StackIcons>
               </div>
             </div>
 
@@ -161,7 +173,7 @@ export default async function Projects({ params }) {
             <div className="flex flex-col md:flex-row">
               <div className="basis-full md:basis-1/3">
                 <TitleComponent>Type</TitleComponent>
-                <ProjectChip text="Responsive Website"></ProjectChip>
+                <ProjectChip>{getProjectTypeFromId(project.type)}</ProjectChip>
               </div>
               <div className="basis-full md:basis-2/3 text-xl"></div>
             </div>
@@ -170,20 +182,26 @@ export default async function Projects({ params }) {
             <div className="flex flex-col md:flex-row">
               <div className="basis-full md:basis-1/3">
                 <TitleComponent>Completed</TitleComponent>
-                <ProjectChip text="2023 2344"></ProjectChip>
+                <ProjectChip>{project.completed}</ProjectChip>
               </div>
               <div className="basis-full md:basis-2/3 text-xl"></div>
             </div>
 
-            {/* Website */}
-            <div className="flex flex-col md:flex-row">
-              <div className="basis-full md:basis-1/3">
-                <TitleComponent>Website / URL</TitleComponent>
+            {/* Website - optional */}
+            {project.url && (
+              <div className="flex flex-col md:flex-row">
+                <div className="basis-full md:basis-1/3">
+                  <TitleComponent>Website / URL</TitleComponent>
 
-                <ProjectChip text="Link"></ProjectChip>
+                  <ProjectChip>
+                    <Link href={project.url} target="_blank">
+                      Link
+                    </Link>
+                  </ProjectChip>
+                </div>
+                <div className="basis-full md:basis-2/3 text-xl"></div>
               </div>
-              <div className="basis-full md:basis-2/3 text-xl"></div>
-            </div>
+            )}
           </div>
 
           <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
