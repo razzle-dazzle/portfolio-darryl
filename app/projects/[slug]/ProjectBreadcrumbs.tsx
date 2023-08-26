@@ -7,7 +7,7 @@ type ProjectBreadcrumbsProps = {
 const ProjectBreadcrumbs = ({ text }: ProjectBreadcrumbsProps) => {
   const linkColor = "text-[#0038FF] dark:text-[#F8CB01]";
   return (
-    <div className="my-6 flex flex-wrap justify-start items-center gap-1.5">
+    <div className="my-6 md:my-12 flex flex-wrap justify-start items-center gap-1.5">
       <div>
         <Link href={"/"} className={linkColor}>
           Home

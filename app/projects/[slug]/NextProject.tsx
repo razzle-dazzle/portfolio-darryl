@@ -10,8 +10,8 @@ import { ProjectType, projects } from "lib/_all-db";
 import myProjectService from "app/services/projects.service";
 import Link from "next/link";
 
-const className = "flex flex-row gap-4";
-const specialButtonStyles = "flex";
+const specialButtonStyles = "flex flex-row gap-4 items-center";
+
 type Props = {
   currentProject: ProjectType;
 };
@@ -70,7 +70,7 @@ export default function NextProject({ currentProject }: Props) {
             </g>
           </svg>
           {/* <ArrowLeftIcon className="mr-2 h-4 w-4 text-[#3454FF]" /> */}
-          <span>Back</span>
+          <span className='text-[#0038FF] font-bold text-xl uppercase'>Back</span>
         </button>
       </div>
       <div className="flex basis-1/2 md:basis-2/5 justify-center md:justify-start flex-shrink-0">
@@ -82,7 +82,7 @@ export default function NextProject({ currentProject }: Props) {
           )}
           onClick={(_e) => goToProject(nextPrev.next)}
         >
-          <span>Next project</span>
+          <span className='text-[#0038FF] font-bold text-xl uppercase'>Next project</span>
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
