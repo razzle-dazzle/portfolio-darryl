@@ -15,6 +15,7 @@ import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import { PropsWithChildren } from "react";
 import { projects } from "lib/_all-db";
+import NextProject from './NextProject';
 
 // export async function generateMetadata({
 //   params,
@@ -59,6 +60,21 @@ import { projects } from "lib/_all-db";
 //   };
 // }
 
+function getYearFromDate(dateStr: string) {
+  if (!dateStr) {
+    return "";
+  }
+  const date = new Date(`${dateStr}T00:00:00.000Z`);
+  return date.getFullYear();
+}
+function getMonthFromDate(dateStr: string) {
+  if (!dateStr) {
+    return "";
+  }
+  const date = new Date(`${dateStr}T00:00:00.000Z`);
+  return date.toLocaleString("default", { month: "long" });
+}
+
 export default async function Projects({ params }) {
   // const post = allProjects.find((post) => post.slug === params.slug);
   const project = projects.find(
@@ -78,10 +94,11 @@ export default async function Projects({ params }) {
     <section className="text-black dark:text-white">
       <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8">
         <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
-        <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white">
-          <span>{project.title}</span>
-          <span className="text-gray-400 text-sm md:text-[20px] inline-block pl-4">
-            {project.completed}
+        <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white mb-6">
+          {project.title}
+          <span className="text-gray-200 text-sm md:text-[20px] inline-block md:pl-4">
+            {getMonthFromDate(project.completed)}{" "}
+            {getYearFromDate(project.completed)}
           </span>
         </h1>
         <p className="tracking-tight text-2xl my-4 md:mb-8">
@@ -128,7 +145,7 @@ export default async function Projects({ params }) {
           name: 'Darryl October',
         }, */}
 
-        <div className="my-10 md:my-20">
+        <div className="my-6 md:my-12">
           {/* <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm">
             <div className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md px-2 py-1 tracking-tighter">
               {post.publishedAt}
@@ -151,7 +168,9 @@ export default async function Projects({ params }) {
               <div className="basis-full md:basis-2/3 text-xl">
                 {/* <p className="my-4 mt-0">{project.description}</p> */}
                 {(project.description_secondary || project.description) && (
-                  <p className="my-4 mt-0">{project.description_secondary || project.description}</p>
+                  <p className="my-4 mt-0">
+                    {project.description_secondary || project.description}
+                  </p>
                 )}
               </div>
             </div>
@@ -204,8 +223,10 @@ export default async function Projects({ params }) {
             )}
           </div>
 
+          
           <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
-            <Link href="/projects">&laquo; Back to all projects</Link>
+            <NextProject currentProject={project}></NextProject>
+            {/* <Link href="/projects">&laquo; Back to all projects</Link> */}
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ function StackIcons({ icons, flip, iconSize = "default" }: Props) {
     // </div>
     <div
       className={clsx(
-        "flex flex-row flex-wrap gap-0.5 justify-center my-2",
+        "flex flex-row flex-wrap gap-0.5 justify-start md:justify-center my-2",
         flip ? "md:justify-end" : "md:justify-start"
       )}
     >

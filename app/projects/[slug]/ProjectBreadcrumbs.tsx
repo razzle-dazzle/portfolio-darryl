@@ -5,21 +5,21 @@ type ProjectBreadcrumbsProps = {
   text: string;
 };
 const ProjectBreadcrumbs = ({ text }: ProjectBreadcrumbsProps) => {
-  const blue = "text-[#0038FF]";
+  const linkColor = "text-[#0038FF] dark:text-[#F8CB01]";
   return (
     <div className="my-6 flex flex-wrap justify-start items-center gap-1.5">
       <div>
-        <Link href={"/"} className={blue}>
+        <Link href={"/"} className={linkColor}>
           Home
         </Link>
       </div>
-      <div className={blue}>/</div>
+      <div className={linkColor}>/</div>
       <div>
-        <Link href={"/projects"} className={blue}>
+        <Link href={"/projects"} className={linkColor}>
           Projects
         </Link>
       </div>
-      <div className={blue}>/</div>
+      <div className={linkColor}>/</div>
       <div className={"text-black dark:text-white"}>{text}</div>
     </div>
   );

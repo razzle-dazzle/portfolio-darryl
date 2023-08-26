@@ -6,8 +6,7 @@ import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { NAV_ITEMS } from "app/constants";
 import ThemeSwitch from "../ThemeSwitch";
-import Logo from './Logo';
-
+import Logo from "./Logo";
 
 export default function Navbar() {
   // support for active page - @todo - can be improved!
@@ -19,8 +18,6 @@ export default function Navbar() {
   return (
     <div className="mx-auto py-6 md:py-8 container xl:max-w-7xl">
       <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
-
-
         <div>
           <Logo></Logo>
         </div>
@@ -31,7 +28,7 @@ export default function Navbar() {
               className="flex flex-row items-start relative px-2 pb-0 fade md:overflow-auto scroll-pr-6"
               id="nav"
             >
-              <div className="flex flex-row space-x-0 md:pr-6 mb-2 mt-2">
+              <div className="flex flex-row space-x-0 md:pr-6 mb-2 mt-2 gap-2">
                 {Object.entries(NAV_ITEMS).map(([navName, { name, path }]) => {
                   const isActive = path === pathname;
                   return (
@@ -39,18 +36,27 @@ export default function Navbar() {
                       key={name}
                       href={path}
                       className={clsx(
-                        "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
+                        "transition-all flex align-middle",
+                        "hover:text-neutral-800 text-black dark:text-white dark:hover:text-neutral-200",
+                        "font-medium",
                         {
-                          "text-neutral-500": !isActive,
-                          "font-bold": isActive,
+                          "text-black dark:text-white": !isActive,
+                          // "font-bold": isActive,
                         }
                       )}
                     >
-                      <span className="relative py-2 px-4 md:px-8 text-sm md:text-2xl text-neutral-800 dark:text-neutral-100">
+                      <span
+                        className={clsx(
+                          "relative py-2 px-4 md:px-8 text-sm md:text-2xl",
+                          {
+                            "text-white dark:text-[#111010]": isActive,
+                          }
+                        )}
+                      >
                         {name.toUpperCase()}
                         {path === pathname ? (
                           <motion.div
-                            className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md z-[-1]"
+                            className="absolute inset-0 bg-[#0038FF] dark:bg-[#F8CB01] rounded-md z-[-1]"
                             layoutId="sidebar"
                             transition={{
                               type: "spring",
