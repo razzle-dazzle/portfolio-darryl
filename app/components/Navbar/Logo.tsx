@@ -24,7 +24,7 @@ function PortfolioLogo() {
   let logoStylesThemed = {};
   if (theme === 'light') {
     logoStylesThemed = {
-      color: "#171717",
+      color: "#161616",
       borderColor: "#1795FF",
       // linear gradient BG must match the page body BG
       background: 'linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
@@ -35,7 +35,7 @@ function PortfolioLogo() {
       color: "#A1DEFF",
       // borderColor: "#1795FF",
       // linear gradient BG must match the page body BG
-      background: 'linear-gradient(#171717, #171717) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
+      background: 'linear-gradient(#161616, #161616) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
       // border: '2px solid transparent',
     }
     
@@ -43,7 +43,7 @@ function PortfolioLogo() {
     // theme will be "system"
     logoStylesThemed = {
       color: "#A1DEFF",
-      background: 'linear-gradient(#171717, #171717) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
+      background: 'linear-gradient(#161616, #161616) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box',
     }
   }
   return (
