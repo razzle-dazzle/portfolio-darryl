@@ -4,6 +4,8 @@ import Link from "next/link";
 // import { allProjects } from "contentlayer/generated";
 import { FeaturedProject } from ".";
 import { ProjectType, projects } from 'lib/_all-db';
+import Button from '../Button';
+import SeeAllProjects from './SeeAllProjects';
 
 
 type Props = {
@@ -49,12 +51,7 @@ const FeaturedProjects = ({}: Props) => {
       })}
 
       <div className="flex flex-row gap-4 justify-end items-center mt-12">
-        <Link
-          className="text-orange-300 font-medium text-xl"
-          href={NAV_ITEMS.projects.path}
-        >
-          See all projects &raquo;
-        </Link>
+        <SeeAllProjects />
       </div>
     </div>
   );
