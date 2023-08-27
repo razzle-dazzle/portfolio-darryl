@@ -3353,7 +3353,7 @@ export const projects: ProjectType[] = [
     role: "Senior Frontend Developer",
   },
   {
-    id: 140,
+    id: 141,
     featured: 0,
     alias: "/fuse-invoices",
     title: "Printable Invoice Management System",
@@ -3376,7 +3376,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 141,
+    id: 142,
     featured: 0,
     alias: "/ahead-of-the-game",
     title: "Ahead of the Game",
@@ -3398,7 +3398,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 142,
+    id: 143,
     featured: 0,
     alias: "/herding-cats-web",
     title: "Herding Cats Web App",
@@ -3420,7 +3420,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 143,
+    id: 144,
     featured: 1,
     alias: "/herding-cats-app",
     title: "Herding Cats Native App",
@@ -3442,7 +3442,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 144,
+    id: 145,
     featured: 1,
     alias: "/arcturus-web-app",
     title: "Arcturus Web App",
@@ -3464,7 +3464,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 145,
+    id: 146,
     featured: 0,
     alias: "/arcturus-storybook",
     title: "Arcturus Storybook",
@@ -3486,7 +3486,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 146,
+    id: 147,
     featured: 0,
     alias: "/arcturus-user-dashboard",
     title: "Arcturus User Dashboard",
@@ -3508,8 +3508,8 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 147,
-    featured: 0,
+    id: 148,
+    featured: 1,
     alias: "/canteen",
     title: "Canteen",
     description: "A lunch delivery service, based in Barcelona, Spain",
@@ -3530,7 +3530,7 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 148,
+    id: 149,
     featured: 1,
     alias: "/pocket-barcelona-app",
     title: "Pocket Barcelona App",
@@ -3596,7 +3596,7 @@ export const projects: ProjectType[] = [
   },
   {
     id: 151,
-    featured: 0,
+    featured: 1,
     alias: "/hostshare",
     title: "Hostshare Candidate Project",
     description: "I completed a 2-day hackathon project for Hostshare for their candidate frontend developer test. The brief was to build 3 main pages from the Airbnb website (home, search results and property listing pages) but not feature complete",

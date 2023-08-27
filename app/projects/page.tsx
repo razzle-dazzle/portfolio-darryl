@@ -50,13 +50,17 @@ export default async function ProjectsPage() {
             return -1;
           })
           .map((project, pIndex) => {
+
             const thisProjectYear = new Date(
               `${project.publishedAt} 09:00:00`
             ).getFullYear();
             const isOlderThan2021 = thisProjectYear < 2021;
+            const isOlderThan2019 = thisProjectYear < 2019;
 
             let heading = "";
             if (thisProjectYear !== currentYearHeading) {
+              // if is before 2019, go in batches of 5?
+              // @todo
               currentYearHeading = thisProjectYear;
               heading = thisProjectYear.toString();
             }

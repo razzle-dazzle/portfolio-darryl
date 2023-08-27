@@ -1,3 +1,4 @@
+"use client"
 import { NAV_ITEMS, Project } from "app/constants";
 import ProjectBox from "./ProjectBox";
 import Link from "next/link";
@@ -10,9 +11,7 @@ type Props = {
   // projects: Project[];
 };
 type CompositeProjects = FeaturedProject & Pick<ProjectType, 'stack' | 'role'>;
-const featuredProjects: CompositeProjects[] = projects.filter(p => {
-  return [151, 148, 147, 144, 143, 138].indexOf(p.id) > -1 ? p : undefined;
-}).filter(p => p).map(p => {
+const featuredProjects: CompositeProjects[] = projects.filter(p => p.featured).map(p => {
 
   return {
     ...p,
