@@ -18,7 +18,7 @@ function PortfolioLogo() {
         "linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box",
       // border: '2px solid transparent',
     };
-  } else if (theme === "dark") {
+  } else {
     logoStylesThemed = {
       // color: "#A1DEFF",
       // borderColor: "#1795FF",
@@ -26,13 +26,6 @@ function PortfolioLogo() {
       background:
         "linear-gradient(#161616, #161616) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box",
       // border: '2px solid transparent',
-    };
-  } else {
-    // theme will be "system"
-    logoStylesThemed = {
-      // color: "#A1DEFF",
-      background:
-        "linear-gradient(#161616, #161616) padding-box, linear-gradient(to right, #1795FF, #BD7BB8) border-box",
     };
   }
   return (
@@ -43,7 +36,7 @@ function PortfolioLogo() {
           "block px-6 md:px-10 py-1.5 md:py-3 font-medium text-lg md:text-xl rounded-lg border border-transparent border-solid bg-transparent whitespace-nowrap",
           {
             "text-[#161616] border-[#1795FF]": theme === "light",
-            "text-[#A1DEFF] border-[#1795FF]": theme === "dark",
+            "dark:text-[#A1DEFF] border-[#1795FF]": theme !== "light",
           }
         )
       }

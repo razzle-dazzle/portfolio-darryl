@@ -17,7 +17,9 @@ export default function Navbar() {
 
   return (
     <div className='fixed bg-neutral-500 bg-opacity-5 z-[9999] left-0 right-0' style={{
-      backdropFilter: 'blur(10px)',
+      backdropFilter: 'blur(10px) contrast(100%)',
+      backgroundBlendMode: 'overlay',
+      WebkitBackdropFilter: 'blur(10px) contrast(100%)',
     }}>
       <div className="mx-auto py-4 md:py-4 container xl:max-w-7xl">
         <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">

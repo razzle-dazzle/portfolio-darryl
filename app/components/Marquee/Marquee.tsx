@@ -24,7 +24,7 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
               // `text-[${idxColor}]`,
               `text-[#000]`,
               "marquee-text",
-              "px-4 text-4xl md:text-5xl !leading-loose",
+              "px-4 text-2xl md:text-5xl !leading-loose",
               [1, 5].includes(idx)
                 ? "font-bold"
                 : [2, 4, 7].includes(idx)

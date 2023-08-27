@@ -92,19 +92,26 @@ export default async function Projects({ params }) {
 
   return (
     <section className="text-black dark:text-white">
+      
+      {/* Breadcrumbs, Heading, Summary */}
       <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8">
-        <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
-        <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
-          {project.title}
-          <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-4">
-            {getMonthFromDate(project.completed)}{" "}
-            {getYearFromDate(project.completed)}
-          </span>
-        </h1>
-        <p className="tracking-tight text-2xl my-4 md:mb-8">
-          {project.description}
-        </p>
+        <div className='px-6 md:px-0'>
+          <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
+          <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
+            {project.title}&nbsp;
+            <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
+              {getMonthFromDate(project.completed)}{" "}
+              {getYearFromDate(project.completed)}
+            </span>
+          </h1>
+          <p className="tracking-tight text-xl md:text-2xl my-8">
+            {project.description}
+          </p>
+
+        </div>
       </div>
+      
+      {/* Image Hero */}
       <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
         {(projectImages.featured || projectImages.original) && (
           <Image
@@ -121,8 +128,8 @@ export default async function Projects({ params }) {
           />
         )}
       </div>
-      <div className="bg-neutral-50 py-6 md:py-12">
-        <div className="container xl:max-w-7xl m-auto relative pb-8">
+      <div className="bg-neutral-50 dark:bg-transparent py-6 md:py-12">
+        <div className="container xl:max-w-7xl m-auto relative md:pb-8 px-6 md:px-0">
           {/* <script type="application/ld+json" suppressHydrationWarning>
             {JSON.stringify(post.structuredData)}
           </script> */}
