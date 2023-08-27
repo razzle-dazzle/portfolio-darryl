@@ -1,4 +1,3 @@
-"use client"
 import { NAV_ITEMS, Project } from "app/constants";
 import ProjectBox from "./ProjectBox";
 import Link from "next/link";

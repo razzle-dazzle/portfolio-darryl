@@ -11,6 +11,7 @@ import Balancer from "react-wrap-balancer";
 import { NAV_ITEMS } from "app/constants";
 import { FeaturedProject } from ".";
 import StackIcons from "./StackList";
+import Button from "../Button";
 
 interface ProjectBoxProps {
   project: FeaturedProject;
@@ -20,7 +21,6 @@ interface ProjectBoxProps {
 
 const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
   // const [swiper, setSwiper] = React.useState<Swiper>();
-  // console.log(project)
   return (
     <Link
       href={`${NAV_ITEMS.projects.path}${project.alias}`}
@@ -56,10 +56,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
               src={project.image}
               fill={true}
               sizes="(max-width: 768px) 95vw, (max-width: 1200px) 500px, 600px"
-              // width="0"
-              // height="0"
               style={{
-                // objectFit: "contain",
                 objectFit: "cover",
                 borderRadius: 8,
               }}
@@ -83,7 +80,9 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
               {project.role && (
                 <p>
                   <span className="text-blue-600">function </span>
-                  <span className="text-orange-300">{project.role.replaceAll(' ', '')}</span>
+                  <span className="text-orange-300">
+                    {project.role.replaceAll(" ", "")}
+                  </span>
                   <span className="text-orange-300 font-light"> {"( ) {"}</span>
                 </p>
               )}
@@ -96,9 +95,6 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
                 )}
               >
                 {project.description}. {project.description_secondary}
-                {/* <Balancer ratio={0.6} className='line-clamp-5'>
-                  
-                </Balancer> */}
               </p>
               {project.role && (
                 <p>
@@ -112,15 +108,8 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
               // flip={flip}
             ></StackIcons>
 
-            <div
-              className={clsx(
-                "text-orange-300",
-                "flex flex-row gap-4 items-center justify-end my-2 md:my-0",
-                // flip ? "md:justify-end" : "md:justify-start"
-                "md:justify-start" // remove if using flip
-              )}
-            >
-              View project &raquo;
+            <div className='flex justify-end md:justify-start'>
+              <Button icon>View project details</Button>
             </div>
           </div>
         </div>

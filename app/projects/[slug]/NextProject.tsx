@@ -3,14 +3,9 @@
 import React from "react";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
-// import { Button } from "@/components/ui/button";
-// import { specialButtonStyles } from "@/app/utils/layout-styles";
-// import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { ProjectType, projects } from "lib/_all-db";
 import myProjectService from "app/services/projects.service";
-import Link from "next/link";
-
-const specialButtonStyles = "flex flex-row gap-2 md:gap-4 items-center";
+import Button from "app/components/Button";
 
 type Props = {
   currentProject: ProjectType;
@@ -33,7 +28,10 @@ export default function NextProject({ currentProject }: Props) {
   return (
     <div className="flex justify-between my-6 md:my-12">
       <div className="flex basis-1/2 md:basis-2/5 justify-start md:justify-end flex-shrink-0">
-        <button
+        <Button icon iconPlacement="left" onClick={goBack}>
+          Back
+        </Button>
+        {/* <button
           className={clsx(specialButtonStyles, "text-lg font-normal md:px-6")}
           onClick={goBack}
         >
@@ -69,14 +67,16 @@ export default function NextProject({ currentProject }: Props) {
               />
             </g>
           </svg>
-          {/* <ArrowLeftIcon className="mr-2 h-4 w-4 text-[#3454FF]" /> */}
           <span className="text-[#0038FF] dark:text-[#4EDDBE] font-bold text-sm md:text-xl uppercase whitespace-nowrap">
             Back
           </span>
-        </button>
+        </button> */}
       </div>
       <div className="flex basis-1/2 md:basis-2/5 justify-end md:justify-start flex-shrink-0">
-        <button
+        <Button icon onClick={(_e) => goToProject(nextPrev.next)}>
+          Next project
+        </Button>
+        {/* <button
           className={clsx(
             specialButtonStyles,
             "!h-[52px]",
@@ -116,8 +116,7 @@ export default function NextProject({ currentProject }: Props) {
               </g>
             </svg>
           </span>
-          {/* <ArrowRightIcon className="ml-2 h-4 w-4 text-[#3454FF]" /> */}
-        </button>
+        </button> */}
       </div>
     </div>
   );
