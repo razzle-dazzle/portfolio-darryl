@@ -105,14 +105,15 @@ export default async function Projects({ params }) {
           <Image
             src={project.featured && projectImages.featured ? projectImages.featured : projectImages.original}
             fill={true}
-            sizes="(max-width: 768px) 95vw, (max-width: 1200px) 1920px, 1920px"
+            sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
             style={{
               // objectFit: "contain",
               objectFit: "cover",
+              // objectPosition: "top"
             }}
             alt={project.title}
             priority
-            quality={100}
+            quality={96}
           />
         )}
       </div>

@@ -8,17 +8,20 @@ type ButtonProps = {
   iconPlacement?: "left" | "right";
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   hasPaddingX?: boolean;
+  disabled?: boolean;
 }
-export default function Button({children, icon = false, iconPlacement = 'right', hasPaddingX = false, onClick }: PropsWithChildren<ButtonProps>) {
+export default function Button({children, icon = false, iconPlacement = 'right', hasPaddingX = false, onClick, disabled = undefined }: PropsWithChildren<ButtonProps>) {
   return (
     <button
       className={clsx(
         specialButtonStyles,
         "!h-[52px]",
         "text-lg font-normal",
-        hasPaddingX && "md:px-6"
+        hasPaddingX && "md:px-6",
+        disabled && "opacity-25",
       )}
       onClick={(e) => onClick && onClick(e)}
+      disabled={disabled}
     >
       { icon && iconPlacement === 'left' && <LeftArrow />}
       <span className="text-[#0038FF] dark:text-[#4EDDBE] font-bold text-sm md:text-xl uppercase whitespace-nowrap select-none">

@@ -1,3 +1,4 @@
+import { sortProjects } from 'app/utils/utils';
 import { projects } from 'lib/_all-db';
 import { ProjectType } from 'lib/types';
 
@@ -24,11 +25,11 @@ class ProjectService {
     return `/projects${project.alias}`;
   }
 
-  getNextPrevProjects(currentProjectId: ProjectType["id"]): {
+  getNextPrevProjects(currentProjectId: ProjectType["id"], loop: boolean = false): {
     next: ProjectType | null;
     prev: ProjectType | null;
   } {
-    const currentArrayIndex = projects.findIndex(
+    const currentArrayIndex = projects.sort(sortProjects).findIndex(
       (p) => p.id === currentProjectId
     );
     const maxIndex = projects.length - 1;
@@ -39,19 +40,19 @@ class ProjectService {
       };
     }
   
-    let prev: ProjectType;
-    let next: ProjectType;
+    let prev: ProjectType | null;
+    let next: ProjectType | null;
   
     // work out the prev project
     if (currentArrayIndex === 0) {
-      prev = projects[maxIndex];
+      prev = loop ? projects[maxIndex] : null;
     } else {
       prev = projects[currentArrayIndex - 1];
     }
   
     // work out the next project
     if (currentArrayIndex >= maxIndex) {
-      next = projects[0];
+      next = loop ? projects[0] : null;
     } else {
       next = projects[currentArrayIndex + 1];
     }

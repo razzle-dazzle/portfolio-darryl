@@ -3014,7 +3014,7 @@ export const projects: ProjectType[] = [
   {
     id: 132,
     featured: 0,
-    alias: "/pocket-barcelona",
+    alias: "/pocket-barcelona-2019",
     title: "Pocket Barcelona",
     description:
       "A feature-full application and comprehensive Barcelona directory to help people visit Barcelona in style",

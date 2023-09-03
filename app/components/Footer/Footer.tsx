@@ -27,6 +27,7 @@ const Footer = (props: Props) => {
                     title={link.title}
                     target={link.target}
                     className="flex flex-row gap-4 items-center"
+                    key={index}
                   >
                     <div className="flex flex-row items-center justify-start gap-4">
                       <div className='w-8 h-8 md:w-10 md:h-10 rounded-full dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>

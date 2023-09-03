@@ -23,12 +23,12 @@ export default function NextProject({ currentProject }: Props) {
   return (
     <div className="flex justify-between my-6 md:my-12">
       <div className="flex basis-1/2 md:basis-2/5 justify-start md:justify-end flex-shrink-0">
-        <Button icon iconPlacement="left" onClick={(_e) => goToProject(nextPrev.prev)}>
+        <Button icon iconPlacement="left" onClick={(_e) => goToProject(nextPrev.prev)} disabled={!nextPrev.prev}>
           Prev Project
         </Button>
       </div>
       <div className="flex basis-1/2 md:basis-2/5 justify-end md:justify-start flex-shrink-0">
-        <Button icon onClick={(_e) => goToProject(nextPrev.next)}>
+        <Button icon onClick={(_e) => goToProject(nextPrev.next)} disabled={!nextPrev.next}>
           Next project
         </Button>
       </div>

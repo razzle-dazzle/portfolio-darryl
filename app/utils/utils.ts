@@ -31,3 +31,18 @@ export const getProjectTypeFromId = (projectType: ProjectType['type']): ProjectT
   if (type) return type.title;
   return '';
 };
+
+/** Sort projects by completed date */
+export const sortProjects = (a: ProjectType, b: ProjectType) => {
+  const aDate = new Date(a.completed);
+  const bDate = new Date(b.completed);
+
+  if (aDate.getTime() < bDate.getTime()) {
+    return 1;
+  }
+  if (aDate.getTime() === bDate.getTime()) {
+    return 0;
+  }
+
+  return -1;
+};

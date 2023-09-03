@@ -5,6 +5,7 @@ import { projects } from "lib/_all-db";
 import React from "react";
 import clsx from 'clsx';
 import { ProjectType, StackIcon } from 'lib/types';
+import { sortProjects } from 'app/utils/utils';
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -102,17 +103,3 @@ function buildCloud(items: ProjectType[]): Record<StackIcon, number> {
   });
   return counts;
 }
-
-const sortProjects = (a: ProjectType, b: ProjectType) => {
-  const aDate = new Date(a.completed);
-  const bDate = new Date(b.completed);
-
-  if (aDate.getTime() < bDate.getTime()) {
-    return 1;
-  }
-  if (aDate.getTime() === bDate.getTime()) {
-    return 0;
-  }
-
-  return -1;
-};
