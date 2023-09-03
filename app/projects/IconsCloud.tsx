@@ -6,7 +6,7 @@ import {
   IconBlockFull,
   IconBlockOneByThree,
 } from "./IconBlocks";
-import { StackIcon } from "lib/_all-db";
+import { StackIcon } from 'lib/types';
 
 export type IconBit = 1 | 0;
 /**

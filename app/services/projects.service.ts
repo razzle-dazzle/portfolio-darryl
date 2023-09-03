@@ -1,4 +1,5 @@
-import { ProjectType, projects } from 'lib/_all-db';
+import { projects } from 'lib/_all-db';
+import { ProjectType } from 'lib/types';
 
 class ProjectService {
   /**

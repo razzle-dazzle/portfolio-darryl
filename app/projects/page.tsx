@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { allProjects } from "contentlayer/generated";
 import ProjectListItem from "app/components/ProjectListItem/ProjectListItem";
 import IconsCloud from "./IconsCloud";
-import { ProjectType, StackIcon, projects } from "lib/_all-db";
+import { projects } from "lib/_all-db";
 import React from "react";
 import clsx from 'clsx';
+import { ProjectType, StackIcon } from 'lib/types';
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -35,10 +35,10 @@ export default async function ProjectsPage() {
       </h1>
 
       <div className="grid columns-1 md:columns-3 gap-8 md:gap-12">
-        {allProjects
+        {projects
           .sort((a, b) => {
-            const aDate = new Date(a.publishedAt);
-            const bDate = new Date(b.publishedAt);
+            const aDate = new Date(a.completed);
+            const bDate = new Date(b.completed);
 
             if (aDate.getTime() < bDate.getTime()) {
               return 1;
@@ -52,7 +52,7 @@ export default async function ProjectsPage() {
           .map((project, pIndex) => {
 
             const thisProjectYear = new Date(
-              `${project.publishedAt} 09:00:00`
+              `${project.completed} 09:00:00`
             ).getFullYear();
             const isOlderThan2021 = thisProjectYear < 2021;
             const isOlderThan2019 = thisProjectYear < 2019;
@@ -88,7 +88,7 @@ export default async function ProjectsPage() {
                 ) : null}
 
                 <ProjectListItem
-                  key={project.slug}
+                  key={project.alias}
                   project={project}
                   viewType={isOlderThan2021 ? "mini" : "full"}
                 ></ProjectListItem>

@@ -7,18 +7,20 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import { NAV_ITEMS } from "app/constants";
-import { FeaturedProject } from ".";
 import StackIcons from "./StackList";
 import Button from "../Button";
+import { ProjectType } from 'lib/types';
+import { getProjectImages } from 'app/utils/utils';
 
 interface ProjectBoxProps {
-  project: FeaturedProject;
+  project: ProjectType;
   /** If true, the text will be on the left and image right */
   flip?: boolean;
 }
 
 const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
   // const [swiper, setSwiper] = React.useState<Swiper>();
+  const projectImages = getProjectImages(project);
   return (
     <Link
       href={`${NAV_ITEMS.projects.path}${project.alias}`}
@@ -51,7 +53,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
 
           <div className="w-full h-[80vw] md:h-[480px] md:min-w-[120px] lg:h-[480px] relative overflow-hidden">
             <Image
-              src={project.image}
+              src={projectImages.featured || projectImages.original}
               fill={true}
               sizes="(max-width: 768px) 95vw, (max-width: 1200px) 500px, 600px"
               style={{

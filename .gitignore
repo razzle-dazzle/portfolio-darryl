@@ -36,11 +36,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# contentlayer
-.contentlayer
-
-# built content
-# content/*
-
 # ignoring built JS
 lib/_all-db.js

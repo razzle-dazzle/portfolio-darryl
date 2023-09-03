@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
-import Link from "next/link";
 import { getThemedIcon } from "app/utils/utils";
 
 const IconImage = ({

@@ -1,10 +1,10 @@
-import { allProjects } from 'contentlayer/generated';
+import { projects } from 'lib/_all-db';
 import { NAV_ITEMS } from './constants';
 
 export default async function sitemap() {
-  const blogs = allProjects.map((post) => ({
-    url: `https://darryloctober.co.uk/blog/${post.slug}`,
-    lastModified: post.publishedAt,
+  const projectsList = projects.map((post) => ({
+    url: `https://darryloctober.co.uk/projects${post.alias}`,
+    lastModified: post.completed,
   }));
 
   const websitePages = Object.entries(NAV_ITEMS)
@@ -16,5 +16,5 @@ export default async function sitemap() {
     })
   );
 
-  return [...routes, ...blogs];
+  return [...routes, ...projectsList];
 }

@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-// import { Mdx } from "app/components/mdx";
-// import { allProjects } from "contentlayer/generated";
-import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 import Image from "next/image";
 import {
   getProjectImages,
-  getProjectImages2,
   getProjectTypeFromId,
 } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
@@ -76,7 +72,6 @@ function getMonthFromDate(dateStr: string) {
 }
 
 export default async function Projects({ params }) {
-  // const post = allProjects.find((post) => post.slug === params.slug);
   const project = projects.find(
     (post) => post.alias.substring(1) === params.slug
   );
@@ -84,11 +79,7 @@ export default async function Projects({ params }) {
     notFound();
   }
 
-  // const [allViews, tweets] = await Promise.all([
-  //   getViewsCount(),
-  //   getTweets(post.tweetIds),
-  // ]);
-  const projectImages = getProjectImages2(project);
+  const projectImages = getProjectImages(project);
 
   return (
     <section className="text-black dark:text-white">
@@ -137,8 +128,8 @@ export default async function Projects({ params }) {
           {/* '@context': 'https://schema.org',
           '@type': 'ProjectPosting',
           headline: doc.title,
-          datePublished: doc.publishedAt,
-          dateModified: doc.publishedAt,
+          datePublished: doc.completed,
+          dateModified: doc.completed,
           description: doc.summary,
           thumbnail: doc.thumbnail,
           largeImage: doc.largeImage,
@@ -154,30 +145,15 @@ export default async function Projects({ params }) {
           }, */}
 
           <div className="">
-            {/* <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm">
-              <div className="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md px-2 py-1 tracking-tighter">
-                {post.publishedAt}
-              </div>
-              <div className="h-[0.2em] bg-neutral-50 dark:bg-neutral-800 mx-2"></div>
-            </div> */}
-            {/* <ViewCounter allViews={allViews} slug={post.slug} trackView /> */}
-            {/* <Mdx code={post.body.code} tweets={tweets} /> */}
-
-            {/* This is the old code using ./content folder */}
-            {/* <Mdx code={post.body.code} tweets={{}} /> */}
-
-            {/* Project details */}
-
             <div className="grid gap-4 sm:gap-8">
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3 font-bold text-xl">
                   <TitleComponent>Project Details</TitleComponent>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
-                  {/* <p className="my-4 mt-0">{project.description}</p> */}
-                  {(project.description_secondary || project.description) && (
+                  {(project.description_secondary) && (
                     <p className="my-4 mt-0">
-                      {project.description_secondary || project.description}
+                      {project.description_secondary}
                     </p>
                   )}
                 </div>

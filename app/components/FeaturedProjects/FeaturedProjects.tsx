@@ -1,13 +1,10 @@
 import ProjectBox from "./ProjectBox";
-// import { allProjects } from "contentlayer/generated";
-import { FeaturedProject } from ".";
-import { ProjectType, projects } from 'lib/_all-db';
+import { projects } from 'lib/_all-db';
 import SeeAllProjects from './SeeAllProjects';
+import { ProjectType } from 'lib/types';
 
 type Props = {};
-type CompositeProjects = FeaturedProject & Pick<ProjectType, 'stack' | 'role'>;
-const featuredProjects: CompositeProjects[] = projects.filter(p => p.featured).map(p => {
-
+const featuredProjects: ProjectType[] = projects.filter(p => p.featured).map(p => {
   return {
     ...p,
     image: `/projects/${p.images}/${p.images}_featured.jpg`,

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { StackIcon } from "lib/_all-db";
 import { IconBit } from "./IconsCloud";
 import IconImage from "./IconImage";
+import { StackIcon } from 'lib/types';
 
 const MyGridThreeByThree = [...Array.from(Array(9))];
 const MyGridTwoByThree = [...Array.from(Array(6))];

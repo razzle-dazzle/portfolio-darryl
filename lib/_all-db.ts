@@ -1,135 +1,4 @@
-export type StackIcon =
-  | "typescript"
-  | "javascript"
-  | "html5"
-  | "css3"
-  | "sass"
-  | "twig"
-  | "angular"
-  | "react"
-  | "redux"
-  | "nextjs"
-  | "vue"
-  | "svelte"
-  | "storybook"
-  | "jest"
-  | "gulp"
-  | "cypress"
-  | "aws"
-  | "dynamodb"
-  | "nativebase"
-  | "tailwind"
-  | "mui"
-  | "uikit"
-  | "expo"
-  | "firebase"
-  | "graphql"
-  | "apollo"
-  | "php"
-  | "shopify"
-  | "lerna"
-  | "rollup"
-  | "webpack"
-  | "github-packages"
-  | "turbopack"
-  | "yarn"
-  | "npm"
-  | "mysql"
-  | "bootstrap"
-  | "csharp"
-  | "dotnet"
-  | "ruby"
-  | "rails"
-  | "xcode"
-  | "android"
-  | "ios"
-  | "apple"
-  | "auth0"
-  | "stripe"
-  | "pimcore"
-  | "symfony"
-  | "nodejs"
-  | "express"
-  | "apache"
-  | "python"
-  | "fuse"
-  | "pwa"
-  | "wordpress"
-  | "jquery"
-  | "mongodb"
-  | "fauna"
-  | "amplify"
-  | "netlify"
-  | "heroku"
-  | "redis"
-  | "mailchimp"
-  | "sendgrid"
-  | "figma"
-  | "trello"
-  | "framer"
-  | "java"
-  | "grails"
-  | "vercel"
-  | "cloudflare"
-  ;
-
-export interface ProjectType {
-  id: number;
-  /** Used to make some projects feature on the home page */
-  featured: number;
-  /** The relative URL for the project, like "/my-project" */
-  alias: string;
-  /** The main title */
-  title: string;
-  description: string;
-  /** Can be empty */
-  description_secondary: string;
-  /** Type, taken from project types list */
-  type: number;
-  /** The external URL for the website, full URI. Could also be empty string */
-  url: string;
-  /** Required, like 2020-12-01. This determines the order in the /projects page */
-  completed: string;
-  /** Can be empty string */
-  company: string;
-  /** Not used on the FE */
-  framework: string;
-  /** Not used on the FE */
-  client: string;
-  /** Not used on the FE */
-  client_website: string;
-  /** Not used on the FE */
-  zoom_slider_mode: string;
-  /** Not used on the FE */
-  active: number;
-  created: string;
-  modified: string;
-  /** The images directory. This needs to match the folder name in projects/file.jpg */
-  images: string;
-  /** List of tech icons */
-  stack: StackIcon[];
-  role: string;
-}
-export interface ProjectTypes {
-  id: number;
-  title: string;
-}
-interface ProjectPeople {
-  id: string;
-  projects_id: string;
-  people_id: string;
-  role: string;
-}
-
-/** Available image paths for project images */
-export interface ProjectImageCollection {
-  original: string;
-  small: string;
-  medium: string;
-  large: string;
-  /** Note: This file might not exist */
-  featured: string;
-}
+import { ProjectPeople, ProjectType, ProjectTypes } from './types';
 
 // project icons needed to be used:
 // svelte, netlify, vue, fauna
@@ -225,7 +94,6 @@ export const projects: ProjectType[] = [
     stack: ["apache", "php", "mysql", "html5", "javascript", "jquery", "css3"],
     role: "Web Developer",
   },
-
   {
     id: 5,
     featured: 0,
@@ -3152,7 +3020,7 @@ export const projects: ProjectType[] = [
       "A feature-full application and comprehensive Barcelona directory to help people visit Barcelona in style",
     description_secondary: "Full Stack Developer",
     type: 16,
-    url: "http://pocketbarcelona.com",
+    url: "https://pocketbarcelona.com",
     completed: "2019-06-03",
     company: "N/A",
     framework: "fuseangularmaterial",
@@ -3188,52 +3056,54 @@ export const projects: ProjectType[] = [
     images: "serviceclubuiux",
     stack: ["figma", "trello"],
     role: "UX/UI Designer",
-  },
-  {
-    id: 134,
-    featured: 0,
-    alias: "/service-club-devops",
-    title: "Service Club DevOps",
-    description:
-      "Maintenance and optimisation of core hosting and database services for Service Club",
-    description_secondary: "Dev Ops",
-    type: 19,
-    url: "",
-    completed: "2020-01-01",
-    company: "Service Club",
-    framework: "mern",
-    client: "Service Club",
-    client_website: "https://app.serviceclub.com/",
-    zoom_slider_mode: "macbook",
-    active: 1,
-    created: "2020-05-22 15:04:24",
-    modified: "2020-05-24 12:27:11",
-    images: "serviceclubdevops",
-    stack: ["aws", "mongodb", "redis", "mailchimp", "trello"],
-    role: "DevOps Developer",
-  },
-  {
-    id: 135,
-    featured: 0,
-    alias: "/product-owner-service-club",
-    title: "Product Owner, Service Club",
-    description:
-      "Product Owner for the Service Club (service industry) app, Barcelona, Spain",
-    description_secondary: "Product Owner",
-    type: 16,
-    url: "https://app.serviceclub.com/",
-    completed: "2020-04-01",
-    company: "Service Club",
-    framework: "react",
-    client: "Service Club",
-    client_website: "https://serviceclub.com/",
-    zoom_slider_mode: "macbook",
-    active: 1,
-    created: "2020-05-22 15:08:07",
-    modified: "2020-05-24 12:11:49",
-    images: "serviceclubpo",
-    stack: ["aws", "react", "mongodb", "redis", "typescript", "nodejs", "html5", "bootstrap", "trello"],
-    role: "Product Owner",
+    projects: [
+      {
+        id: 134,
+        featured: 0,
+        alias: "/service-club-devops",
+        title: "Service Club DevOps",
+        description:
+          "Maintenance and optimisation of core hosting and database services for Service Club",
+        description_secondary: "Dev Ops",
+        type: 19,
+        url: "",
+        completed: "2020-01-01",
+        company: "Service Club",
+        framework: "mern",
+        client: "Service Club",
+        client_website: "https://app.serviceclub.com/",
+        zoom_slider_mode: "macbook",
+        active: 1,
+        created: "2020-05-22 15:04:24",
+        modified: "2020-05-24 12:27:11",
+        images: "serviceclubdevops",
+        stack: ["aws", "mongodb", "redis", "mailchimp", "trello"],
+        role: "DevOps Developer",
+      },
+      {
+        id: 135,
+        featured: 0,
+        alias: "/product-owner-service-club",
+        title: "Product Owner, Service Club",
+        description:
+          "Product Owner for the Service Club (service industry) app, Barcelona, Spain",
+        description_secondary: "Product Owner",
+        type: 16,
+        url: "https://app.serviceclub.com/",
+        completed: "2020-04-01",
+        company: "Service Club",
+        framework: "react",
+        client: "Service Club",
+        client_website: "https://serviceclub.com/",
+        zoom_slider_mode: "macbook",
+        active: 1,
+        created: "2020-05-22 15:08:07",
+        modified: "2020-05-24 12:11:49",
+        images: "serviceclubpo",
+        stack: ["aws", "react", "mongodb", "redis", "typescript", "nodejs", "html5", "bootstrap", "trello"],
+        role: "Product Owner",
+      },
+    ],
   },
   {
     id: 136,
@@ -3398,28 +3268,6 @@ export const projects: ProjectType[] = [
     role: "Lead Developer",
   },
   {
-    id: 143,
-    featured: 0,
-    alias: "/herding-cats-web",
-    title: "Herding Cats Web App",
-    description: "Herding Cats is an app to help people organise social events with relative ease",
-    description_secondary: "The app began as a responsive web app, which we later ported over to React Native. The app allows users to create events and invite people, while managing attendance all in one place.",
-    type: 16,
-    url: "https://herdcats.io/",
-    completed: "2022-05-06",
-    company: "Orbit29",
-    framework: "react",
-    client: "",
-    client_website: "",
-    zoom_slider_mode: "imac",
-    active: 1,
-    created: "2020-09-22 09:00:00",
-    modified: "2020-09-22 09:00:00",
-    images: "herdcats-web",
-    stack: ["aws", "dynamodb", "nodejs", "express", "sendgrid", "react", "typescript", "cloudflare"],
-    role: "Lead Developer",
-  },
-  {
     id: 144,
     featured: 1,
     alias: "/herding-cats-app",
@@ -3440,6 +3288,30 @@ export const projects: ProjectType[] = [
     images: "herdcats-app",
     stack: ["ios", "apple", "android", "aws", "dynamodb", "firebase", "nodejs", "express", "sendgrid", "expo", "react", "typescript"],
     role: "Lead Developer",
+    projects: [
+      {
+        id: 143,
+        featured: 0,
+        alias: "/herding-cats-web",
+        title: "Herding Cats Web App",
+        description: "Herding Cats is an app to help people organise social events with relative ease",
+        description_secondary: "The app began as a responsive web app, which we later ported over to React Native. The app allows users to create events and invite people, while managing attendance all in one place.",
+        type: 16,
+        url: "https://herdcats.io/",
+        completed: "2022-05-06",
+        company: "Orbit29",
+        framework: "react",
+        client: "",
+        client_website: "",
+        zoom_slider_mode: "imac",
+        active: 1,
+        created: "2020-09-22 09:00:00",
+        modified: "2020-09-22 09:00:00",
+        images: "herdcats-web",
+        stack: ["aws", "dynamodb", "nodejs", "express", "sendgrid", "react", "typescript", "cloudflare"],
+        role: "Lead Developer",
+      },
+    ]
   },
   {
     id: 145,
@@ -3462,50 +3334,52 @@ export const projects: ProjectType[] = [
     images: "arc-app",
     stack: ["aws", "python", "graphql", "angular", "typescript", "mui", "tailwind"],
     role: "Lead Developer",
-  },
-  {
-    id: 146,
-    featured: 0,
-    alias: "/arcturus-storybook",
-    title: "Arcturus Storybook",
-    description: "A Storybook UI Library of the Arcturus web components, built in React and MUI",
-    description_secondary: "The Paris climate accord aims to keep the temperature increase on the planet to 1.5 ̊C by 2100. Arcturus helps business manage and understand their carbon emmissions, amongst other things. My role was to update the app with new features and bug fixes.",
-    type: 22,
-    url: "https://www.arcturus.io/",
-    completed: "2023-03-13",
-    company: "Arcturus",
-    framework: "angular",
-    client: "",
-    client_website: "",
-    zoom_slider_mode: "imac",
-    active: 1,
-    created: "2020-09-22 09:00:00",
-    modified: "2020-09-22 09:00:00",
-    images: "arc-storybook",
-    stack: ["react", "mui", "rollup", "typescript", "github-packages"],
-    role: "Lead Developer",
-  },
-  {
-    id: 147,
-    featured: 0,
-    alias: "/arcturus-user-dashboard",
-    title: "Arcturus User Dashboard",
-    description: "A Dashboard managements system for administering platform users, roles and permissions",
-    description_secondary: "",
-    type: 16,
-    url: "",
-    completed: "2023-04-11",
-    company: "Arcturus",
-    framework: "nextjs",
-    client: "",
-    client_website: "",
-    zoom_slider_mode: "imac",
-    active: 1,
-    created: "2020-09-22 09:00:00",
-    modified: "2020-09-22 09:00:00",
-    images: "arc-dashboard",
-    stack: ["nextjs", "react", "mui", "typescript", "graphql", "apollo", "aws", "amplify", "figma"],
-    role: "Lead Developer",
+    projects: [
+      {
+        id: 146,
+        featured: 0,
+        alias: "/arcturus-storybook",
+        title: "Arcturus Storybook",
+        description: "A Storybook UI Library of the Arcturus web components, built in React and MUI",
+        description_secondary: "The Paris climate accord aims to keep the temperature increase on the planet to 1.5 ̊C by 2100. Arcturus helps business manage and understand their carbon emmissions, amongst other things. My role was to update the app with new features and bug fixes.",
+        type: 22,
+        url: "https://www.arcturus.io/",
+        completed: "2023-03-13",
+        company: "Arcturus",
+        framework: "angular",
+        client: "",
+        client_website: "",
+        zoom_slider_mode: "imac",
+        active: 1,
+        created: "2020-09-22 09:00:00",
+        modified: "2020-09-22 09:00:00",
+        images: "arc-storybook",
+        stack: ["react", "mui", "rollup", "typescript", "github-packages"],
+        role: "Lead Developer",
+      },
+      {
+        id: 147,
+        featured: 0,
+        alias: "/arcturus-user-dashboard",
+        title: "Arcturus User Dashboard",
+        description: "A Dashboard managements system for administering platform users, roles and permissions",
+        description_secondary: "",
+        type: 16,
+        url: "",
+        completed: "2023-04-11",
+        company: "Arcturus",
+        framework: "nextjs",
+        client: "",
+        client_website: "",
+        zoom_slider_mode: "imac",
+        active: 1,
+        created: "2020-09-22 09:00:00",
+        modified: "2020-09-22 09:00:00",
+        images: "arc-dashboard",
+        stack: ["nextjs", "react", "mui", "typescript", "graphql", "apollo", "aws", "amplify", "figma"],
+        role: "Lead Developer",
+      },
+    ]
   },
   {
     id: 148,
@@ -3550,49 +3424,51 @@ export const projects: ProjectType[] = [
     images: "pocketbcn-app",
     stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
     role: "Lead Developer",
-  },
-  // {
-  //   id: 149,
-  //   featured: 0,
-  //   alias: "/pocket-barcelona-website",
-  //   title: "Pocket Barcelona Community Website",
-  //   description: "A website for English-speaking expats living in Barcelona",
-  //   description_secondary: "",
-  //   type: 9,
-  //   url: "https://pocketbarcelona.com",
-  //   completed: "2023-05-26",
-  //   company: "",
-  //   framework: "nextjs",
-  //   client: "",
-  //   client_website: "",
-  //   zoom_slider_mode: "imac",
-  //   active: 1,
-  //   created: "2020-09-22 09:00:00",
-  //   modified: "2020-09-22 09:00:00",
-  //   images: "pocketbcn-web",
-  //   stack: ["nextjs", "react", "typescript"],
-  // },
-  {
-    id: 150,
-    featured: 0,
-    alias: "/pocket-barcelona-api",
-    title: "Pocket Barcelona API",
-    description: "The API for Pocket Barcelona",
-    description_secondary: "",
-    type: 20,
-    url: "https://api.pocketbarcelona.com",
-    completed: "2023-04-13",
-    company: "",
-    framework: "nodejs",
-    client: "",
-    client_website: "",
-    zoom_slider_mode: "imac",
-    active: 1,
-    created: "2020-09-22 09:00:00",
-    modified: "2020-09-22 09:00:00",
-    images: "pocketbcn-api",
-    stack: ["aws", "nodejs", "express", "dynamodb", "typescript"],
-    role: "Lead Developer",
+    projects: [
+      // {
+      //   id: 149,
+      //   featured: 0,
+      //   alias: "/pocket-barcelona-website",
+      //   title: "Pocket Barcelona Community Website",
+      //   description: "A website for English-speaking expats living in Barcelona",
+      //   description_secondary: "",
+      //   type: 9,
+      //   url: "https://pocketbarcelona.com",
+      //   completed: "2023-05-26",
+      //   company: "",
+      //   framework: "nextjs",
+      //   client: "",
+      //   client_website: "",
+      //   zoom_slider_mode: "imac",
+      //   active: 1,
+      //   created: "2020-09-22 09:00:00",
+      //   modified: "2020-09-22 09:00:00",
+      //   images: "pocketbcn-web",
+      //   stack: ["nextjs", "react", "typescript"],
+      // },
+      {
+        id: 150,
+        featured: 0,
+        alias: "/pocket-barcelona-api",
+        title: "Pocket Barcelona API",
+        description: "The API for Pocket Barcelona",
+        description_secondary: "",
+        type: 20,
+        url: "https://api.pocketbarcelona.com",
+        completed: "2023-04-13",
+        company: "",
+        framework: "nodejs",
+        client: "",
+        client_website: "",
+        zoom_slider_mode: "imac",
+        active: 1,
+        created: "2020-09-22 09:00:00",
+        modified: "2020-09-22 09:00:00",
+        images: "pocketbcn-api",
+        stack: ["aws", "nodejs", "express", "dynamodb", "typescript"],
+        role: "Lead Developer",
+      },
+    ],
   },
   {
     id: 151,

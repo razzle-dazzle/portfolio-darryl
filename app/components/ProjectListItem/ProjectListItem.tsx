@@ -2,12 +2,12 @@ import { NAV_ITEMS } from "app/constants";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { Project } from "contentlayer/generated";
 import Balancer from "react-wrap-balancer";
 import { getProjectImages } from "app/utils/utils";
+import { ProjectType } from 'lib/types';
 
 type ProjectListItemProps = {
-  project: Project;
+  project: ProjectType;
   /** If the project will be full width or 3-per-column */
   viewType: "full" | "mini";
 };
@@ -19,10 +19,6 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
     return (
       <div
         className="md:col-span-3"
-        // style={{
-        //   boxShadow: "inset 0 0 0 1px rgb(255 255 255/.1)",
-        //   borderRadius: "12px",
-        // }}
       >
         <ProjectLink project={project}>
           <article className="w-full py-2 md:py-4">
@@ -30,47 +26,36 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
               <h2 className="text-xl md:text-3xl mb-1.5 text-black dark:text-white font-bold">
                 {project.title}
                 <span className="text-sm md:text-lg inline-block pl-4 text-gray-400">
-                  {project.publishedAt.substring(0, 4)}
+                  {project.completed.substring(0, 4)}
                 </span>
               </h2>
             </div>
             <div className="flex flex-col space-y-1">
               <div className="w-full flex flex-row gap-4 md:gap-12 xl:gap-20 items-start">
-                {project.thumbnail && (
-                  <div className="relative w-[40vw] h-[30vw] md:w-[470px] md:h-[354px] flex flex-grow-0 flex-shrink-0">
-                    <Image
-                      alt={project.title}
-                      // height={80}
-                      // width={80}
-                      fill={true}
-                      sizes="(max-width: 500px) 100vw, 120px"
-                      // src={project.featured.toLowerCase() === 'no' ? projectImages.large : projectImages.featured}
-                      src={projectImages.featured}
-                      className="rounded md:rounded-xl"
-                      quality={96}
-                      style={{
-                        width: "100%",
-                        // height: 'auto',
-                        objectFit: "cover",
-                        // borderRadius: "4px",
-                      }}
-                    />
-                  </div>
-                )}
+                <div className="relative w-[40vw] h-[30vw] md:w-[470px] md:h-[354px] flex flex-grow-0 flex-shrink-0">
+                  <Image
+                    alt={project.title}
+                    // height={80}
+                    // width={80}
+                    fill={true}
+                    sizes="(max-width: 500px) 100vw, 120px"
+                    src={projectImages.featured || projectImages.original}
+                    className="rounded md:rounded-xl"
+                    quality={96}
+                    style={{
+                      width: "100%",
+                      // height: 'auto',
+                      objectFit: "cover",
+                      // borderRadius: "4px",
+                    }}
+                  />
+                </div>
                 <div className="flex flex-col flex-grow-1">
                   <p className="md:text-2xl font-bold mb-2 md:mb-4 text-black dark:text-white">Website</p>
                   <p className="text-sm md:text-[22px] text-neutral-800 dark:text-white leading-relaxed line-clamp-4 sm:line-clamp-5 md:line-clamp-none">
-                    {project.summary}
+                    {project.description}
                   </p>
-                  {/* <p className="text-xs italic font-bold text-neutral-800 dark:text-neutral-200">
-                  Completed: {project.publishedAt}
-                </p> */}
                 </div>
-                {/* <ViewCounter
-                    allViews={allViews}
-                    slug={post.slug}
-                    trackView={false}
-                  /> */}
               </div>
             </div>
           </article>
@@ -110,7 +95,7 @@ const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
                   {project.title}
                 </h2>
                 <p className="text-[13px] md:text-md text-neutral-800 dark:text-neutral-200 mb-0 leading-relaxed">
-                  <Balancer ratio={0.35}>{project.summary}</Balancer>
+                  <Balancer ratio={0.35}>{project.description}</Balancer>
                 </p>
               </div>
             </div>
@@ -127,9 +112,9 @@ const ProjectLink = ({
   project,
   children,
 }: React.PropsWithChildren<{
-  project: Project;
+  project: ProjectType;
 }>) => {
   return (
-    <Link href={`${NAV_ITEMS.projects.path}/${project.slug}`}>{children}</Link>
+    <Link href={`${NAV_ITEMS.projects.path}${project.alias}`}>{children}</Link>
   );
 };
