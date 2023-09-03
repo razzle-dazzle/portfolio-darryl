@@ -6,8 +6,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-import Balancer from "react-wrap-balancer";
-// import { Project } from 'contentlayer/generated';
 import { NAV_ITEMS } from "app/constants";
 import { FeaturedProject } from ".";
 import StackIcons from "./StackList";
