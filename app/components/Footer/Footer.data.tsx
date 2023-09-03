@@ -9,8 +9,8 @@ export const footerLinks: {
   icon: React.ReactElement;
 }[] = [
   {
-    title: "yo@darryloctober.co.uk",
-    link: "mailto:yo@darryloctober.co.uk",
+    title: "daz@darryloctober.co.uk",
+    link: "mailto:daz@darryloctober.co.uk",
     target: "_blank",
     icon: (
       <svg
