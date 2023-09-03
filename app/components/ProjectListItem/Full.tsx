@@ -54,7 +54,7 @@ export default function Full({ project }: FullProps) {
                   <React.Fragment>
                     {project.projects.map((subProject, subKey) => {
                       return (
-                        <div className="mt-8">
+                        <div className="mt-8 hidden md:block">
                           <ProjectTypeBlock>
                             {/* {getProjectTypeFromId(subProject.type)} */}
                             {subProject.title}

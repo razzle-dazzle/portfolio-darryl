@@ -21,7 +21,7 @@ export default function Navbar() {
       backgroundBlendMode: 'overlay',
       WebkitBackdropFilter: 'blur(10px) contrast(100%)',
     }}>
-      <div className="mx-auto py-4 md:py-4 container xl:max-w-7xl">
+      <div className="mx-auto py-4 md:py-4 container xl:max-w-7xl px-6">
         <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
           <div>
             <Logo></Logo>

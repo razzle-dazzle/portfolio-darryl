@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
   let currentYearHeading = -1;
 
   return (
-    <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12 px-6 md:px-0">
+    <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12 px-6">
       <div className="my-16">
         <IconsCloud data={cloudData}></IconsCloud>
       </div>
