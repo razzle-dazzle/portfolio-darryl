@@ -24,7 +24,7 @@ const FeaturedProjects = ({}: Props) => {
   return (
     <div className="max-w-7xl m-auto py-4 md:py-12 relative overflow-hidden">
       {/* The big shadow text */}
-      <p className="hidden xl:block text-2xl xl:text-[110px] relative text-neutral-200 dark:text-neutral-700 font-500 z-10 leading-normal opacity-40 overflow-hidden whitespace-nowrap mb-24 lg:left-[24px]">
+      <p className="hidden xl:block text-2xl xl:text-[110px] relative text-neutral-200 dark:text-neutral-700 font-medium z-10 !leading-normal opacity-40 overflow-hidden whitespace-nowrap mb-24 lg:left-[24px]">
         Featured Projects
       </p>
       {/* The smaller text */}

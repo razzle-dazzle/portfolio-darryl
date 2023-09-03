@@ -30,8 +30,8 @@ export default async function ProjectsPage() {
       <div className="my-16">
         <IconsCloud data={cloudData}></IconsCloud>
       </div>
-      <h1 className="font-700 text-3xl mb-12 text-black dark:text-white">
-        Project Showcase
+      <h1 className="text-3xl font-bold mb-12 text-black dark:text-white">
+        Project Showcase: Professional Projects and Fun Little Experiments
       </h1>
 
       <div className="grid columns-1 md:columns-3 gap-8 md:gap-12">
@@ -70,7 +70,7 @@ export default async function ProjectsPage() {
                 {heading ? (
                   <h2 className={
                     clsx(
-                      "text-4xl md:text-8xl font-500 text-black dark:text-white md:col-span-3",
+                      "text-4xl md:text-8xl font-medium text-black dark:text-white md:col-span-3",
                       
                       // handle a separator like a HR - by adding margin/padding
                       "my-3 mt-0 md:my-6 py-3 md:py-6 md:pt-16 md:mb-0",
