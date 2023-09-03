@@ -1,16 +1,10 @@
-import { NAV_ITEMS, Project } from "app/constants";
 import ProjectBox from "./ProjectBox";
-import Link from "next/link";
 // import { allProjects } from "contentlayer/generated";
 import { FeaturedProject } from ".";
 import { ProjectType, projects } from 'lib/_all-db';
-import Button from '../Button';
 import SeeAllProjects from './SeeAllProjects';
 
-
-type Props = {
-  // projects: Project[];
-};
+type Props = {};
 type CompositeProjects = FeaturedProject & Pick<ProjectType, 'stack' | 'role'>;
 const featuredProjects: CompositeProjects[] = projects.filter(p => p.featured).map(p => {
 

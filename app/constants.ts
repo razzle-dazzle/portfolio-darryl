@@ -1,8 +1,8 @@
 export const NAV_ITEMS = {
-  home: {
-    name: "home",
-    path: "/",
-  },
+  // home: {
+  //   name: "home",
+  //   path: "/",
+  // },
   projects: {
     name: "projects",
     path: "/projects",
