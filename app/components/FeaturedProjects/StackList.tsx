@@ -1,8 +1,8 @@
 "use client";
 import clsx from "clsx";
-import { StackIcon } from "lib/_all-db";
 import { useTheme } from "@wits/next-themes";
 import { getThemedIcon } from "app/utils/utils";
+import { StackIcon } from 'lib/types';
 interface Props {
   icons: StackIcon[];
   /** If true, icons will be aligned right */

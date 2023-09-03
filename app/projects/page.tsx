@@ -36,21 +36,8 @@ export default async function ProjectsPage() {
 
       <div className="grid columns-1 md:columns-3 gap-8 md:gap-12">
         {projects
-          .sort((a, b) => {
-            const aDate = new Date(a.completed);
-            const bDate = new Date(b.completed);
-
-            if (aDate.getTime() < bDate.getTime()) {
-              return 1;
-            }
-            if (aDate.getTime() === bDate.getTime()) {
-              return 0;
-            }
-
-            return -1;
-          })
+          .sort(sortProjects)
           .map((project, pIndex) => {
-
             const thisProjectYear = new Date(
               `${project.completed} 09:00:00`
             ).getFullYear();
@@ -71,7 +58,6 @@ export default async function ProjectsPage() {
                   <h2 className={
                     clsx(
                       "text-4xl md:text-8xl font-medium text-black dark:text-white md:col-span-3",
-                      
                       // handle a separator like a HR - by adding margin/padding
                       "my-3 mt-0 md:my-6 py-3 md:py-6 md:pt-16 md:mb-0",
                       // pIndex === 0 ? '' : 'border-t-gray-200 border-t', // HR hidden for now
@@ -116,3 +102,17 @@ function buildCloud(items: ProjectType[]): Record<StackIcon, number> {
   });
   return counts;
 }
+
+const sortProjects = (a: ProjectType, b: ProjectType) => {
+  const aDate = new Date(a.completed);
+  const bDate = new Date(b.completed);
+
+  if (aDate.getTime() < bDate.getTime()) {
+    return 1;
+  }
+  if (aDate.getTime() === bDate.getTime()) {
+    return 0;
+  }
+
+  return -1;
+};
