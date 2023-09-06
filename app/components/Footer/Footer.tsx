@@ -30,8 +30,8 @@ const Footer = (props: Props) => {
                     key={index}
                   >
                     <div className="flex flex-row items-center justify-start gap-4">
-                      <div className='w-8 h-8 md:w-10 md:h-10 rounded-full dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>
-                      <div className="text-xl md:text-2xl">{link.title}</div>
+                      <div className='w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 rounded-full dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>
+                      <div className="text-base sm:text-xl md:text-2xl">{link.title}</div>
                     </div>
                   </a>
                 );
