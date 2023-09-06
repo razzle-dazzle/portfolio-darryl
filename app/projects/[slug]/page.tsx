@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  getProjectImages,
-  getProjectTypeFromId,
-} from "app/utils/utils";
+import { getMonthFromDate, getProjectImages, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import { PropsWithChildren } from "react";
-import { projects } from "lib/_all-db";
 import NextProject from "./NextProject";
+import myProjectService from 'app/services/projects.service';
 
 // export async function generateMetadata({
 //   params,
@@ -56,25 +53,9 @@ import NextProject from "./NextProject";
 //   };
 // }
 
-function getYearFromDate(dateStr: string) {
-  if (!dateStr) {
-    return "";
-  }
-  const date = new Date(`${dateStr}T00:00:00.000Z`);
-  return date.getFullYear();
-}
-function getMonthFromDate(dateStr: string) {
-  if (!dateStr) {
-    return "";
-  }
-  const date = new Date(`${dateStr}T00:00:00.000Z`);
-  return date.toLocaleString("default", { month: "long" });
-}
 
 export default async function Projects({ params }) {
-  const project = projects.find(
-    (post) => post.alias.substring(1) === params.slug
-  );
+  const project = await myProjectService.getProjectById(params.slug)
   if (!project) {
     notFound();
   }
@@ -83,7 +64,6 @@ export default async function Projects({ params }) {
 
   return (
     <section className="text-black dark:text-white">
-      
       {/* Breadcrumbs, Heading, Summary */}
       <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8 px-6">
         <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
@@ -98,12 +78,16 @@ export default async function Projects({ params }) {
           {project.description}
         </p>
       </div>
-      
+
       {/* Image Hero */}
       <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
         {(projectImages.featured || projectImages.original) && (
           <Image
-            src={project.featured && projectImages.featured ? projectImages.featured : projectImages.original}
+            src={
+              project.featured && projectImages.featured
+                ? projectImages.featured
+                : projectImages.original
+            }
             fill={true}
             sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
             style={{
@@ -149,10 +133,8 @@ export default async function Projects({ params }) {
                   <TitleComponent>Project Details</TitleComponent>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
-                  {(project.description_secondary) && (
-                    <p className="my-4 mt-0">
-                      {project.description_secondary}
-                    </p>
+                  {project.description_secondary && (
+                    <p className="my-4 mt-0">{project.description_secondary}</p>
                   )}
                 </div>
               </div>

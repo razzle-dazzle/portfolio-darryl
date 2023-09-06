@@ -56,3 +56,23 @@ export const sortProjects = (a: ProjectType, b: ProjectType) => {
 
   return -1;
 };
+
+/** Take a date like "2023-03-21" and return the full year like 2023 */
+export function getYearFromDate(dateStr: string): string {
+  if (!dateStr) {
+    return "";
+  }
+  const date = new Date(`${dateStr}T00:00:00.000Z`);
+  return '' + date.getFullYear();
+}
+/** Take a date like "2023-03-21" and return the month like "September" */
+export function getMonthFromDate(
+  dateStr: string,
+  monthFormat: "long" | "short" = "long"
+) {
+  if (!dateStr) {
+    return "";
+  }
+  const date = new Date(`${dateStr}T00:00:00.000Z`);
+  return date.toLocaleString("default", { month: "long" });
+}
