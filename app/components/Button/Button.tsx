@@ -1,7 +1,8 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 import React, { PropsWithChildren } from "react";
 
-const specialButtonStyles = "flex flex-row gap-2 md:gap-4 items-center" as const;
+const specialButtonStyles =
+  "flex flex-row gap-2 md:gap-4 items-center" as const;
 
 type ButtonProps = {
   icon?: boolean;
@@ -9,25 +10,34 @@ type ButtonProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   hasPaddingX?: boolean;
   disabled?: boolean;
-}
-export default function Button({children, icon = false, iconPlacement = 'right', hasPaddingX = false, onClick, disabled = undefined }: PropsWithChildren<ButtonProps>) {
+  size?: "default" | "small" | "large";
+};
+export default function Button({
+  children,
+  icon = false,
+  iconPlacement = "right",
+  hasPaddingX = false,
+  onClick,
+  disabled = undefined,
+  size = 'default',
+}: PropsWithChildren<ButtonProps>) {
   return (
     <button
       className={clsx(
         specialButtonStyles,
-        "!h-[52px]",
-        "text-lg font-normal",
+        "font-normal",
         hasPaddingX && "md:px-6",
         disabled && "opacity-25",
+        size === 'large' ? 'text-2xl !h-[64px]' : size === 'small' ? "!h-[40px] text-md" : "!h-[52px] text-lg",
       )}
       onClick={(e) => onClick && onClick(e)}
       disabled={disabled}
     >
-      { icon && iconPlacement === 'left' && <LeftArrow />}
-      <span className="text-[#0038FF] dark:text-[#4EDDBE] font-bold text-sm md:text-xl uppercase whitespace-nowrap select-none">
+      {icon && iconPlacement === "left" && <LeftArrow />}
+      <span className="text-[#0038FF] dark:text-[#4EDDBE] font-bold text-inherit uppercase whitespace-nowrap select-none">
         {children}
       </span>
-      { icon && iconPlacement === 'right' && <RightArrow />}
+      {icon && iconPlacement === "right" && <RightArrow />}
     </button>
   );
 }
