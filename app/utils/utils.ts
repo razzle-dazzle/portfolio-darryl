@@ -10,6 +10,16 @@ export function getThemedIcon(
   const iconSrc = `/icons/${themeMode}/${filename}.${themeMode}mode.svg`;
   return iconSrc;
 }
+
+/** Return the path to the themed SVG website logo */
+export function getThemedWebsiteLogo(
+  theme: string | undefined
+): string {
+  const themeMode = theme === "dark" || theme === "light" ? theme : "dark";
+  const iconSrc = `/logo/logo-${themeMode}.svg`;
+  return iconSrc;
+}
+
 /** 
  * Get a structured project images object, based on the image folder
  */

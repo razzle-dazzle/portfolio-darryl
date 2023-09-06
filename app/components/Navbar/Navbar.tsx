@@ -6,7 +6,8 @@ import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { NAV_ITEMS } from "app/constants";
 import ThemeSwitch from "../ThemeSwitch";
-import Logo from "./Logo";
+// import PortfolioLogo from "./PortfolioLogo";
+import IconLogo from "./IconLogo";
 
 export default function Navbar() {
   // support for active page - @todo - can be improved!
@@ -22,11 +23,8 @@ export default function Navbar() {
       WebkitBackdropFilter: 'blur(10px) contrast(100%)',
     }}>
       <div className="mx-auto py-4 md:py-4 container xl:max-w-7xl px-6">
-        <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
-          <div>
-            <Logo></Logo>
-          </div>
-
+        <div className="w-full flex flex-row gap-2 md:gap-0 justify-between items-center">
+          <IconLogo></IconLogo>
           <div className="flex flex-row justify-center md:justify-end items-center max-w-full">
             <LayoutGroup>
               <nav
