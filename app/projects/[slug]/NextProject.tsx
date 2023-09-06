@@ -4,7 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
 import Button from "app/components/Button";
-import { ProjectType } from 'lib/types';
+import { ProjectType } from "lib/types";
 
 type Props = {
   currentProject: ProjectType;
@@ -23,13 +23,22 @@ export default function NextProject({ currentProject }: Props) {
   return (
     <div className="flex justify-between my-6 md:my-12">
       <div className="flex basis-1/2 md:basis-2/5 justify-start md:justify-end flex-shrink-0">
-        <Button icon iconPlacement="left" onClick={(_e) => goToProject(nextPrev.prev)} disabled={!nextPrev.prev}>
-          Prev Project
+        <Button
+          icon
+          iconPlacement="left"
+          onClick={(_e) => goToProject(nextPrev.prev)}
+          disabled={!nextPrev.prev}
+        >
+          Prev <span className="hidden md:block">Project</span>
         </Button>
       </div>
       <div className="flex basis-1/2 md:basis-2/5 justify-end md:justify-start flex-shrink-0">
-        <Button icon onClick={(_e) => goToProject(nextPrev.next)} disabled={!nextPrev.next}>
-          Next project
+        <Button
+          icon
+          onClick={(_e) => goToProject(nextPrev.next)}
+          disabled={!nextPrev.next}
+        >
+          Next <span className="hidden md:block">project</span>
         </Button>
       </div>
     </div>
