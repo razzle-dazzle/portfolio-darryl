@@ -21,6 +21,8 @@ export const marqueeTexts: string[][] = [
     "Pimcore",
     "Web Components",
     "Vite",
+    "Adobe Target",
+    "A/B Testing",
   ],
   [
     "Typescript",
@@ -55,6 +57,7 @@ export const marqueeTexts: string[][] = [
     "Azure",
     "Yarn",
     "NPM",
+    "Preact",
     "DevOps",
     "MySQL",
     "MariaDB",
@@ -114,6 +117,7 @@ export const marqueeTexts: string[][] = [
     "Confluence",
     "Github",
     "Bitbucket",
+    "Jenkins",
   ],
 ];
 

@@ -25,12 +25,12 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
               `text-[#000]`,
               "marquee-text",
               "px-4 text-2xl md:text-5xl !leading-loose",
-              [1, 5].includes(idx)
+              [1, 5, 11, 15].includes(idx)
                 ? "font-bold"
-                : [2, 4, 7].includes(idx)
+                : [2, 4, 7, 10, 17].includes(idx)
                 ? "font-thin"
                 : "font-normal",
-              [3, 9].includes(idx) ? "italic" : ""
+              [3, 6, 13, 18].includes(idx) ? "italic" : ""
             )}
             // style={{ color: theme === 'light' ? '#000' : idxColor }}
             style={{ color: idxColor }}
