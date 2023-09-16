@@ -93,6 +93,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  metadataBase: new URL('https://www.darryloctober.co.uk'),
   twitter: {
     title: "Darryl October",
     card: "summary_large_image",
