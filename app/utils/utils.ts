@@ -36,6 +36,15 @@ export function getProjectImages(project: ProjectType): ProjectImageCollection {
   return images;
 }
 
+/**
+ * Get the best poster image for the project
+ * If the project is featured, get the featured image if there is one, else the original image
+ */
+export function getProjectPosterImage(project: ProjectType): string {
+  const images = getProjectImages(project);
+  return images.featured && project.featured ? images.featured : images.original;
+}
+
 export const getProjectTypeFromId = (projectType: ProjectType['type']): ProjectTypes['title'] => {
   const type = projectTypes.find(p => p.id === projectType);
   if (type) return type.title;
