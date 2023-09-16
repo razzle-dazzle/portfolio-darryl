@@ -81,8 +81,9 @@ export interface ProjectType {
   alias: string;
   /** The main title */
   title: string;
+  /** A summary description */
   description: string;
-  /** Can be empty */
+  /** More info about the project - some are empty! */
   description_secondary: string;
   /** Type, taken from project types list */
   type: number;

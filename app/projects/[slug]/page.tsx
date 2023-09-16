@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getMonthFromDate, getProjectImages, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
+import { getMonthFromDate, getProjectImages, getProjectPosterImage, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
@@ -11,48 +11,48 @@ import NextProject from "./NextProject";
 import myProjectService from 'app/services/projects.service';
 import { ProjectType } from 'lib/types';
 
-// export async function generateMetadata({
-//   params,
-// }): Promise<Metadata | undefined> {
-//   const project = projects.find((post) => post.alias.substring(1) === params.slug);
-//   if (!project) {
-//     return;
-//   }
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
+  const allProjects = await myProjectService.getProjects();
+  const project =  allProjects.find((post) => post.alias.substring(1) === params.slug);
+  if (!project) {
+    return;
+  }
+  // const image = getProjectPosterImage(project);
 
-//   const {
-//     title,
-//     completed,
-//     description,
-//     image,
-//     alias,
-//   } = project;
-//   const ogImage = image
-//     ? `https://darryloctober.co.uk${image}`
-//     : `https://darryloctober.co.uk/og?title=${title}`;
+  const {
+    title,
+    completed,
+    description,
+    alias,
+  } = project;
+  const ogImage = `https://www.darryloctober.co.uk/og?title=${encodeURIComponent(title)}`;
+  // const ogImage = `https://www.darryloctober.co.uk/projects/`;
 
-//   return {
-//     title,
-//     description,
-//     openGraph: {
-//       title,
-//       description,
-//       type: "article",
-//       publishedTime: completed,
-//       url: `https://darryloctober.co.uk/projects${alias}`,
-//       images: [
-//         {
-//           url: ogImage,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title,
-//       description,
-//       images: [ogImage],
-//     },
-//   };
-// }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime: `${completed}T09:00:00+01:00`,
+      url: `https://www.darryloctober.co.uk/projects${alias}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 
 /** Build static params based on all the items in the DB */

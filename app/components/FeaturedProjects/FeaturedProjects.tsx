@@ -5,6 +5,7 @@ import { ProjectType } from 'lib/types';
 
 type Props = {};
 const featuredProjects: ProjectType[] = projects.filter(p => p.featured).map(p => {
+  // @todo - replace this with getProjectImages()
   return {
     ...p,
     image: `/projects/${p.images}/${p.images}_featured.jpg`,
