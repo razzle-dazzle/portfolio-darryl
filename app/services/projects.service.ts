@@ -1,6 +1,6 @@
-import { sortProjects } from 'app/utils/utils';
-import { projects } from 'lib/_all-db';
-import { ProjectType } from 'lib/types';
+import { sortProjects } from "app/utils/utils";
+import { projects } from "lib/_all-db";
+import { ProjectType, StackIcon } from "lib/types";
 
 class ProjectService {
   /**
@@ -15,7 +15,9 @@ class ProjectService {
    * @returns A specific item by ID
    */
   async getProjectById(slug: string): Promise<ProjectType | null> {
-    const project = projects.find((project) => project.alias.substring(1) === slug);
+    const project = projects.find(
+      (project) => project.alias.substring(1) === slug
+    );
     if (!project) return null;
     return project;
   }
@@ -25,13 +27,16 @@ class ProjectService {
     return `/projects${project.alias}`;
   }
 
-  getNextPrevProjects(currentProjectId: ProjectType["id"], loop: boolean = false): {
+  getNextPrevProjects(
+    currentProjectId: ProjectType["id"],
+    loop: boolean = false
+  ): {
     next: ProjectType | null;
     prev: ProjectType | null;
   } {
-    const currentArrayIndex = projects.sort(sortProjects).findIndex(
-      (p) => p.id === currentProjectId
-    );
+    const currentArrayIndex = projects
+      .sort(sortProjects)
+      .findIndex((p) => p.id === currentProjectId);
     const maxIndex = projects.length - 1;
     if (currentArrayIndex === -1) {
       return {
@@ -39,30 +44,44 @@ class ProjectService {
         prev: null,
       };
     }
-  
+
     let prev: ProjectType | null;
     let next: ProjectType | null;
-  
+
     // work out the prev project
     if (currentArrayIndex === 0) {
       prev = loop ? projects[maxIndex] : null;
     } else {
       prev = projects[currentArrayIndex - 1];
     }
-  
+
     // work out the next project
     if (currentArrayIndex >= maxIndex) {
       next = loop ? projects[0] : null;
     } else {
       next = projects[currentArrayIndex + 1];
     }
-  
+
     return {
       next,
       prev,
     };
   }
-  
+
+  buildCloud(): Record<StackIcon, number> {
+    const counts: Record<StackIcon, number> = {} as Record<StackIcon, number>;
+    projects.forEach((p) => {
+      p.stack &&
+        p.stack.forEach((_icon: StackIcon) => {
+          if (counts[_icon]) {
+            counts[_icon]++;
+          } else {
+            counts[_icon] = 1;
+          }
+        });
+    });
+    return counts;
+  }
 }
 
 const myProjectService = new ProjectService();

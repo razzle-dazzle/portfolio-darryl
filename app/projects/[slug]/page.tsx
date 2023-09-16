@@ -9,6 +9,7 @@ import StackIcons from "./../../components/FeaturedProjects/StackList";
 import { PropsWithChildren } from "react";
 import NextProject from "./NextProject";
 import myProjectService from 'app/services/projects.service';
+import { ProjectType } from 'lib/types';
 
 // export async function generateMetadata({
 //   params,
@@ -54,8 +55,24 @@ import myProjectService from 'app/services/projects.service';
 // }
 
 
+/** Build static params based on all the items in the DB */
+export async function generateStaticParams() {
+  const projects = await myProjectService.getProjects();
+  
+  return (projects ?? []).map((project) => ({
+    slug: project.alias.substring(1),
+  }));
+}
+
+async function getData(slug: string): Promise<ProjectType | null> {
+  const data = await myProjectService.getProjectById(slug);
+  return data;
+}
+
+
 export default async function Projects({ params }) {
-  const project = await myProjectService.getProjectById(params.slug)
+  const { slug } = params;
+  const project = await getData(slug);
   if (!project) {
     notFound();
   }

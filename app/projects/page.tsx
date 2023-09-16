@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import ProjectListItem from "app/components/ProjectListItem/ProjectListItem";
 import IconsCloud from "./IconsCloud";
-import { projects } from "lib/_all-db";
+// import { projects } from "lib/_all-db";
 import React from "react";
 import clsx from 'clsx';
 import { ProjectType, StackIcon } from 'lib/types';
 import { sortProjects } from 'app/utils/utils';
+import myProjectService from 'app/services/projects.service';
+
+async function getData(): Promise<ProjectType[]> {
+  const data = await myProjectService.getProjects();
+  return data;
+}
+
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -13,7 +20,7 @@ export const metadata: Metadata = {
     "Checkout the projects that I have worked on over the years as a developer.",
 };
 
-const cloudData = buildCloud(projects);
+
 
 /**
  * Project page will show everything as after 2022
@@ -21,6 +28,8 @@ const cloudData = buildCloud(projects);
  * Anything before 2020 will have a small thumbnail and be in 3 columns
  */
 export default async function ProjectsPage() {
+  const projects = await getData();
+  const cloudData = myProjectService.buildCloud();
   // const allViews = await getViewsCount();
   const thisYear = new Date().getFullYear();
   // keep track of when heading needs adding to the html
@@ -87,19 +96,4 @@ export default async function ProjectsPage() {
       <div className="my-12"></div>
     </section>
   );
-}
-
-function buildCloud(items: ProjectType[]): Record<StackIcon, number> {
-  const counts: Record<StackIcon, number> = {} as Record<StackIcon, number>;
-  items.forEach((p) => {
-    p.stack &&
-      p.stack.forEach((_icon: StackIcon) => {
-        if (counts[_icon]) {
-          counts[_icon]++;
-        } else {
-          counts[_icon] = 1;
-        }
-      });
-  });
-  return counts;
 }
