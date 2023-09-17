@@ -8,7 +8,7 @@ import {
 } from "./IconBlocks";
 import { StackIcon } from "lib/types";
 import { useRouter } from "next/navigation";
-import myProjectService from 'app/services/projects.service';
+import myProjectService from "app/services/projects.service";
 
 export type IconBit = 1 | 0;
 /**
@@ -169,24 +169,17 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
           })}
         </div>
       </div>
-      {
+
+      {filterBy ? (
         <p className="text-black dark:text-white my-8 text-center text-3xl font-300">
-          {
-            <React.Fragment>
-              {filterBy ? (
-                <span className="flex flex-row gap-2">
-                  <span className="inline-block">Filtering by:</span>
-                  <span className="inline-block pl-1 text-red-700 font-bold">
-                    {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}
-                  </span>
-                </span>
-              ) : (
-                null
-              )}
-            </React.Fragment>
-          }
+          <span className="flex flex-row gap-2">
+            <span className="inline-block">Filtering by:</span>
+            <span className="inline-block pl-1 text-red-700 font-bold">
+              {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}
+            </span>
+          </span>
         </p>
-      }
+      ) : null}
     </React.Fragment>
   );
 };
