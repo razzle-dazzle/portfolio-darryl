@@ -53,15 +53,15 @@ const patterns: Record<string, PatternBitTypes> = {
   p5: [1, 1, 1, 1, 1, 1, 1, 1, 1],
   p6: [1, 0, 0, 1, 1, 0, 1, 1, 1],
   // row 2
-  p7: [0, 0, 0, 1, 0, 0],
-  p8: [1, 1, 1, 1, 1, 1, 1, 1, 1],
+  p7: [0, 0, 0, 0, 0, 0],
+  p8: [1, 1, 1, 0, 1, 1, 0, 0, 1],
   p9: [1],
   p10: [1],
   p11: [1],
-  p12: [1, 1, 1, 1, 1, 1, 1, 1, 1],
-  p13: [1, 1, 0],
+  p12: [1, 1, 0, 1, 1, 0, 1, 0, 0],
+  p13: [0, 0, 0],
   // row 3
-  p14: [0, 0, 1, 0, 0, 1, 0, 0, 0],
+  p14: [0, 0, 0, 0, 0, 0, 0, 0, 0],
   p15: [1, 1, 1, 1, 1, 1, 0, 1, 1],
   p16: [1],
   p17: [1],
@@ -160,65 +160,6 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
               </React.Fragment>
             );
           })}
-
-          {/* ROW 1 */}
-          {/* <IconBlockThreeByThree
-            pattern={patterns.p1 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockThreeByThree
-            pattern={patterns.p2 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockFull pattern={patterns.p3 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockFull pattern={patterns.p4 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockThreeByThree
-            pattern={patterns.p5 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockThreeByThree
-            pattern={patterns.p6 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree> */}
-
-          {/* ROW 2 */}
-          {/* <IconBlockTwoByThree
-            pattern={patterns.p7 as Tile2}
-            icons={[]}
-          ></IconBlockTwoByThree>
-          <IconBlockThreeByThree
-            pattern={patterns.p8 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockFull pattern={patterns.p9 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockFull pattern={patterns.p10 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockFull pattern={patterns.p11 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockThreeByThree
-            pattern={patterns.p12 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockOneByThree pattern={patterns.p13 as Tile3} icons={[]}></IconBlockOneByThree> */}
-
-          {/* ROW 3 */}
-          {/* <IconBlockThreeByThree
-            pattern={patterns.p14 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockThreeByThree
-            pattern={patterns.p15 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockFull pattern={patterns.p16 as Tile4} icons={[]}></IconBlockFull>
-          <IconBlockFull pattern={patterns.p17 as Tile4} icons={[]}></IconBlockFull>
-
-          <IconBlockThreeByThree
-            pattern={patterns.p18 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree>
-          <IconBlockThreeByThree
-            pattern={patterns.p19 as Tile1}
-            icons={[]}
-          ></IconBlockThreeByThree> */}
         </div>
       </div>
       {

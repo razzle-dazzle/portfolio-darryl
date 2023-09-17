@@ -16,6 +16,7 @@ const IconImage = ({
   const { theme, setTheme } = useTheme();
   const widthHeight = tileSize === "s" ? 62 : tileSize === "m" ? 104 : 210;
   const iconSrc = getThemedIcon(theme, filename);
+
   const handleClickEvent = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
@@ -25,9 +26,14 @@ const IconImage = ({
     }
   };
 
+  const handleMouseOver = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // console.log(e)
+  }
+
   return (
     <a
       onClick={(e) => handleClickEvent(e)}
+      onMouseOver={(e) => handleMouseOver(e)}
       style={{
         cursor: "pointer",
       }}
