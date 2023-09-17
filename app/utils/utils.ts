@@ -85,3 +85,10 @@ export function getMonthFromDate(
   const date = new Date(`${dateStr}T00:00:00.000Z`);
   return date.toLocaleString("default", { month: "long" });
 }
+
+/** Return a date like "June 2023" */
+export function getProjectDateFriendly(project: ProjectType): string {
+  const month = getMonthFromDate(project.completed);
+  const year = getYearFromDate(project.completed);
+  return `${month} ${year}`;
+}

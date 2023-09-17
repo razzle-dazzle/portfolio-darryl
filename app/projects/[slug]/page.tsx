@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getMonthFromDate, getProjectImages, getProjectPosterImage, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
+import { getMonthFromDate, getProjectDateFriendly, getProjectImages, getProjectPosterImage, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
@@ -87,8 +87,7 @@ export default async function Projects({ params }) {
         <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
           {project.title}&nbsp;
           <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
-            {getMonthFromDate(project.completed)}{" "}
-            {getYearFromDate(project.completed)}
+            {getProjectDateFriendly(project)}
           </span>
         </h1>
         <p className="tracking-tight text-xl md:text-2xl my-8">
@@ -187,7 +186,7 @@ export default async function Projects({ params }) {
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3">
                   <TitleComponent>Completed</TitleComponent>
-                  <ProjectChip>{project.completed}</ProjectChip>
+                  <ProjectChip>{getProjectDateFriendly(project)}</ProjectChip>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl"></div>
               </div>
