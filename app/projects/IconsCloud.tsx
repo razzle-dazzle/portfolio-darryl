@@ -6,7 +6,9 @@ import {
   IconBlockFull,
   IconBlockOneByThree,
 } from "./IconBlocks";
-import { StackIcon } from 'lib/types';
+import { StackIcon } from "lib/types";
+import { useRouter } from "next/navigation";
+import myProjectService from 'app/services/projects.service';
 
 export type IconBit = 1 | 0;
 /**
@@ -28,6 +30,7 @@ export type IconBit = 1 | 0;
  */
 type IconsCloudProps = {
   data: Record<StackIcon, number>;
+  filterByTag?: (tag: StackIcon) => void;
 };
 type Tile1 = [
   IconBit,
@@ -73,11 +76,15 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const iconsList = Array.from(Object.entries(data));
   const patternsList = Object.values(patterns);
-  // console.log(Object.keys(data).sort());
-  // console.log(Object.keys(data));
+  const router = useRouter();
 
   const handleClick = (icon: StackIcon) => {
     setFilterBy(icon);
+    if (icon) {
+      router.push(`/projects?filter=${icon}`);
+    } else {
+      router.push(`/projects`);
+    }
   };
 
   const getBlock = (
@@ -163,18 +170,18 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         </div>
       </div>
       {
-        <p className="text-black dark:text-white my-8 text-center text-sm font-300">
+        <p className="text-black dark:text-white my-8 text-center text-3xl font-300">
           {
             <React.Fragment>
               {filterBy ? (
-                <React.Fragment>
+                <span className="flex flex-row gap-2">
                   <span className="inline-block">Filtering by:</span>
                   <span className="inline-block pl-1 text-red-700 font-bold">
-                    {filterBy}
+                    {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}
                   </span>
-                </React.Fragment>
+                </span>
               ) : (
-                <span> </span>
+                null
               )}
             </React.Fragment>
           }

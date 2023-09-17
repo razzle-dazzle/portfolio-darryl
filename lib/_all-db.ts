@@ -1,7 +1,8 @@
 import { ProjectPeople, ProjectType, ProjectTypes } from './types';
 
 // project icons needed to be used:
-// svelte, netlify, vue, fauna
+// svelte, netlify, vue, faunadb
+// @todo - add Marta portfolio website
 
 export const projects: ProjectType[] = [
   {

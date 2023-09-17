@@ -92,3 +92,8 @@ export function getProjectDateFriendly(project: ProjectType): string {
   const year = getYearFromDate(project.completed);
   return `${month} ${year}`;
 }
+
+export function capitalizeFirstLetter(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+  // str.substring(0, 1).toUpperCase() + str.substring(1);
+}

@@ -57,7 +57,7 @@ export type StackIcon =
   | "wordpress"
   | "jquery"
   | "mongodb"
-  | "fauna"
+  | "faunadb"
   | "amplify"
   | "netlify"
   | "heroku"

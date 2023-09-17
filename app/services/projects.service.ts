@@ -1,4 +1,4 @@
-import { sortProjects } from "app/utils/utils";
+import { capitalizeFirstLetter, sortProjects } from "app/utils/utils";
 import { projects } from "lib/_all-db";
 import { ProjectType, StackIcon } from "lib/types";
 
@@ -8,6 +8,18 @@ class ProjectService {
    */
   async getProjects(): Promise<ProjectType[]> {
     return [...projects];
+  }
+
+  /**
+   * @returns A list of items by tag
+   */
+  async getProjectsByTag(tag: string | null): Promise<ProjectType[]> {
+    if (!tag) {
+      return await this.getProjects();
+    }
+    return projects.filter((p) => {
+      return p.stack.includes(tag as StackIcon);
+    });
   }
 
   /**
@@ -81,6 +93,36 @@ class ProjectService {
         });
     });
     return counts;
+  }
+
+  getSpecialStackLabel(stack: StackIcon): string {
+
+    const specialLabels: Partial<Record<StackIcon, string>> = {
+      html5: 'HTML5',
+      css3: 'CSS3',
+      sass: 'SASS',
+      nextjs: 'NextJS',
+      aws: 'AWS',
+      dynamodb: 'DynamoDB',
+      nativebase: 'Native Base',
+      mui: 'MUI',
+      uikit: 'UIKit',
+      graphql: 'GraphQL',
+      php: 'PHP',
+      "github-packages": 'GitHub Packages',
+      npm: 'NPM',
+      mysql: 'MySQL',
+      csharp: 'C#',
+      dotnet: 'DOTNET',
+      ios: 'iOS',
+      nodejs: 'NodeJS',
+      pwa: 'PWA',
+      jquery: 'jQuery',
+      mongodb: 'MongoDB',
+      sendgrid: 'SendGrid',
+    };
+    return specialLabels[stack] || capitalizeFirstLetter(stack);
+
   }
 }
 
