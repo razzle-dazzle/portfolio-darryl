@@ -75,8 +75,10 @@ export type StackIcon =
 
 export interface ProjectType {
   id: number;
-  /** Used to make some projects feature on the home page */
+  /** Used to display the featured version of the image instead of the original */
   featured: number;
+  /** Used to show the project on the homepage */
+  homepage?: boolean;
   /** The relative URL for the project, like "/my-project" */
   alias: string;
   /** The main title */

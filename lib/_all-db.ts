@@ -3155,7 +3155,7 @@ export const projects: ProjectType[] = [
   },
   {
     id: 138,
-    featured: 1,
+    featured: 0,
     alias: "/wolf",
     title: "WOLF Digital",
     description:
@@ -3271,6 +3271,7 @@ export const projects: ProjectType[] = [
   {
     id: 144,
     featured: 1,
+    homepage: true,
     alias: "/herding-cats",
     title: "Herding Cats",
     description: "Herding Cats is an app to help people organise social events with relative ease",
@@ -3317,6 +3318,7 @@ export const projects: ProjectType[] = [
   {
     id: 145,
     featured: 1,
+    homepage: true,
     alias: "/arcturus",
     title: "Arcturus",
     description: "Arcturus web app helps businesses turn climate risk into competitive advantage",
@@ -3385,6 +3387,7 @@ export const projects: ProjectType[] = [
   {
     id: 148,
     featured: 1,
+    homepage: true,
     alias: "/canteen",
     title: "Canteen",
     description: "A lunch delivery service, based in Barcelona, Spain",
@@ -3431,6 +3434,7 @@ export const projects: ProjectType[] = [
   {
     id: 149,
     featured: 1,
+    homepage: true,
     alias: "/pocket-barcelona",
     title: "Pocket Barcelona",
     description: "An app for tourists and expats visiting and living in Barcelona",
@@ -3499,6 +3503,7 @@ export const projects: ProjectType[] = [
   {
     id: 151,
     featured: 1,
+    homepage: true,
     alias: "/hostshare",
     title: "Hostshare Candidate Project",
     description: "I completed a 2-day hackathon project for Hostshare for their candidate frontend developer test. The brief was to build 3 main pages from the Airbnb website (home, search results and property listing pages) but not feature complete",

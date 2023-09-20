@@ -8,6 +8,7 @@ import { NAV_ITEMS } from "app/constants";
 import ThemeSwitch from "../ThemeSwitch";
 // import PortfolioLogo from "./PortfolioLogo";
 import IconLogo from "./IconLogo";
+import { capitalizeFirstLetter } from 'app/utils/utils';
 
 export default function Navbar() {
   // support for active page - @todo - can be improved!
@@ -56,7 +57,7 @@ export default function Navbar() {
                             }
                           )}
                         >
-                          {name.toUpperCase()}
+                          {capitalizeFirstLetter(name)}
                           {path === pathname ? (
                             <motion.div
                               className="absolute inset-0 bg-[#0038FF] dark:bg-[#F8CB01] rounded-md z-[-1]"

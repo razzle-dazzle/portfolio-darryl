@@ -4,7 +4,7 @@ import SeeAllProjects from './SeeAllProjects';
 import { ProjectType } from 'lib/types';
 
 type Props = {};
-const featuredProjects: ProjectType[] = projects.filter(p => p.featured).map(p => {
+const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p => {
   // @todo - replace this with getProjectImages()
   return {
     ...p,
