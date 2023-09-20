@@ -29,8 +29,6 @@ export default function Full({ project }: FullProps) {
               <div className="relative w-[40vw] h-[30vw] md:w-[470px] md:h-[354px] flex flex-grow-0 flex-shrink-0">
                 <Image
                   alt={project.title}
-                  // height={80}
-                  // width={80}
                   fill={true}
                   sizes="(max-width: 500px) 100vw, 120px"
                   src={projectImages.featured || projectImages.original}
@@ -38,9 +36,7 @@ export default function Full({ project }: FullProps) {
                   quality={96}
                   style={{
                     width: "100%",
-                    // height: 'auto',
                     objectFit: "cover",
-                    // borderRadius: "4px",
                   }}
                 />
               </div>

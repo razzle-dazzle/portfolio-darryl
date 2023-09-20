@@ -9,8 +9,8 @@ import clsx from "clsx";
 import { NAV_ITEMS } from "app/constants";
 import StackIcons from "./StackList";
 import Button from "../Button";
-import { ProjectType } from 'lib/types';
-import { getProjectImages } from 'app/utils/utils';
+import { ProjectType } from "lib/types";
+import { getProjectImages } from "app/utils/utils";
 
 interface ProjectBoxProps {
   project: ProjectType;
@@ -51,26 +51,26 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
           ))}
         </SwiperSlider> */}
 
-          <div className="w-full h-[80vw] md:h-[480px] md:min-w-[120px] lg:h-[480px] relative overflow-hidden">
+          <div className="w-full h-[80vw] md:h-[480px] md:min-w-[120px] lg:h-[420px] relative overflow-hidden">
             <Image
               src={projectImages.featured || projectImages.original}
               fill={true}
               sizes="(max-width: 768px) 95vw, (max-width: 1200px) 500px, 600px"
               style={{
                 objectFit: "cover",
-                borderRadius: 8,
+                borderRadius: 16,
               }}
               alt={project.title}
               quality={90}
             />
           </div>
         </div>
-        <div className="project-desc flex col-span-12 md:col-span-6 text-neutral-800 dark:text-neutral-200 justify-self-stretch">
+        <div className="project-desc flex col-span-12 md:col-span-6 justify-self-stretch">
           <div className={clsx("flex flex-col justify-around w-full")}>
             <div>
               <h2
                 className={clsx(
-                  "font-bold text-xl md:text-3xl mb-4 text-neutral-800 dark:text-neutral-200",
+                  "font-bold text-xl md:text-[40px] tracking-tight mb-4 md:mb-8 text-black dark:text-white",
                   // flip ? "md:text-right" : "md:text-left"
                   "md:text-left" // remove if using flip
                 )}
@@ -78,29 +78,34 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
                 {project.title}
               </h2>
               {project.role && (
-                <p>
-                  <span className="text-blue-600">function </span>
-                  <span className="text-orange-300">
-                    {project.role.replaceAll(" ", "")}
+                <p className="mb-6 md:mb-12">
+                  <span className="text-blue-600">
+                    var <span className='text-black dark:text-yellow-300'>role</span>{" "}
+                    <span className="text-black dark:text-white">=</span>{" "}
                   </span>
-                  <span className="text-orange-300 font-light"> {"( ) {"}</span>
+                  <span className="text-black dark:text-orange-300">
+                    &quot;{project.role}&quot;{";"}
+                  </span>
+                  {/* <span className="text-orange-300 font-light"> {"( ) {"}</span> */}
                 </p>
               )}
               <p
                 className={clsx(
-                  "my-1 px-8 text-sm md:text-lg text-left font-thin",
+                  "my-1 px-0 text-sm md:text-base text-left",
                   // flip ? "md:text-right" : "md:text-left"
                   "md:text-left", // remove if using flip
-                  "line-clamp-5"
+                  "line-clamp-5",
+                  "leading-normal",
+                  "text-black dark:text-white"
                 )}
               >
                 {project.description}. {project.description_secondary}
               </p>
-              {project.role && (
+              {/* {project.role && (
                 <p>
                   <span className="text-orange-300 font-light"> {"}"}</span>
                 </p>
-              )}
+              )} */}
             </div>
 
             <StackIcons
@@ -108,7 +113,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
               // flip={flip}
             ></StackIcons>
 
-            <div className='flex justify-end md:justify-start'>
+            <div className="flex justify-end md:justify-start">
               <Button icon>View project details</Button>
             </div>
           </div>
