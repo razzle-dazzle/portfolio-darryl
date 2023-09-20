@@ -2,6 +2,7 @@ import { ProjectType } from "lib/types";
 import React from "react";
 import { ProjectLink } from "./ProjectListItem";
 import Balancer from "react-wrap-balancer";
+import clsx from 'clsx';
 
 type MiniProps = {
   project: ProjectType;
@@ -35,7 +36,13 @@ export default function Mini({ project }: MiniProps) {
             )} */}
             <div className="flex flex-col items-start">
               {/* border-b border-neutral-800 dark:border-[#F8CB01] */}
-              <h2 className="font-bold text-black dark:text-white md:text-lg mb-2 md:mb-4 pb-1 line-clamp-1 md:line-clamp-1">
+              <h2 className={
+                clsx(
+                  "md:text-lg mb-2 md:mb-4 pb-1 line-clamp-1 md:line-clamp-1 font-bold",
+                  "p-1 rounded-lg",
+                  "text-black dark:text-white hover:bg-[#0038FF] dark:hover:bg-[#F8CB01] hover:text-white dark:hover:text-black",
+                )
+              }>
                 {project.title}
               </h2>
               <p className="text-[13px] md:text-md xl:text-[22px] text-neutral-800 dark:text-neutral-200 mb-0 !leading-normal">

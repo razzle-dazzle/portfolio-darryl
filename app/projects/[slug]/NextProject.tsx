@@ -29,7 +29,7 @@ export default function NextProject({ currentProject }: Props) {
           onClick={(_e) => goToProject(nextPrev.prev)}
           disabled={!nextPrev.prev}
         >
-          Prev <span className="hidden md:block">Project</span>
+          Prev
         </Button>
       </div>
       <div className="flex basis-1/2 md:basis-2/5 justify-end md:justify-start flex-shrink-0">
@@ -38,7 +38,7 @@ export default function NextProject({ currentProject }: Props) {
           onClick={(_e) => goToProject(nextPrev.next)}
           disabled={!nextPrev.next}
         >
-          Next <span className="hidden md:block">project</span>
+          Next
         </Button>
       </div>
     </div>

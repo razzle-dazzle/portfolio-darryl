@@ -17,7 +17,7 @@ export default function Full({ project }: FullProps) {
       <ProjectLink project={project}>
         <article className="w-full py-2 md:py-4">
           <div className="mb-4">
-            <h2 className="text-xl md:text-3xl mb-1.5 text-black dark:text-white font-bold">
+            <h2 className="text-xl md:text-[28px] mb-1.5 text-black dark:text-white font-bold">
               {project.title}
               <span className="text-sm md:text-lg inline-block pl-4 text-gray-400">
                 {project.completed.substring(0, 4)}

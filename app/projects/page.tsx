@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
       <div className="my-16">
         <IconsCloud data={cloudData}></IconsCloud>
       </div>
-      <h1 className="text-3xl font-bold mb-12 text-black dark:text-white">
+      <h1 className="text-[40px] leading-snug -tracking-wider font-semibold mb-12 md:mb-32 text-black dark:text-white">
         Project Showcase: Professional Projects and Fun Little Experiments
       </h1>
 
