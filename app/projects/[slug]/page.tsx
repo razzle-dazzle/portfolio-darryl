@@ -2,32 +2,38 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getMonthFromDate, getProjectDateFriendly, getProjectImages, getProjectPosterImage, getProjectTypeFromId, getYearFromDate } from "app/utils/utils";
+import {
+  getMonthFromDate,
+  getProjectDateFriendly,
+  getProjectImages,
+  getProjectPosterImage,
+  getProjectTypeFromId,
+  getYearFromDate,
+} from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import { PropsWithChildren } from "react";
 import NextProject from "./NextProject";
-import myProjectService from 'app/services/projects.service';
-import { ProjectType } from 'lib/types';
+import myProjectService from "app/services/projects.service";
+import { ProjectType } from "lib/types";
 
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
   const allProjects = await myProjectService.getProjects();
-  const project =  allProjects.find((post) => post.alias.substring(1) === params.slug);
+  const project = allProjects.find(
+    (post) => post.alias.substring(1) === params.slug
+  );
   if (!project) {
     return;
   }
   // const image = getProjectPosterImage(project);
 
-  const {
-    title,
-    completed,
-    description,
-    alias,
-  } = project;
-  const ogImage = `https://www.darryloctober.co.uk/og?title=${encodeURIComponent(title)}`;
+  const { title, completed, description, alias } = project;
+  const ogImage = `https://www.darryloctober.co.uk/og?title=${encodeURIComponent(
+    title
+  )}`;
   // const ogImage = `https://www.darryloctober.co.uk/projects/`;
 
   return {
@@ -54,11 +60,10 @@ export async function generateMetadata({
   };
 }
 
-
 /** Build static params based on all the items in the DB */
 export async function generateStaticParams() {
   const projects = await myProjectService.getProjects();
-  
+
   return (projects ?? []).map((project) => ({
     slug: project.alias.substring(1),
   }));
@@ -68,7 +73,6 @@ async function getData(slug: string): Promise<ProjectType | null> {
   const data = await myProjectService.getProjectById(slug);
   return data;
 }
-
 
 export default async function Projects({ params }) {
   const { slug } = params;
@@ -96,8 +100,8 @@ export default async function Projects({ params }) {
       </div>
 
       {/* Image Hero */}
-      <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
-        {(projectImages.featured || projectImages.original) && (
+      {projectImages.featured && (
+        <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
           <Image
             src={
               project.featured && projectImages.featured
@@ -115,8 +119,9 @@ export default async function Projects({ params }) {
             priority
             quality={96}
           />
-        )}
-      </div>
+        </div>
+      )}
+
       <div className="bg-neutral-50 dark:bg-transparent py-6 md:py-12">
         <div className="container xl:max-w-7xl m-auto relative md:pb-8 px-6">
           {/* <script type="application/ld+json" suppressHydrationWarning>
@@ -207,6 +212,29 @@ export default async function Projects({ params }) {
                 </div>
               )}
             </div>
+
+            {
+              !project.featured && (
+                <div>
+                  <div className="mx-auto w-full md:w-[40vw] h-[32vw] relative overflow-hidden">
+                    <Image
+                      src={projectImages.original}
+                      fill={true}
+                      sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
+                      style={{
+                        objectFit: "contain",
+                        // objectFit: "cover",
+                        // objectPosition: "top"
+                      }}
+                      alt={project.title}
+                      priority
+                      quality={96}
+                    />
+                  </div>
+                </div>
+              )
+            }
+            
 
             <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
               <NextProject currentProject={project}></NextProject>
