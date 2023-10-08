@@ -13,7 +13,7 @@ export function getThemedIcon(
 
 /** Return the path to the themed SVG website logo */
 export function getThemedWebsiteLogo(
-  theme: string | undefined
+  theme: string
 ): string {
   const themeMode = theme === "dark" || theme === "light" ? theme : "dark";
   const iconSrc = `/logo/logo-${themeMode}.svg`;
