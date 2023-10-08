@@ -3452,7 +3452,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-app",
     stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
-    role: "Founder",
+    role: "Founder & Lead Developer",
     projects: [
       {
         id: 151,
