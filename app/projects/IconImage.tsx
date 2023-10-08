@@ -37,6 +37,7 @@ const IconImage = ({
       style={{
         cursor: "pointer",
       }}
+      tabIndex={-1}
     >
       <Image
         src={iconSrc}
