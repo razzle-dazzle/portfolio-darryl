@@ -9,7 +9,7 @@ import clsx from "clsx";
 import { NAV_ITEMS } from "app/constants";
 import StackIcons from "./StackList";
 import Button from "../Button";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import { getProjectImages } from "app/utils/utils";
 
 interface ProjectBoxProps {
@@ -111,7 +111,7 @@ const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
             <StackIcons
               icons={project.stack}
               // flip={flip}
-            ></StackIcons>
+            />
 
             <div className="flex justify-end md:justify-start">
               <Button icon>View project details</Button>

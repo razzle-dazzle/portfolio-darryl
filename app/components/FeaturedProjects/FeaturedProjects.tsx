@@ -1,9 +1,9 @@
 import ProjectBox from "./ProjectBox";
 import { projects } from 'lib/_all-db';
 import SeeAllProjects from './SeeAllProjects';
-import { ProjectType } from 'lib/types';
+import type { ProjectType } from 'lib/types';
 
-type Props = {};
+
 const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p => {
   // @todo - replace this with getProjectImages()
   return {
@@ -20,7 +20,7 @@ const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p =
   return fullDate1.getTime() > fullDate2.getTime() ? -1 : 1;
 });
 
-const FeaturedProjects = ({}: Props) => {
+const FeaturedProjects = () => {
 
   return (
     <div className="max-w-7xl m-auto py-4 md:py-12 relative overflow-hidden">
@@ -35,6 +35,7 @@ const FeaturedProjects = ({}: Props) => {
       {featuredProjects.map((project, index) => {
         return (
           <ProjectBox
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
             project={project}
             // flip={index % 2 === 1}
