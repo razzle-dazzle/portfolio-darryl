@@ -44,7 +44,8 @@ const IconImage = ({
       }}
       tabIndex={-1}
       className={clsx(
-        greyscale ? "grayscale filter opacity-30" : ""
+        greyscale ? "grayscale filter opacity-30" : "",
+        "hover:filter-none hover:grayscale-0 hover:opacity-100 transition-opacity"
       )}
     >
       <Image
