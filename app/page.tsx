@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   return (
     <>
-      <section className="xl:max-w-7xl px-6 md:mx-auto container my-8 md:mb-32 relative pb-4 md:pb-8 md:mt-16 xl:min-h-[35vh] 2xl:min-h-[45vh]">
+      <section className="xl:max-w-7xl px-6 md:mx-auto container my-8 md:mb-32 relative pb-4 md:pb-8 md:mt-32 xl:min-h-[35vh] 2xl:min-h-[45vh]">
         <div className="relative w-[calc(100vw-3rem)] h-[33vw] md:w-[640px] md:h-[216px] lg:w-[960px] lg:h-[340px] xl:w-[1280px] xl:h-[436px]">
           <FrontendHeading />
         </div>
