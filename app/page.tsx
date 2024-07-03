@@ -23,7 +23,7 @@ export default async function HomePage() {
                 Builder of high-end web applications, commercial web solutions,
                 single page applications, responsive & mobile friendly websites.
                 Full-stack developer specialising in frontend engineering and
-                technologies. Over 15 years experience.
+                technologies. Over 20 years experience.
               </Balancer>
             </p>
           </div>
