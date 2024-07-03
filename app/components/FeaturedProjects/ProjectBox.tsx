@@ -16,15 +16,20 @@ interface ProjectBoxProps {
   project: ProjectType;
   /** If true, the text will be on the left and image right */
   flip?: boolean;
+  otherClasses?: string;
 }
 
-const ProjectBox = ({ project, flip }: ProjectBoxProps) => {
+const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
   // const [swiper, setSwiper] = React.useState<Swiper>();
   const projectImages = getProjectImages(project);
   return (
     <Link
       href={`${NAV_ITEMS.projects.path}${project.alias}`}
-      className={clsx("text-orange-300 font-medium text-md md:text-lg")}
+      className={clsx(
+        "text-orange-300 font-medium text-md md:text-lg",
+        "transform transition duration-500 md:hover:scale-105 block",
+        otherClasses
+      )}
     >
       <article className="grid grid-cols-12 mb-12 md:mb-16 lg:mb-32 gap-5 md:gap-10">
         <div
