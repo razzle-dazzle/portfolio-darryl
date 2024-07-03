@@ -79,11 +79,26 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   const router = useRouter();
 
   const handleClick = (icon: StackIcon) => {
-    setFilterBy(icon);
-    if (icon) {
-      router.push(`/projects?filter=${icon}`);
-    } else {
+    // @todo - if already filtering by this icon, remove filter from url
+    // console.log(icon);
+    
+    // get URL query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterIcon = urlParams.get('filter');
+
+    if (icon === filterIcon) {
+      setFilterBy('');
       router.push("/projects");
+    } else {
+
+      if (icon) {
+        setFilterBy(icon);
+        router.push(`/projects?filter=${icon}`);
+      }
+      //  else {
+      //   setFilterBy(icon);
+      //   router.push("/projects");
+      // }
     }
   };
 
@@ -99,6 +114,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile1}
             icons={icons}
             handleClick={handleClick}
+            filterString={filterBy}
           />
         );
       }
@@ -108,6 +124,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile2}
             icons={icons}
             handleClick={handleClick}
+            filterString={filterBy}
           />
         );
       }
@@ -117,6 +134,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile3}
             icons={icons}
             handleClick={handleClick}
+            filterString={filterBy}
           />
         );
       }
@@ -126,6 +144,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile4}
             icons={icons}
             handleClick={handleClick}
+            filterString={filterBy}
           />
         );
       }

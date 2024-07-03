@@ -3,14 +3,17 @@ import type React from "react";
 import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
 import { getThemedIcon } from "app/utils/utils";
+import clsx from 'clsx';
 
 const IconImage = ({
   filename,
   tileSize,
+  greyscale,
   handleClick,
 }: {
   filename: string;
   tileSize: "s" | "m" | "l";
+  greyscale?: boolean;
   handleClick: (e: string) => void;
 }) => {
   const { theme, setTheme } = useTheme();
@@ -40,6 +43,9 @@ const IconImage = ({
         cursor: "pointer",
       }}
       tabIndex={-1}
+      className={clsx(
+        greyscale ? "grayscale filter opacity-30" : ""
+      )}
     >
       <Image
         src={iconSrc}
