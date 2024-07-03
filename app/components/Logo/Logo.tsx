@@ -26,7 +26,7 @@ function Logo({ size }: Props) {
             ? "w-16 h-16"
             : "w-32 h-32"
         )}
-      ></Image>
+      />
       <Image
         src={darkSrc}
         width={64}
@@ -41,7 +41,7 @@ function Logo({ size }: Props) {
             ? "w-16 h-16"
             : "w-32 h-32"
         )}
-      ></Image>
+      />
     </Link>
   );
 }

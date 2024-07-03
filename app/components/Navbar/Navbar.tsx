@@ -14,10 +14,10 @@ export default function Navbar() {
     >
       <div className="mx-auto py-4 md:py-4 container xl:max-w-7xl px-6">
         <div className="w-full flex flex-row gap-2 md:gap-0 justify-between items-center">
-          <Logo size="small"></Logo>
+          <Logo size="small" />
           <div className="flex flex-row justify-center md:justify-end items-center max-w-full">
-            <NavLinksGroup></NavLinksGroup>
-            <ThemeSwitch></ThemeSwitch>
+            <NavLinksGroup />
+            <ThemeSwitch />
           </div>
         </div>
       </div>

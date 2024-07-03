@@ -1,4 +1,4 @@
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import React from "react";
 import { ProjectLink } from "./ProjectListItem";
 import Balancer from "react-wrap-balancer";

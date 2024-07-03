@@ -19,10 +19,11 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
         const idxColor = marqueeColors[idx % marqueeColors.length];
         return (
           <p
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={idx}
             className={clsx(
               // `text-[${idxColor}]`,
-              `text-[#000]`,
+              "text-[#000]",
               "marquee-text",
               "px-4 text-2xl md:text-5xl !leading-loose",
               [1, 5, 11, 15].includes(idx)
@@ -43,8 +44,8 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
   );
 };
 
-type MarqueeProps = {};
-const Marquee = ({}: MarqueeProps) => {
+
+const Marquee = () => {
   // const { theme } = useTheme();
 
   return (
@@ -55,6 +56,7 @@ const Marquee = ({}: MarqueeProps) => {
           <FastMarquee
             autoFill
             pauseOnHover
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
             speed={speeds[index % speeds.length]}
             direction={index % 2 === 0 ? "left" : "right"}
@@ -64,7 +66,7 @@ const Marquee = ({}: MarqueeProps) => {
               }`,
             }}
           >
-            <MarqueeRow row={row}></MarqueeRow>
+            <MarqueeRow row={row} />
           </FastMarquee>
         );
       })}

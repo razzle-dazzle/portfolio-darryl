@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ProjectLink } from "./ProjectListItem";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import { getProjectImages, getProjectTypeFromId } from "app/utils/utils";
 
 type FullProps = {
@@ -50,7 +50,7 @@ export default function Full({ project }: FullProps) {
                   <React.Fragment>
                     {project.projects.map((subProject, subKey) => {
                       return (
-                        <div className="mt-8 hidden md:block" key={subKey}>
+                        <div className="mt-8 hidden md:block" key={subProject.id}>
                           <ProjectTypeBlock>
                             {/* {getProjectTypeFromId(subProject.type)} */}
                             {subProject.title}
