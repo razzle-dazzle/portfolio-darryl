@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import type { PropsWithChildren } from "react";
+import type { ProjectType } from "lib/types";
 import {
   getMonthFromDate,
   getProjectDateFriendly,
@@ -13,10 +15,8 @@ import {
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
-import { PropsWithChildren } from "react";
 import NextProject from "./NextProject";
 import myProjectService from "app/services/projects.service";
-import { ProjectType } from "lib/types";
 
 export async function generateMetadata({
   params,
@@ -87,7 +87,7 @@ export default async function Projects({ params }) {
     <section className="text-black dark:text-white">
       {/* Breadcrumbs, Heading, Summary */}
       <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8 px-6">
-        <ProjectBreadcrumbs text={project.title}></ProjectBreadcrumbs>
+        <ProjectBreadcrumbs text={project.title} />
         <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
           {project.title}&nbsp;
           <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
@@ -172,7 +172,7 @@ export default async function Projects({ params }) {
                   <StackIcons
                     icons={project.stack}
                     iconSize="large"
-                  ></StackIcons>
+                  />
                 </div>
               </div>
 
@@ -184,7 +184,7 @@ export default async function Projects({ params }) {
                     {getProjectTypeFromId(project.type)}
                   </ProjectChip>
                 </div>
-                <div className="basis-full md:basis-2/3 text-xl"></div>
+                <div className="basis-full md:basis-2/3 text-xl" />
               </div>
 
               {/* Completed */}
@@ -193,7 +193,7 @@ export default async function Projects({ params }) {
                   <TitleComponent>Completed</TitleComponent>
                   <ProjectChip>{getProjectDateFriendly(project)}</ProjectChip>
                 </div>
-                <div className="basis-full md:basis-2/3 text-xl"></div>
+                <div className="basis-full md:basis-2/3 text-xl" />
               </div>
 
               {/* Website - optional */}
@@ -208,7 +208,7 @@ export default async function Projects({ params }) {
                       </Link>
                     </ProjectChip>
                   </div>
-                  <div className="basis-full md:basis-2/3 text-xl"></div>
+                  <div className="basis-full md:basis-2/3 text-xl" />
                 </div>
               )}
             </div>
@@ -237,7 +237,7 @@ export default async function Projects({ params }) {
             
 
             <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
-              <NextProject currentProject={project}></NextProject>
+              <NextProject currentProject={project} />
               {/* <Link href="/projects">&laquo; Back to all projects</Link> */}
             </div>
           </div>
@@ -247,6 +247,6 @@ export default async function Projects({ params }) {
   );
 }
 
-const TitleComponent = ({ children }: PropsWithChildren<{}>) => {
+const TitleComponent = ({ children }: PropsWithChildren) => {
   return <h3 className="font-bold text-xl mb-4">{children}</h3>;
 };
