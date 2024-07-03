@@ -66,6 +66,7 @@ const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
                 borderRadius: 16,
               }}
               alt={project.title}
+              loading='lazy'
               quality={90}
             />
           </div>
