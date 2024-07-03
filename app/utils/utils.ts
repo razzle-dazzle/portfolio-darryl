@@ -1,5 +1,5 @@
 import { projectTypes } from 'lib/_all-db';
-import { ProjectImageCollection, ProjectType, ProjectTypes } from 'lib/types';
+import type { ProjectImageCollection, ProjectType, ProjectTypes } from 'lib/types';
 
 /** Return the path to an SVG stack icon given the theme and the icon filename */
 export function getThemedIcon(
@@ -72,7 +72,7 @@ export function getYearFromDate(dateStr: string): string {
     return "";
   }
   const date = new Date(`${dateStr}T00:00:00.000Z`);
-  return '' + date.getFullYear();
+  return `${date.getFullYear()}`;
 }
 /** Take a date like "2023-03-21" and return the month like "September" */
 export function getMonthFromDate(

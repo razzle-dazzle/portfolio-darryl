@@ -1,6 +1,6 @@
 import { capitalizeFirstLetter, sortProjects } from "app/utils/utils";
 import { projects } from "lib/_all-db";
-import { ProjectType, StackIcon } from "lib/types";
+import type { ProjectType, StackIcon } from "lib/types";
 
 class ProjectService {
   /**
@@ -41,7 +41,7 @@ class ProjectService {
 
   getNextPrevProjects(
     currentProjectId: ProjectType["id"],
-    loop: boolean = false
+    loop = false
   ): {
     next: ProjectType | null;
     prev: ProjectType | null;
@@ -82,47 +82,46 @@ class ProjectService {
 
   buildCloud(): Record<StackIcon, number> {
     const counts: Record<StackIcon, number> = {} as Record<StackIcon, number>;
+    // biome-ignore lint/complexity/noForEach: <explanation>
     projects.forEach((p) => {
-      p.stack &&
-        p.stack.forEach((_icon: StackIcon) => {
-          if (counts[_icon]) {
-            counts[_icon]++;
-          } else {
-            counts[_icon] = 1;
-          }
-        });
+      // biome-ignore lint/complexity/noForEach: <explanation>
+      p.stack?.forEach((_icon: StackIcon) => {
+        if (counts[_icon]) {
+          counts[_icon]++;
+        } else {
+          counts[_icon] = 1;
+        }
+      });
     });
     return counts;
   }
 
   getSpecialStackLabel(stack: StackIcon): string {
-
     const specialLabels: Partial<Record<StackIcon, string>> = {
-      html5: 'HTML5',
-      css3: 'CSS3',
-      sass: 'SASS',
-      nextjs: 'NextJS',
-      aws: 'AWS',
-      dynamodb: 'DynamoDB',
-      nativebase: 'Native Base',
-      mui: 'MUI',
-      uikit: 'UIKit',
-      graphql: 'GraphQL',
-      php: 'PHP',
-      "github-packages": 'GitHub Packages',
-      npm: 'NPM',
-      mysql: 'MySQL',
-      csharp: 'C#',
-      dotnet: 'DOTNET',
-      ios: 'iOS',
-      nodejs: 'NodeJS',
-      pwa: 'PWA',
-      jquery: 'jQuery',
-      mongodb: 'MongoDB',
-      sendgrid: 'SendGrid',
+      html5: "HTML5",
+      css3: "CSS3",
+      sass: "SASS",
+      nextjs: "NextJS",
+      aws: "AWS",
+      dynamodb: "DynamoDB",
+      nativebase: "Native Base",
+      mui: "MUI",
+      uikit: "UIKit",
+      graphql: "GraphQL",
+      php: "PHP",
+      "github-packages": "GitHub Packages",
+      npm: "NPM",
+      mysql: "MySQL",
+      csharp: "C#",
+      dotnet: "DOTNET",
+      ios: "iOS",
+      nodejs: "NodeJS",
+      pwa: "PWA",
+      jquery: "jQuery",
+      mongodb: "MongoDB",
+      sendgrid: "SendGrid",
     };
     return specialLabels[stack] || capitalizeFirstLetter(stack);
-
   }
 }
 

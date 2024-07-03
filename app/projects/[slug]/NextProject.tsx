@@ -4,7 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
 import Button from "app/components/Button";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 
 type Props = {
   currentProject: ProjectType;

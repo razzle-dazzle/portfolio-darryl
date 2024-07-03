@@ -11,7 +11,7 @@ export default async function HomePage() {
     <>
       <section className="xl:max-w-7xl px-6 md:mx-auto container my-8 md:mb-32 relative pb-4 md:pb-8 md:mt-16 xl:min-h-[35vh] 2xl:min-h-[45vh]">
         <div className="relative w-[calc(100vw-3rem)] h-[33vw] md:w-[640px] md:h-[216px] lg:w-[960px] lg:h-[340px] xl:w-[1280px] xl:h-[436px]">
-          <FrontendHeading></FrontendHeading>
+          <FrontendHeading />
         </div>
         <aside className="my-1 sm:my-3 md:my-6 lg:my-0 md:absolute lg:top-[210px] xl:top-[272px] md:right-0 w-full lg:w-[300px] xl:w-[420px]">
           <div className="ml-auto mr-0 md:px-6 lg:px-0 lg:max-w-[460px] flex">
@@ -30,7 +30,7 @@ export default async function HomePage() {
         </aside>
       </section>
       <section className="py-2 md:max-w-full md:m-auto md:py-16 overflow-hidden min-h-[180px] md:min-h-[425px]">
-        <Marquee></Marquee>
+        <Marquee />
       </section>
       <section className="xl:max-w-7xl px-6 py-8 md:py-16 container mx-auto">
         <FeaturedProjects />

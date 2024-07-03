@@ -1,4 +1,4 @@
-import { ProjectPeople, ProjectType, ProjectTypes } from './types';
+import type { ProjectPeople, ProjectType, ProjectTypes } from './types';
 
 // project icons needed to be used:
 // svelte, netlify, vue, faunadb

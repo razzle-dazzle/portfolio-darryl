@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import type React from "react";
 import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
 import { getThemedIcon } from "app/utils/utils";
@@ -11,7 +11,7 @@ const IconImage = ({
 }: {
   filename: string;
   tileSize: "s" | "m" | "l";
-  handleClick: any;
+  handleClick: (e: string) => void;
 }) => {
   const { theme, setTheme } = useTheme();
   const widthHeight = tileSize === "s" ? 62 : tileSize === "m" ? 104 : 210;
@@ -32,6 +32,8 @@ const IconImage = ({
 
   return (
     <a
+      // biome-ignore lint/a11y/useKeyWithMouseEvents: <explanation>
+      // biome-ignore lint/a11y/useValidAnchor: <explanation>
       onClick={(e) => handleClickEvent(e)}
       onMouseOver={(e) => handleMouseOver(e)}
       style={{
@@ -53,7 +55,7 @@ const IconImage = ({
           // dropShadow: '0px 0px 10px black',
         }}
         alt={filename}
-      ></Image>
+      />
     </a>
   );
 };

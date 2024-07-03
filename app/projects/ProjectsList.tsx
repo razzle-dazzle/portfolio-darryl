@@ -4,7 +4,7 @@ import ProjectListItem from "app/components/ProjectListItem";
 import myProjectService from "app/services/projects.service";
 import { sortProjects } from "app/utils/utils";
 import clsx from "clsx";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -43,18 +43,20 @@ export default function ProjectsList() {
           const oldProject = thisProjectYear <= archiveThresholdYear;
 
           let heading = "";
-          if (thisProjectYear !== currentYearHeading && !hasShownArchiveHeading) {
-
+          if (
+            thisProjectYear !== currentYearHeading &&
+            !hasShownArchiveHeading
+          ) {
             if (oldProject && !hasShownArchiveHeading) {
               hasShownArchiveHeading = true;
               heading = `${archiveThresholdYear} & Before`;
             } else {
               currentYearHeading = thisProjectYear;
               heading = thisProjectYear.toString();
-
             }
           }
           return (
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             <React.Fragment key={pIndex}>
               {heading ? (
                 <h2
@@ -78,13 +80,13 @@ export default function ProjectsList() {
                 key={project.alias}
                 project={project}
                 viewType={isArchiveProject ? "mini" : "full"}
-              ></ProjectListItem>
+              />
             </React.Fragment>
           );
         })}
       </div>
 
-      <div className="my-12"></div>
+      <div className="my-12" />
     </React.Fragment>
   );
 }

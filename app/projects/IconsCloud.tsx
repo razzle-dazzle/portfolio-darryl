@@ -1,12 +1,12 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import {
   IconBlockThreeByThree,
   IconBlockTwoByThree,
   IconBlockFull,
   IconBlockOneByThree,
 } from "./IconBlocks";
-import { StackIcon } from "lib/types";
+import type { StackIcon } from "lib/types";
 import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
 
@@ -83,7 +83,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
     if (icon) {
       router.push(`/projects?filter=${icon}`);
     } else {
-      router.push(`/projects`);
+      router.push("/projects");
     }
   };
 
@@ -99,7 +99,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile1}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockThreeByThree>
+          />
         );
       }
       case 6: {
@@ -108,7 +108,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile2}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockTwoByThree>
+          />
         );
       }
       case 3: {
@@ -117,7 +117,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile3}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockOneByThree>
+          />
         );
       }
       case 1: {
@@ -126,7 +126,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile4}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockFull>
+          />
         );
       }
     }
@@ -155,13 +155,13 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
               if (p === 1) {
                 setCounter++;
                 return iconsSet[setCounter];
-              } else {
-                return "";
               }
+              return "";
             });
 
             iconIndexOffsetCounter += iconsToShow;
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <React.Fragment key={index}>
                 {getBlock(pattern, icons as StackIcon[])}
               </React.Fragment>

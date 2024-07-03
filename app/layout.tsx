@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import "./global.css";
 import clsx from "clsx";
 import type { Metadata } from "next";
@@ -123,7 +123,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               {children}
               {/* <Analytics /> */}
             </main>
-            <Footer></Footer>
+            <Footer />
           </body>
         {/* <ThemeProvider attribute="class" defaultTheme={Constants.defaultTheme}>
 

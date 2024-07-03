@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { IconBit } from "./IconsCloud";
+import type { IconBit } from "./IconsCloud";
 import IconImage from "./IconImage";
-import { StackIcon } from 'lib/types';
+import type { StackIcon } from "lib/types";
 
 const MyGridThreeByThree = [...Array.from(Array(9))];
 const MyGridTwoByThree = [...Array.from(Array(6))];
@@ -34,6 +34,7 @@ export const IconBlockThreeByThree = ({
         return (
           <div
             className="col-span-1 row-span-1 flex justify-center items-center relative"
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
             {icons[index] && (
@@ -41,7 +42,7 @@ export const IconBlockThreeByThree = ({
                 filename={icons[index]}
                 tileSize="s"
                 handleClick={handleClick}
-              ></IconImage>
+              />
             )}
           </div>
         );
@@ -72,9 +73,11 @@ export const IconBlockTwoByThree = ({
         return (
           <div
             className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
             {icons[index] && (
+              // biome-ignore lint/style/useSelfClosingElements: <explanation>
               <IconImage
                 filename={icons[index]}
                 tileSize="s"
@@ -101,6 +104,7 @@ export const IconBlockOneByThree = ({
         return (
           <div
             className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
             {icons[index] && (
@@ -108,7 +112,7 @@ export const IconBlockOneByThree = ({
                 filename={icons[index]}
                 tileSize="s"
                 handleClick={handleClick}
-              ></IconImage>
+              />
             )}
           </div>
         );
@@ -128,7 +132,7 @@ export const IconBlockFull = ({ icons, handleClick }: IconBlockFullProps) => {
             filename={icons[0]}
             tileSize="l"
             handleClick={handleClick}
-          ></IconImage>
+          />
         )}
       </div>
     </div>
