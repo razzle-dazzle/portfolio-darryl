@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ProjectLink } from "./ProjectListItem";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import { getProjectImages, getProjectTypeFromId } from "app/utils/utils";
 
 type FullProps = {
@@ -34,6 +34,7 @@ export default function Full({ project }: FullProps) {
                   src={projectImages.featured || projectImages.original}
                   className="rounded md:rounded-xl"
                   quality={96}
+                  loading='lazy'
                   style={{
                     width: "100%",
                     objectFit: "cover",
@@ -50,7 +51,7 @@ export default function Full({ project }: FullProps) {
                   <React.Fragment>
                     {project.projects.map((subProject, subKey) => {
                       return (
-                        <div className="mt-8 hidden md:block" key={subKey}>
+                        <div className="mt-8 hidden md:block" key={subProject.id}>
                           <ProjectTypeBlock>
                             {/* {getProjectTypeFromId(subProject.type)} */}
                             {subProject.title}
@@ -83,7 +84,7 @@ const ProjectTypeBlock = ({ children }: React.PropsWithChildren) => {
 
 const ProjectDescBlock = ({ children }: React.PropsWithChildren) => {
   return (
-    <p className="text-sm md:text-[22px] text-neutral-800 dark:text-white !leading-normal line-clamp-4 sm:line-clamp-5 md:line-clamp-none">
+    <p className="text-xs md:text-[22px] text-neutral-800 dark:text-white !leading-normal line-clamp-5 sm:line-clamp-5 md:line-clamp-none">
       {children}
     </p>
   );

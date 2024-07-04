@@ -30,6 +30,7 @@ const ThemeSwitch = () => {
         fill="currentColor"
         className="text-gray-900 dark:text-gray-100"
       >
+        <title>Theme switcher icon</title>
         {mounted && theme === "dark" ? (
           <path
             fillRule="evenodd"

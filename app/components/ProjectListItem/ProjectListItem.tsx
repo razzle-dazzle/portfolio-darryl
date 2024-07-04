@@ -1,7 +1,7 @@
+import type React from "react";
 import { NAV_ITEMS } from "app/constants";
 import Link from "next/link";
-import React from "react";
-import { ProjectType } from "lib/types";
+import type { ProjectType } from "lib/types";
 import Full from './Full';
 import Mini from './Mini';
 
@@ -13,10 +13,9 @@ type ProjectListItemProps = {
 
 const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
   if (viewType === "full") {
-    return <Full project={project}></Full>
-  } else {
-    return <Mini project={project}></Mini>
+    return <Full project={project} />
   }
+  return <Mini project={project} />
 };
 
 export default ProjectListItem;

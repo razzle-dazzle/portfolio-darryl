@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import "./global.css";
 import clsx from "clsx";
 import type { Metadata } from "next";
@@ -119,11 +119,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
           <body className="antialiased flex flex-col mx-auto bg-white dark:bg-[#161616] min-h-[100vh]">
             <Navbar />
-            <main className="flex-auto min-w-0 flex flex-col px-0 !pt-[140px]">
+            <main className="flex-auto min-w-0 flex flex-col px-0 !pt-[100px]">
               {children}
               {/* <Analytics /> */}
             </main>
-            <Footer></Footer>
+            <Footer />
           </body>
         {/* <ThemeProvider attribute="class" defaultTheme={Constants.defaultTheme}>
 

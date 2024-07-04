@@ -23,14 +23,14 @@ export default async function ProjectsPage() {
   
   return (
     <section className="container xl:max-w-7xl m-auto relative mt-0 md:mt-12 px-6">
-      <div className="my-16">
-        <IconsCloud data={cloudData}></IconsCloud>
+      <div className="my-8 md:my-16">
+        <IconsCloud data={cloudData} />
       </div>
-      <h1 className="text-[40px] leading-snug -tracking-wider font-semibold mb-12 md:mb-32 text-black dark:text-white">
+      <h1 className="text-3xl md:text-[40px] leading-snug -tracking-wider font-semibold mb-12 md:mb-24 text-black dark:text-white">
         Project Showcase: Professional Projects and Fun Little Experiments
       </h1>
 
-      <ProjectsList></ProjectsList>
+      <ProjectsList />
 
       
     </section>

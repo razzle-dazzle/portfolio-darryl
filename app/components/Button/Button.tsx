@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { PropsWithChildren } from "react";
+import type React from "react";
+import type { PropsWithChildren } from "react";
 
 const specialButtonStyles =
   "flex flex-row gap-2 md:gap-4 items-center" as const;
@@ -23,6 +24,7 @@ export default function Button({
 }: PropsWithChildren<ButtonProps>) {
   return (
     <button
+      type='button'
       className={clsx(
         specialButtonStyles,
         "font-normal",
@@ -30,7 +32,7 @@ export default function Button({
         disabled && "opacity-25",
         size === 'large' ? 'text-2xl !h-[64px]' : size === 'small' ? "!h-[40px] text-md" : "!h-[52px] text-lg",
       )}
-      onClick={(e) => onClick && onClick(e)}
+      onClick={(e) => onClick?.(e)}
       disabled={disabled}
     >
       {icon && iconPlacement === "left" && <LeftArrow />}
@@ -51,6 +53,7 @@ const RightArrow = () => {
       viewBox="0 0 33 32"
       fill="none"
     >
+      <title>Right arrow</title>
       <mask
         id="mask0_587_10107"
         style={{
@@ -83,6 +86,7 @@ const LeftArrow = () => {
       viewBox="0 0 33 32"
       fill="none"
     >
+      <title>Left arrow</title>
       <mask
         id="mask0_587_10101"
         style={{

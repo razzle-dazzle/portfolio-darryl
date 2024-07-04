@@ -1,9 +1,9 @@
 import ProjectBox from "./ProjectBox";
 import { projects } from 'lib/_all-db';
 import SeeAllProjects from './SeeAllProjects';
-import { ProjectType } from 'lib/types';
+import type { ProjectType } from 'lib/types';
+import styles from './FeaturedProjects.module.scss';
 
-type Props = {};
 const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p => {
   // @todo - replace this with getProjectImages()
   return {
@@ -20,7 +20,7 @@ const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p =
   return fullDate1.getTime() > fullDate2.getTime() ? -1 : 1;
 });
 
-const FeaturedProjects = ({}: Props) => {
+const FeaturedProjects = () => {
 
   return (
     <div className="max-w-7xl m-auto py-4 md:py-12 relative overflow-hidden">
@@ -32,15 +32,21 @@ const FeaturedProjects = ({}: Props) => {
       <h2 className="xl:leading-[150px] font-bold text-xl md:text-3xl xl:text-4xl mb-6 xl:mb-24 z-20 xl:absolute inset-0 bottom-[unset] xl:top-[100px] text-black dark:text-white">
         Featured Projects
       </h2>
-      {featuredProjects.map((project, index) => {
-        return (
-          <ProjectBox
-            key={index}
-            project={project}
-            // flip={index % 2 === 1}
-          />
-        );
-      })}
+
+      <div className={styles.slideUpFadeInGroup}>
+        {featuredProjects.map((project, index) => {
+          return (
+            <ProjectBox
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              key={index}
+              project={project}
+              // flip={index % 2 === 1}
+              otherClasses={styles.slideUpFadeIn}
+            />
+          );
+        })}
+
+      </div>
 
       <div className="flex flex-row gap-4 justify-end items-center mt-12">
         <SeeAllProjects />

@@ -1,12 +1,12 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import {
   IconBlockThreeByThree,
   IconBlockTwoByThree,
   IconBlockFull,
   IconBlockOneByThree,
 } from "./IconBlocks";
-import { StackIcon } from "lib/types";
+import type { StackIcon } from "lib/types";
 import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
 
@@ -79,11 +79,26 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   const router = useRouter();
 
   const handleClick = (icon: StackIcon) => {
-    setFilterBy(icon);
-    if (icon) {
-      router.push(`/projects?filter=${icon}`);
+    // @todo - if already filtering by this icon, remove filter from url
+    // console.log(icon);
+    
+    // get URL query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterIcon = urlParams.get('filter');
+
+    if (icon === filterIcon) {
+      setFilterBy('');
+      router.push("/projects");
     } else {
-      router.push(`/projects`);
+
+      if (icon) {
+        setFilterBy(icon);
+        router.push(`/projects?filter=${icon}`);
+      }
+      //  else {
+      //   setFilterBy(icon);
+      //   router.push("/projects");
+      // }
     }
   };
 
@@ -99,7 +114,8 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile1}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockThreeByThree>
+            filterString={filterBy}
+          />
         );
       }
       case 6: {
@@ -108,7 +124,8 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile2}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockTwoByThree>
+            filterString={filterBy}
+          />
         );
       }
       case 3: {
@@ -117,7 +134,8 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile3}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockOneByThree>
+            filterString={filterBy}
+          />
         );
       }
       case 1: {
@@ -126,7 +144,8 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
             // pattern={somePattern as Tile4}
             icons={icons}
             handleClick={handleClick}
-          ></IconBlockFull>
+            filterString={filterBy}
+          />
         );
       }
     }
@@ -155,13 +174,13 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
               if (p === 1) {
                 setCounter++;
                 return iconsSet[setCounter];
-              } else {
-                return "";
               }
+              return "";
             });
 
             iconIndexOffsetCounter += iconsToShow;
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <React.Fragment key={index}>
                 {getBlock(pattern, icons as StackIcon[])}
               </React.Fragment>

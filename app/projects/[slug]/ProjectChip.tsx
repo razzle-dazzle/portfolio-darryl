@@ -1,5 +1,6 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 type ProjectChipProps = {
 };
 const ProjectChip = ({ children }: PropsWithChildren<ProjectChipProps>) => {

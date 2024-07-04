@@ -1,38 +1,49 @@
-"use client";
-
-import { useTheme } from '@wits/next-themes';
-import clsx from 'clsx';
-import Link from 'next/link';
-import React from "react";
-
-function getThemedLogo(
-  theme: string | undefined
-): string {
-  const themeMode = theme === "dark" || theme === "light" ? theme : "dark";
-  const iconSrc = `/logo/logo-${themeMode}.svg`;
-  return iconSrc;
-}
+import Image from "next/image";
+import Link from "next/link";
+import { getThemedWebsiteLogo } from "app/utils/utils";
+import clsx from "clsx";
 
 type Props = {
-  /** Default: 64px, large: 128px */
-  size: 'default' | 'large';
+  size: "small" | "medium" | "large";
 };
+function Logo({ size }: Props) {
+  const lightSrc = getThemedWebsiteLogo("light");
+  const darkSrc = getThemedWebsiteLogo("dark");
 
-/** A themed logo, depending on color mode */
-export default function Logo({ size }: Props) {
-  const { theme } = useTheme();
-  const iconSrc = getThemedLogo(theme);
   return (
-    <Link href="/">
-      <img
-        src={iconSrc}
-        alt="Logo"
-        className={
-          clsx(
-            size === 'default' ? "w-16 h-16" : "w-32 h-32"
-          )
-        }
+    <Link href={"/"}>
+      <Image
+        src={lightSrc}
+        width={64}
+        height={64}
+        priority
+        alt={"Logo"}
+        className={clsx(
+          "block dark:hidden",
+          size === "small"
+            ? "w-8 h-8"
+            : size === "medium"
+            ? "w-16 h-16"
+            : "w-32 h-32"
+        )}
+      />
+      <Image
+        src={darkSrc}
+        width={64}
+        height={64}
+        priority
+        alt={"Logo"}
+        className={clsx(
+          "hidden dark:block",
+          size === "small"
+            ? "w-8 h-8"
+            : size === "medium"
+            ? "w-16 h-16"
+            : "w-32 h-32"
+        )}
       />
     </Link>
   );
 }
+
+export default Logo;

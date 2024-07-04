@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useTheme } from "@wits/next-themes";
 import { getThemedIcon } from "app/utils/utils";
-import { StackIcon } from 'lib/types';
+import type { StackIcon } from 'lib/types';
 interface Props {
   icons: StackIcon[];
   /** If true, icons will be aligned right */
@@ -26,6 +26,7 @@ function StackIcons({ icons, flip, iconSize = "default" }: Props) {
         return (
           <img
             title={icon}
+            alt={icon}
             key={icon}
             className={clsx(
               iconSize === "default"

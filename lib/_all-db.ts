@@ -1,4 +1,4 @@
-import { ProjectPeople, ProjectType, ProjectTypes } from './types';
+import type { ProjectPeople, ProjectType, ProjectTypes } from './types';
 
 // project icons needed to be used:
 // svelte, netlify, vue, faunadb
@@ -3390,7 +3390,7 @@ export const projects: ProjectType[] = [
     homepage: true,
     alias: "/canteen",
     title: "Canteen",
-    description: "A lunch delivery service, based in Barcelona, Spain",
+    description: "A lunch delivery service, based in Barcelona, Spain, serving freshly home-cooked meals to offices and businesses",
     description_secondary: "The website uses the Shopify Storefront API to handle product listings and checkout with a customized NextJS app to handle the UI. I also used Material Design for the UI framework. The site also has an orders dashboard which uses the Admin API, written in NextJS/Tailwind.",
     type: 21,
     url: "",
@@ -3437,7 +3437,7 @@ export const projects: ProjectType[] = [
     homepage: true,
     alias: "/pocket-barcelona",
     title: "Pocket Barcelona",
-    description: "An app for tourists and expats visiting and living in Barcelona",
+    description: "An app for people living in and visiting Barcelona. The app features a huge directory of what to see and do in Barcelona.",
     description_secondary: "Pocket Barcelona features a comprehensive directory, itinerary planner, going-out tips, an expat blog, a map for handy navigation and much more! The project is funded and run independently by local expats based in Barcelona.",
     type: 17,
     url: "",
@@ -3452,7 +3452,7 @@ export const projects: ProjectType[] = [
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-app",
     stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
-    role: "Founder",
+    role: "Founder & Lead Developer",
     projects: [
       {
         id: 151,
