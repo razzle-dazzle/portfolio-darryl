@@ -123,7 +123,7 @@ export default async function Projects({ params }) {
       )}
 
       {!project.featured && (
-        <div className="mx-auto md:my-4 w-full max-w-[calc(100vw-64px)] h-[100vw] md:w-[70vw] md:h-[60vw] relative overflow-hidden">
+        <div className="mx-auto md:my-4 w-full max-w-[calc(100vw-64px)] md:max-w-5xl h-[100vw] md:w-[70vw] md:h-[60vw] relative overflow-hidden">
           <Image
             src={projectImages.original}
             fill={true}
