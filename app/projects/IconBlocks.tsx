@@ -3,11 +3,12 @@ import React from "react";
 import type { IconBit } from "./IconsCloud";
 import IconImage from "./IconImage";
 import type { StackIcon } from "lib/types";
+import clsx from 'clsx';
 
-const MyGridThreeByThree = [...Array.from(Array(9))];
-const MyGridTwoByThree = [...Array.from(Array(6))];
-const MyGridOneByThree = [...Array.from(Array(3))];
-const MyGridOneByOne = [...Array.from(Array(1))];
+const MyGridThreeByThree: undefined[] = [...Array.from(Array(9))];
+const MyGridTwoByThree: undefined[] = [...Array.from(Array(6))];
+const MyGridOneByThree: undefined[] = [...Array.from(Array(3))];
+const MyGridOneByOne: undefined[] = [...Array.from(Array(1))];
 
 interface IconBlockThreeByThreeProps
   extends IconBlockBase<
@@ -35,7 +36,10 @@ export const IconBlockThreeByThree = ({
         const filename = icons[index];
         return (
           <div
-            className="col-span-1 row-span-1 flex justify-center items-center relative"
+            className={clsx(
+              "col-span-1 row-span-1 flex justify-center items-center relative",
+              filename ? '' : 'hidden md:flex'
+            )}
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
@@ -78,14 +82,17 @@ export const IconBlockTwoByThree = ({
         const filename = icons[index];
         return (
           <div
-            className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            className={clsx(
+              "col-span-1 row-span-1 flex justify-center items-center aspect-square relative",
+              filename ? '' : 'hidden md:flex'
+            )}
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
-            {icons[index] && (
+            {filename && (
               // biome-ignore lint/style/useSelfClosingElements: <explanation>
               <IconImage
-                filename={icons[index]}
+                filename={filename}
                 greyscale={!!filterString && filename !== filterString}
                 tileSize="s"
                 handleClick={handleClick}
@@ -112,11 +119,14 @@ export const IconBlockOneByThree = ({
         const filename = icons[index];
         return (
           <div
-            className="col-span-1 row-span-1 flex justify-center items-center aspect-square relative"
+            className={clsx(
+              "col-span-1 row-span-1 flex justify-center items-center aspect-square relative",
+              filename ? '' : 'hidden md:flex'
+            )}
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
             key={index}
           >
-            {icons[index] && (
+            {filename && (
               <IconImage
                 filename={filename}
                 greyscale={!!filterString && filename !== filterString}
@@ -138,7 +148,29 @@ export const IconBlockFull = ({ icons, handleClick, filterString = '' }: IconBlo
   return (
     <div className="col-span-3 row-span-3 grid grid-cols-1 grid-rows-1 gap-0">
       <div className="flex justify-center items-center aspect-square relative">
-        {icons[0] && (
+        {filename && (
+          <IconImage
+            filename={filename}
+            greyscale={!!filterString && filename !== filterString}
+            tileSize="l"
+            handleClick={handleClick}
+          />
+        )}
+      </div>
+    </div>
+  );
+};
+
+
+// special mobile grid block
+interface IconBlockOneByOneProps extends IconBlockBase<[IconBit]> {}
+
+export const IconBlockOneByOne = ({ icons, handleClick, filterString = '' }: IconBlockOneByOneProps) => {
+  const filename = icons[0];
+  return (
+    <div className="col-span-1 row-span-1 grid grid-cols-1 grid-rows-1 gap-0">
+      <div className="flex justify-center items-center aspect-square relative">
+        {filename && (
           <IconImage
             filename={filename}
             greyscale={!!filterString && filename !== filterString}

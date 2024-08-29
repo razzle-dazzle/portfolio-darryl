@@ -84,7 +84,7 @@ const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
                 {project.title}
               </h2>
               {project.role && (
-                <p className="mb-6 md:mb-12">
+                <p className="mb-4 md:mb-12">
                   <span className="text-blue-600">
                     var <span className='text-black dark:text-yellow-300'>role</span>{" "}
                     <span className="text-black dark:text-white">=</span>{" "}

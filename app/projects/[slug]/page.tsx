@@ -86,7 +86,7 @@ export default async function Projects({ params }) {
   return (
     <section className="text-black dark:text-white">
       {/* Breadcrumbs, Heading, Summary */}
-      <div className="container xl:max-w-7xl m-auto relative pb-4 md:pb-8 px-6">
+      <div className="container xl:max-w-7xl m-auto relative px-6">
         <ProjectBreadcrumbs text={project.title} />
         <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
           {project.title}&nbsp;
@@ -94,14 +94,14 @@ export default async function Projects({ params }) {
             {getProjectDateFriendly(project)}
           </span>
         </h1>
-        <p className="tracking-tight text-xl md:text-2xl my-8">
+        <p className="tracking-tight text-xl md:text-2xl my-4 md:my-8">
           {project.description}
         </p>
       </div>
 
       {/* Image Hero */}
       {projectImages.featured && (
-        <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden">
+        <div className="w-full h-[66vw] md:min-w-[120px] md:max-h-[77vh] relative overflow-hidden my-4">
           <Image
             src={
               project.featured && projectImages.featured
@@ -114,6 +114,25 @@ export default async function Projects({ params }) {
               // objectFit: "contain",
               objectFit: "cover",
               // objectPosition: "top"
+            }}
+            alt={project.title}
+            priority
+            quality={96}
+          />
+        </div>
+      )}
+
+      {!project.featured && (
+        <div className="mx-auto md:my-4 w-full max-w-[calc(100vw-64px)] md:max-w-5xl h-[100vw] md:w-[70vw] md:h-[60vw] relative overflow-hidden">
+          <Image
+            src={projectImages.original}
+            fill={true}
+            sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
+            style={{
+              // objectFit: "contain",
+              objectFit: "cover",
+              // objectPosition: "top"
+              aspectRatio: 3/4
             }}
             alt={project.title}
             priority
@@ -169,10 +188,7 @@ export default async function Projects({ params }) {
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
                   <TitleComponent>Stack</TitleComponent>
-                  <StackIcons
-                    icons={project.stack}
-                    iconSize="large"
-                  />
+                  <StackIcons icons={project.stack} iconSize="large" />
                 </div>
               </div>
 
@@ -212,29 +228,6 @@ export default async function Projects({ params }) {
                 </div>
               )}
             </div>
-
-            {
-              !project.featured && (
-                <div>
-                  <div className="mx-auto w-full md:w-[40vw] h-[32vw] relative overflow-hidden">
-                    <Image
-                      src={projectImages.original}
-                      fill={true}
-                      sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
-                      style={{
-                        objectFit: "contain",
-                        // objectFit: "cover",
-                        // objectPosition: "top"
-                      }}
-                      alt={project.title}
-                      priority
-                      quality={96}
-                    />
-                  </div>
-                </div>
-              )
-            }
-            
 
             <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
               <NextProject currentProject={project} />
