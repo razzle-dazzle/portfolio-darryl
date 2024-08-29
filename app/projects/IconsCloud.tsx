@@ -5,6 +5,7 @@ import {
   IconBlockTwoByThree,
   IconBlockFull,
   IconBlockOneByThree,
+  IconBlockOneByOne,
 } from "./IconBlocks";
 import type { StackIcon } from "lib/types";
 import { useRouter } from "next/navigation";
@@ -81,16 +82,15 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   const handleClick = (icon: StackIcon) => {
     // @todo - if already filtering by this icon, remove filter from url
     // console.log(icon);
-    
+
     // get URL query params
     const urlParams = new URLSearchParams(window.location.search);
-    const filterIcon = urlParams.get('filter');
+    const filterIcon = urlParams.get("filter");
 
     if (icon === filterIcon) {
-      setFilterBy('');
+      setFilterBy("");
       router.push("/projects");
     } else {
-
       if (icon) {
         setFilterBy(icon);
         router.push(`/projects?filter=${icon}`);
@@ -104,7 +104,8 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
 
   const getBlock = (
     somePattern: PatternBitTypes,
-    icons: StackIcon[]
+    icons: StackIcon[],
+    isMobile?: boolean
   ): ReactNode => {
     const tileType = somePattern.length;
     switch (tileType) {
@@ -139,7 +140,13 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         );
       }
       case 1: {
-        return (
+        return isMobile ? (
+          <IconBlockOneByOne
+            icons={icons}
+            handleClick={handleClick}
+            filterString={filterBy}
+          />
+        ) : (
           <IconBlockFull
             // pattern={somePattern as Tile4}
             icons={icons}
@@ -155,7 +162,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   return (
     <React.Fragment>
       <div className="px-0 md:px-6">
-        <div className="grid grid-cols-[repeat(18,_1fr)] grid-rows-[repeat(9,_1fr)] text-white">
+        <div className="hidden md:grid md:grid-cols-[repeat(18,_1fr)] md:grid-rows-[repeat(9,_1fr)] text-white">
           {patternsList.map((pattern, index) => {
             // how many icons do we need to show?
             const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
@@ -183,6 +190,40 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <React.Fragment key={index}>
                 {getBlock(pattern, icons as StackIcon[])}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* repeat rows needs to allow all icons to fit on the page! Update as needed... */}
+        <div className="grid md:hidden grid-cols-[repeat(6,_1fr)] grid-rows-[repeat(11,_1fr)] text-white">
+          {iconsList.map((icon, index) => {
+            // // how many icons do we need to show?
+            // const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
+            // // get the next set of 'n' icons
+            // const iconsSet = iconsList
+            //   .slice(
+            //     iconIndexOffsetCounter,
+            //     iconIndexOffsetCounter + iconsToShow
+            //   )
+            //   .map((i) => i[0]);
+
+            // // improve this...
+            // // build a similar list of icons based on the pattern - use empty string if pattern has a zero
+            // let setCounter = -1;
+            // const icons: string[] = pattern.map((p) => {
+            //   if (p === 1) {
+            //     setCounter++;
+            //     return iconsSet[setCounter];
+            //   }
+            //   return "";
+            // });
+
+            // iconIndexOffsetCounter += iconsToShow;
+            return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              <React.Fragment key={index}>
+                {getBlock([1], icon as StackIcon[], true)}
               </React.Fragment>
             );
           })}
