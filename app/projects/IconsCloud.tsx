@@ -231,14 +231,25 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
       </div>
 
       {filterBy ? (
-        <p className="text-black dark:text-white my-8 text-center text-3xl font-300">
-          <span className="flex flex-row gap-2">
-            <span className="inline-block">Filtering by:</span>
-            <span className="inline-block pl-1 text-red-700 font-bold">
-              {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}
+        <div className="my-8 mt-2 flex flex-col md:flex-row md:gap-4 md:justify-center">
+          <p className="text-black dark:text-white text-center text-3xl font-300">
+            <span className="flex flex-row gap-2">
+              <span className="inline-block">Filtering by:</span>
+              <span className="inline-block pl-1 text-red-700 font-bold">
+                {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}.
+              </span>
             </span>
-          </span>
-        </p>
+          </p>
+          <div className="flex justify-end">
+            <button
+              className="text-right text-lg text-black dark:text-yellow-300 underline"
+              type="button"
+              onClick={() => handleClick(filterBy as StackIcon)}
+            >
+              clear filter &raquo;
+            </button>
+          </div>
+        </div>
       ) : null}
     </React.Fragment>
   );
