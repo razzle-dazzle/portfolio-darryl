@@ -3,11 +3,14 @@ import React from "react";
 import { ProjectLink } from "./ProjectListItem";
 import Balancer from "react-wrap-balancer";
 import clsx from 'clsx';
+import { getProjectBookmarkFromUrl } from "app/utils/utils";
 
 type MiniProps = {
   project: ProjectType;
 };
 export default function Mini({ project }: MiniProps) {
+  const projectBookmark = getProjectBookmarkFromUrl(project);
+  
   return (
     <div className="">
       <ProjectLink project={project}>
@@ -36,11 +39,11 @@ export default function Mini({ project }: MiniProps) {
             )} */}
             <div className="flex flex-col items-start">
               {/* border-b border-neutral-800 dark:border-[#F8CB01] */}
-              <h2 className={
+              <h2 id={projectBookmark} className={
                 clsx(
                   "md:text-lg mb-2 md:mb-4 pb-1 line-clamp-1 md:line-clamp-1 font-bold",
                   "p-1 rounded-lg",
-                  "text-black dark:text-white hover:bg-[#0038FF] dark:hover:bg-[#F8CB01] hover:text-white dark:hover:text-black",
+                  "text-black dark:text-white hover:bg-klein dark:hover:bg-mustard hover:text-white dark:hover:text-black",
                 )
               }>
                 {project.title}

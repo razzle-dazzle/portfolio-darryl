@@ -6,7 +6,11 @@ export type StackIcon =
   | "sass"
   | "twig"
   | "angular"
+  | "astro"
   | "react"
+  | "preact"
+  | "webcomponents"
+  | "alpinejs"
   | "redux"
   | "nextjs"
   | "vue"
@@ -71,6 +75,10 @@ export type StackIcon =
   | "grails"
   | "vercel"
   | "cloudflare"
+  | "vitejs"
+  | "vitest"
+  | "playwright"
+  | "markdown"
   ;
 
 export interface ProjectType {
@@ -93,6 +101,8 @@ export interface ProjectType {
   url: string;
   /** Required, like 2020-12-01. This determines the order in the /projects page */
   completed: string;
+  /** If true, the product detail page will not show the completed date explicitly */
+  isOngoing?: boolean;
   /** Can be empty string */
   company: string;
   /** Not used on the FE */
@@ -115,16 +125,6 @@ export interface ProjectType {
   role: string;
   /** A list of project components connected to this project */
   projects?: ProjectType[];
-}
-export interface ProjectTypes {
-  id: number;
-  title: string;
-}
-export interface ProjectPeople {
-  id: string;
-  projects_id: string;
-  people_id: string;
-  role: string;
 }
 
 /** Available image paths for project images */

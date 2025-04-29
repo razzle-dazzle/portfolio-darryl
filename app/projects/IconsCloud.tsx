@@ -57,20 +57,20 @@ const patterns: Record<string, PatternBitTypes> = {
   p5: [1, 1, 1, 1, 1, 1, 1, 1, 1],
   p6: [1, 0, 0, 1, 1, 0, 1, 1, 1],
   // row 2
-  p7: [0, 0, 0, 0, 0, 0],
-  p8: [1, 1, 1, 0, 1, 1, 0, 0, 1],
+  p7: [0, 1, 0, 0, 0, 0],
+  p8: [1, 1, 1, 1, 1, 1, 0, 1, 1],
   p9: [1],
   p10: [1],
   p11: [1],
-  p12: [1, 1, 0, 1, 1, 0, 1, 0, 0],
+  p12: [1, 1, 1, 1, 1, 0, 1, 0, 0],
   p13: [0, 0, 0],
   // row 3
-  p14: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  p14: [0, 1, 1, 0, 0, 1, 0, 0, 0],
   p15: [1, 1, 1, 1, 1, 1, 0, 1, 1],
   p16: [1],
   p17: [1],
   p18: [1, 1, 1, 1, 1, 1, 1, 1, 0],
-  p19: [1, 1, 0, 0, 0, 0, 0, 0, 0],
+  p19: [1, 1, 0, 1, 0, 0, 0, 0, 0],
 };
 
 export const IconsCloud = ({ data }: IconsCloudProps) => {
@@ -196,7 +196,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         </div>
 
         {/* repeat rows needs to allow all icons to fit on the page! Update as needed... */}
-        <div className="grid md:hidden grid-cols-[repeat(6,_1fr)] grid-rows-[repeat(11,_1fr)] text-white">
+        <div className="grid md:hidden grid-cols-[repeat(6,_1fr)] grid-rows-[repeat(11,_1fr)] text-white gap-2">
           {iconsList.map((icon, index) => {
             // // how many icons do we need to show?
             // const iconsToShow = pattern.filter((isSet) => isSet === 1).length;

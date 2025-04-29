@@ -36,7 +36,7 @@ export default function Button({
       disabled={disabled}
     >
       {icon && iconPlacement === "left" && <LeftArrow />}
-      <span className="text-[#0038FF] dark:text-[#4EDDBE] font-bold uppercase whitespace-nowrap select-none">
+      <span className="text-klein dark:text-[#4EDDBE] font-bold uppercase whitespace-nowrap select-none">
         {children}
       </span>
       {icon && iconPlacement === "right" && <RightArrow />}

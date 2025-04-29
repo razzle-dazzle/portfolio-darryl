@@ -18,7 +18,7 @@ export const marqueeTexts: string[][] = [
     "Material Design",
     "SOLID",
     "DRY",
-    "KPIs",
+    "AlpineJS",
     "Pimcore",
     "Web Components",
     "Vite",
@@ -89,6 +89,8 @@ export const marqueeTexts: string[][] = [
     "Twig",
     "Bootstrap",
     "MJML",
+    "Markdown",
+    "Directus",
     "Vite",
     "Ruby",
     "C#",
@@ -97,7 +99,7 @@ export const marqueeTexts: string[][] = [
     "YAML",
     "JSON",
     "Agile",
-    "Scrum",
+    "Scrum"
   ],
   [
     "APIs",
@@ -115,6 +117,7 @@ export const marqueeTexts: string[][] = [
     "AstroJS",
     "ESlint",
     "Prettier",
+    "JSX",
     "Husky",
     "Docker",
     "Apollo",
@@ -127,15 +130,29 @@ export const marqueeTexts: string[][] = [
   ],
 ];
 
+// now in tailwind config
+// export const marqueeColors: string[] = [
+//   "#EDEDEF",
+//   "#1795FF",
+//   "#90D6FC",
+//   "#45C2A7",
+//   "#D7D7A0",
+//   "#4C91D0",
+//   "#cccccc",
+//   "#bc8670",
+//   "#e3c042",
+//   "#e3c042",
+// ];
+
 export const marqueeColors: string[] = [
-  "#ffffff",
-  "#1795FF",
-  "#90D6FC",
-  "#45C2A7",
-  "#D7D7A0",
-  "#4C91D0",
-  "#cccccc",
-  "#bc8670",
-  "#e3c042",
-  "#b463b5",
+  "dark:text-marquee1",
+  "dark:text-marquee2",
+  "dark:text-marquee3",
+  "dark:text-marquee4",
+  "dark:text-marquee5",
+  "dark:text-marquee6",
+  "dark:text-marquee7",
+  "dark:text-marquee8",
+  "dark:text-marquee9",
+  "dark:text-marquee10",
 ];

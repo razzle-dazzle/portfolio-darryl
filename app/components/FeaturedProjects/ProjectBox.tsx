@@ -84,13 +84,13 @@ const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
                 {project.title}
               </h2>
               {project.role && (
-                <p className="mb-4 md:mb-12">
-                  <span className="text-blue-600">
-                    var <span className='text-black dark:text-yellow-300'>role</span>{" "}
+                <p className="mb-4 md:mb-12 font-mono tracking-tighter text-sm">
+                  <span className="text-[#679ad1]">
+                    const <span className='text-black dark:text-[#dcdcaf]'>role</span>{" "}
                     <span className="text-black dark:text-white">=</span>{" "}
                   </span>
                   <span className="text-black dark:text-orange-300">
-                    &quot;{project.role}&quot;{";"}
+                    &quot;{project.role}&quot;<span className="text-black dark:text-white">{";"}</span>
                   </span>
                   {/* <span className="text-orange-300 font-light"> {"( ) {"}</span> */}
                 </p>
@@ -119,8 +119,8 @@ const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
               // flip={flip}
             />
 
-            <div className="flex justify-end md:justify-start">
-              <Button icon>View project details</Button>
+            <div className="flex justify-end md:justify-start mt-1">
+              <Button icon size="small">View project details</Button>
             </div>
           </div>
         </div>

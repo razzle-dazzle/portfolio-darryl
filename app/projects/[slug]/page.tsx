@@ -3,20 +3,24 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { PropsWithChildren } from "react";
-import type { ProjectType } from "lib/types";
+import type { ProjectType, StackIcon } from "lib/types";
 import {
   getMonthFromDate,
   getProjectDateFriendly,
   getProjectImages,
+  getProjectOngoingDateFriendly,
   getProjectPosterImage,
   getProjectTypeFromId,
   getYearFromDate,
 } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
-import ProjectBreadcrumbs from "./ProjectBreadcrumbs";
+import ProjectBreadcrumbs, {
+  ProjectBreadcrumbsProps,
+} from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import NextProject from "./NextProject";
 import myProjectService from "app/services/projects.service";
+import React from "react";
 
 export async function generateMetadata({
   params,
@@ -83,18 +87,51 @@ export default async function Projects({ params }) {
 
   const projectImages = getProjectImages(project);
 
+  const breadcrumbs: ProjectBreadcrumbsProps = {
+    crumbs: [
+      {
+        label: "Projects",
+        link: "/projects",
+      },
+      {
+        label: project.title,
+      },
+    ],
+  };
+
+  const getAllStackIcons = (project: ProjectType): StackIcon[] => {
+    const iconMap = new Map<string, StackIcon>();
+    project.stack.forEach((icon) => {
+      iconMap.set(icon, icon as StackIcon);
+    });
+    if (project.projects) {
+      project.projects.forEach((subProject) => {
+        subProject.stack.forEach((item) => {
+          if (!iconMap.get(item)) {
+            iconMap.set(item, item as StackIcon);
+          }
+        });
+      });
+    }
+    return Array.from(iconMap.values());
+  };
+
+  const allStackIcons = getAllStackIcons(project);
+
   return (
     <section className="text-black dark:text-white">
       {/* Breadcrumbs, Heading, Summary */}
-      <div className="container xl:max-w-7xl m-auto relative px-6">
-        <ProjectBreadcrumbs text={project.title} />
-        <h1 className="text-5xl md:text-7xl font-medium text-black dark:text-white my-6">
-          {project.title}&nbsp;
+      <div className="container xl:max-w-7xl m-auto relative px-4 md:px-6">
+        <ProjectBreadcrumbs {...breadcrumbs} />
+        <h1 className="text-4xl md:text-5xl xl:text-7xl font-medium text-black dark:text-white my-6">
+          {project.title}{" "}
           <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
-            {getProjectDateFriendly(project)}
+            {project.isOngoing
+              ? getProjectOngoingDateFriendly(project)
+              : getProjectDateFriendly(project)}
           </span>
         </h1>
-        <p className="tracking-tight text-xl md:text-2xl my-4 md:my-8">
+        <p className="text-lg md:text-xl xl:text-2xl my-4 md:my-8">
           {project.description}
         </p>
       </div>
@@ -132,7 +169,7 @@ export default async function Projects({ params }) {
               // objectFit: "contain",
               objectFit: "cover",
               // objectPosition: "top"
-              aspectRatio: 3/4
+              aspectRatio: 3 / 4,
             }}
             alt={project.title}
             priority
@@ -142,7 +179,7 @@ export default async function Projects({ params }) {
       )}
 
       <div className="bg-neutral-50 dark:bg-transparent py-6 md:py-12">
-        <div className="container xl:max-w-7xl m-auto relative md:pb-8 px-6">
+        <div className="container xl:max-w-7xl m-auto relative md:pb-8 px-4 md:px-6">
           {/* <script type="application/ld+json" suppressHydrationWarning>
             {JSON.stringify(post.structuredData)}
           </script> */}
@@ -166,7 +203,7 @@ export default async function Projects({ params }) {
             name: 'Darryl October',
           }, */}
 
-          <div className="">
+          <div>
             <div className="grid gap-4 sm:gap-8">
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3 font-bold text-xl">
@@ -174,7 +211,9 @@ export default async function Projects({ params }) {
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
                   {project.description_secondary && (
-                    <p className="my-4 mt-0">{project.description_secondary}</p>
+                    <p className="my-4 mt-0 text-lg md:text-xl xl:text-2xl">
+                      {project.description_secondary}
+                    </p>
                   )}
                 </div>
               </div>
@@ -188,7 +227,7 @@ export default async function Projects({ params }) {
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
                   <TitleComponent>Stack</TitleComponent>
-                  <StackIcons icons={project.stack} iconSize="large" />
+                  <StackIcons icons={allStackIcons} iconSize="large" />
                 </div>
               </div>
 
@@ -207,7 +246,11 @@ export default async function Projects({ params }) {
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3">
                   <TitleComponent>Completed</TitleComponent>
-                  <ProjectChip>{getProjectDateFriendly(project)}</ProjectChip>
+                  <ProjectChip>
+                    {project.isOngoing
+                      ? "Project ongoing"
+                      : getProjectDateFriendly(project)}
+                  </ProjectChip>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl" />
               </div>
@@ -219,7 +262,7 @@ export default async function Projects({ params }) {
                     <TitleComponent>Website / URL</TitleComponent>
 
                     <ProjectChip>
-                      <Link href={project.url} target="_blank">
+                      <Link href={project.url} target="_blank" rel="nofollow">
                         Link
                       </Link>
                     </ProjectChip>

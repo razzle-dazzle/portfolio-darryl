@@ -10,7 +10,7 @@ export default async function ContactPage() {
   return (
     <section className="w-full max-w-7xl m-auto relative text-black dark:text-white mt-12 md:mt-20">
       <h1 className="font-medium text-[50px] mb-12 text-center">
-        Let's Work Together
+        Contact me
       </h1>
       <p className="text-md text-center font-light">
         Please consider me for your next project!

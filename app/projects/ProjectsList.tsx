@@ -40,14 +40,15 @@ export default function ProjectsList() {
             `${project.completed} 09:00:00`
           ).getFullYear();
           const isArchiveProject = thisProjectYear < 2022;
-          const oldProject = thisProjectYear <= archiveThresholdYear;
+          const ancientProject = thisProjectYear <= archiveThresholdYear;
 
           let heading = "";
+          let headingId = `year-${thisProjectYear}`;
           if (
             thisProjectYear !== currentYearHeading &&
             !hasShownArchiveHeading
           ) {
-            if (oldProject && !hasShownArchiveHeading) {
+            if (ancientProject && !hasShownArchiveHeading) {
               hasShownArchiveHeading = true;
               heading = `${archiveThresholdYear} & Before`;
             } else {
@@ -66,9 +67,10 @@ export default function ProjectsList() {
                     "my-3 mt-0 md:my-6 py-3 md:py-6 md:pt-16 md:mb-0",
                     "mb-[-20px] md:mb-[-40px]"
                   )}
+                  id={headingId}
                 >
                   {heading}
-                  {thisProjectYear !== thisYear ? (
+                  {thisProjectYear !== thisYear && isArchiveProject ? (
                     <span className="text-xl text-gray-400 dark:text-gray-400 inline-block pl-4">
                       Archive
                     </span>
@@ -85,7 +87,6 @@ export default function ProjectsList() {
           );
         })}
       </div>
-
       <div className="my-12" />
     </React.Fragment>
   );

@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { LayoutGroup, motion } from "framer-motion";
+import { LayoutGroup, motion as Motion } from "framer-motion";
 import { NAV_ITEMS } from "app/constants";
 import { capitalizeFirstLetter } from "app/utils/utils";
 
@@ -47,8 +47,9 @@ export default function NavLinksGroup() {
                 >
                   {capitalizeFirstLetter(name)}
                   {path === pathname ? (
-                    <motion.div
-                      className="absolute inset-0 bg-[#0038FF] dark:bg-[#F8CB01] rounded-md z-[-1]"
+                    <Motion.div
+                      /* @ts-ignore */
+                      className="absolute inset-0 bg-klein dark:bg-mustard rounded-md z-[-1]"
                       layoutId="sidebar"
                       transition={{
                         type: "spring",

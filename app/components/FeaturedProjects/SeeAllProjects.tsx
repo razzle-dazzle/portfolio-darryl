@@ -5,16 +5,19 @@ import { useRouter } from "next/navigation";
 import { NAV_ITEMS } from "app/constants";
 import Button from "../Button";
 
-export default function SeeAllProjects() {
+type SeeAllProjectsProps = {
+  projectsCount: number;
+}
+export default function SeeAllProjects({ projectsCount }: SeeAllProjectsProps) {
   const router = useRouter();
 
   return (
     <Button
       icon
       onClick={() => router.push(NAV_ITEMS.projects.path)}
-      size="large"
+      size="default"
     >
-      See all projects
+      {`See all ${projectsCount} projects`}
     </Button>
   );
 }

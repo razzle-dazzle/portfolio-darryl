@@ -12,7 +12,7 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(10px) contrast(100%)",
       }}
     >
-      <div className="mx-auto py-2 md:py-4 container xl:max-w-7xl px-6">
+      <div className="mx-auto py-2 md:py-4 container xl:max-w-7xl px-4 md:px-6">
         <div className="w-full flex flex-row gap-2 md:gap-0 justify-between items-center">
           <Logo size="small" />
           <div className="flex flex-row justify-center md:justify-end items-center max-w-full">

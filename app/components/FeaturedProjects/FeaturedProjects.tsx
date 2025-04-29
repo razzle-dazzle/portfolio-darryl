@@ -1,27 +1,30 @@
 import ProjectBox from "./ProjectBox";
-import { projects } from 'lib/_all-db';
-import SeeAllProjects from './SeeAllProjects';
-import type { ProjectType } from 'lib/types';
-import styles from './FeaturedProjects.module.scss';
+import { projects } from "lib/_all-db";
+import SeeAllProjects from "./SeeAllProjects";
+import type { ProjectType } from "lib/types";
+import styles from "./FeaturedProjects.module.scss";
 
-const featuredProjects: ProjectType[] = projects.filter(p => p.homepage).map(p => {
-  // @todo - replace this with getProjectImages()
-  return {
-    ...p,
-    image: `/projects/${p.images}/${p.images}_featured.jpg`,
-    role: p.role ?? '',
-    stack: [
-      ...p.stack ?? [],
-    ]
-  }
-}).sort((p1, p2) => {
-  const fullDate1 = new Date(`${p1.completed} 00:00:00`);
-  const fullDate2 = new Date(`${p2.completed} 00:00:00`);
-  return fullDate1.getTime() > fullDate2.getTime() ? -1 : 1;
-});
+const featuredProjects: ProjectType[] = projects
+  .filter((p) => p.homepage)
+  .map((p) => {
+    // @todo - replace this with getProjectImages()
+    return {
+      ...p,
+      image: `/projects/${p.images}/${p.images}_featured.jpg`,
+      role: p.role ?? "",
+      stack: [...(p.stack ?? [])],
+    };
+  })
+  .sort((p1, p2) => {
+    const fullDate1 = new Date(`${p1.completed} 00:00:00`);
+    const fullDate2 = new Date(`${p2.completed} 00:00:00`);
+    return fullDate1.getTime() > fullDate2.getTime() ? -1 : 1;
+  });
 
-const FeaturedProjects = () => {
-
+type FeaturedProjectsProps = {
+  projectsCount: number;
+};
+const FeaturedProjects = ({ projectsCount }: FeaturedProjectsProps) => {
   return (
     <div className="max-w-7xl m-auto py-4 md:py-12 relative overflow-hidden">
       {/* The big shadow text */}
@@ -45,11 +48,10 @@ const FeaturedProjects = () => {
             />
           );
         })}
-
       </div>
 
       <div className="flex flex-row gap-4 justify-end items-center mt-12">
-        <SeeAllProjects />
+        <SeeAllProjects projectsCount={projectsCount} />
       </div>
     </div>
   );

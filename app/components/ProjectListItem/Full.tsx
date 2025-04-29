@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ProjectLink } from "./ProjectListItem";
 import type { ProjectType } from "lib/types";
-import { getProjectImages, getProjectTypeFromId } from "app/utils/utils";
+import { getProjectBookmarkFromUrl, getProjectImages, getProjectTypeFromId } from "app/utils/utils";
 
 type FullProps = {
   project: ProjectType;
@@ -11,15 +11,16 @@ type FullProps = {
 export default function Full({ project }: FullProps) {
   const projectImages = getProjectImages(project);
   const hasSubProjects = project?.projects && project.projects.length > 0;
+  const projectBookmark = getProjectBookmarkFromUrl(project);
 
   return (
     <div className="md:col-span-3">
       <ProjectLink project={project}>
         <article className="w-full py-2 md:py-4">
           <div className="mb-4">
-            <h2 className="text-xl md:text-[28px] mb-1.5 text-black dark:text-white font-bold">
+            <h2 id={projectBookmark} className="text-xl md:text-[28px] mb-1.5 text-black dark:text-white font-bold">
               {project.title}
-              <span className="text-sm md:text-lg inline-block pl-4 text-gray-400">
+              <span className="text-sm md:text-lg inline-block pl-4 text-gray-400 font-medium">
                 {project.completed.substring(0, 4)}
               </span>
             </h2>
@@ -84,7 +85,7 @@ const ProjectTypeBlock = ({ children }: React.PropsWithChildren) => {
 
 const ProjectDescBlock = ({ children }: React.PropsWithChildren) => {
   return (
-    <p className="text-xs md:text-[22px] text-neutral-800 dark:text-white !leading-normal line-clamp-5 sm:line-clamp-5 md:line-clamp-none">
+    <p className="text-sm md:text-[22px] text-neutral-800 dark:text-white !leading-normal line-clamp-5 sm:line-clamp-5 md:line-clamp-none">
       {children}
     </p>
   );

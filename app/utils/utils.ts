@@ -1,5 +1,7 @@
-import { projectTypes } from 'lib/_all-db';
-import type { ProjectImageCollection, ProjectType, ProjectTypes } from 'lib/types';
+import { PROJECT_CATEGORIES, ProjectCategory } from 'lib/project-categories';
+import type { ProjectImageCollection, ProjectType } from 'lib/types';
+
+const DATE_LOCALE = 'en-GB';
 
 /** Return the path to an SVG stack icon given the theme and the icon filename */
 export function getThemedIcon(
@@ -45,8 +47,8 @@ export function getProjectPosterImage(project: ProjectType): string {
   return images.featured && project.featured ? images.featured : images.original;
 }
 
-export const getProjectTypeFromId = (projectType: ProjectType['type']): ProjectTypes['title'] => {
-  const type = projectTypes.find(p => p.id === projectType);
+export const getProjectTypeFromId = (projectType: ProjectType['type']): ProjectCategory['title'] => {
+  const type = PROJECT_CATEGORIES.find(p => p.id === projectType);
   if (type) return type.title;
   return '';
 };
@@ -74,6 +76,7 @@ export function getYearFromDate(dateStr: string): string {
   const date = new Date(`${dateStr}T00:00:00.000Z`);
   return `${date.getFullYear()}`;
 }
+
 /** Take a date like "2023-03-21" and return the month like "September" */
 export function getMonthFromDate(
   dateStr: string,
@@ -83,7 +86,7 @@ export function getMonthFromDate(
     return "";
   }
   const date = new Date(`${dateStr}T00:00:00.000Z`);
-  return date.toLocaleString("default", { month: "long" });
+  return date.toLocaleString(DATE_LOCALE, { month: "long" });
 }
 
 /** Return a date like "June 2023" */
@@ -93,7 +96,16 @@ export function getProjectDateFriendly(project: ProjectType): string {
   return `${month} ${year}`;
 }
 
+/** Returns since date, from project.created */
+export function getProjectOngoingDateFriendly(project: ProjectType): string {
+  const month = getMonthFromDate(project.created);
+  const year = getYearFromDate(project.created);
+  return `Since ${month} ${year}`;
+}
+
 export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
   // str.substring(0, 1).toUpperCase() + str.substring(1);
 }
+
+export const getProjectBookmarkFromUrl = (project: ProjectType) => `project-${project.alias.replace('/', '').toLowerCase()}`;
