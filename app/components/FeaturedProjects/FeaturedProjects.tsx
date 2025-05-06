@@ -1,8 +1,9 @@
+"use client";
+
 import ProjectBox from "./ProjectBox";
 import { projects } from "lib/_all-db";
 import SeeAllProjects from "./SeeAllProjects";
 import type { ProjectType } from "lib/types";
-import styles from "./FeaturedProjects.module.scss";
 
 const featuredProjects: ProjectType[] = projects
   .filter((p) => p.homepage)
@@ -36,7 +37,7 @@ const FeaturedProjects = ({ projectsCount }: FeaturedProjectsProps) => {
         Featured Projects
       </h2>
 
-      <div className={styles.slideUpFadeInGroup}>
+      <div>
         {featuredProjects.map((project, index) => {
           return (
             <ProjectBox
@@ -44,7 +45,6 @@ const FeaturedProjects = ({ projectsCount }: FeaturedProjectsProps) => {
               key={index}
               project={project}
               // flip={index % 2 === 1}
-              otherClasses={styles.slideUpFadeIn}
             />
           );
         })}

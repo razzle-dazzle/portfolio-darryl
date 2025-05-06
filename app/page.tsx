@@ -4,7 +4,7 @@ import Balancer from "react-wrap-balancer";
 import FrontendHeading from "./components/FrontendHeading";
 import myProjectService from "./services/projects.service";
 
-export const revalidate = 60;
+// export const revalidate = 60;
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {

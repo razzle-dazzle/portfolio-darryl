@@ -1,3 +1,4 @@
+import React, { useMemo } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -15,12 +16,11 @@ import {
 } from "app/utils/utils";
 import ProjectChip from "./ProjectChip";
 import ProjectBreadcrumbs, {
-  ProjectBreadcrumbsProps,
+  type ProjectBreadcrumbsProps,
 } from "./ProjectBreadcrumbs";
 import StackIcons from "./../../components/FeaturedProjects/StackList";
 import NextProject from "./NextProject";
 import myProjectService from "app/services/projects.service";
-import React from "react";
 
 export async function generateMetadata({
   params,
@@ -78,7 +78,7 @@ async function getData(slug: string): Promise<ProjectType | null> {
   return data;
 }
 
-export default async function Projects({ params }) {
+export default async function Project({ params }) {
   const { slug } = params;
   const project = await getData(slug);
   if (!project) {
@@ -101,11 +101,14 @@ export default async function Projects({ params }) {
 
   const getAllStackIcons = (project: ProjectType): StackIcon[] => {
     const iconMap = new Map<string, StackIcon>();
+    // biome-ignore lint/complexity/noForEach: <explanation>
     project.stack.forEach((icon) => {
       iconMap.set(icon, icon as StackIcon);
     });
     if (project.projects) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       project.projects.forEach((subProject) => {
+        // biome-ignore lint/complexity/noForEach: <explanation>
         subProject.stack.forEach((item) => {
           if (!iconMap.get(item)) {
             iconMap.set(item, item as StackIcon);
@@ -127,7 +130,7 @@ export default async function Projects({ params }) {
           {project.title}{" "}
           <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
             {project.isOngoing
-              ? getProjectOngoingDateFriendly(project)
+              ? '(Project ongoing)'
               : getProjectDateFriendly(project)}
           </span>
         </h1>
@@ -207,7 +210,7 @@ export default async function Projects({ params }) {
             <div className="grid gap-4 sm:gap-8">
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3 font-bold text-xl">
-                  <TitleComponent>Project Details</TitleComponent>
+                  <TitleComponent as="h2">Project Details</TitleComponent>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
                   {project.description_secondary && (
@@ -221,12 +224,12 @@ export default async function Projects({ params }) {
               {/* Role, stack - gap needs to match main grid on mobile but not desktop!! */}
               <div className="flex flex-col md:flex-row gap-4 sm:gap-0">
                 <div className="basis-full md:basis-1/3">
-                  <TitleComponent>Role</TitleComponent>
+                  <TitleComponent as="h3">Role</TitleComponent>
 
                   <ProjectChip>{project.role}</ProjectChip>
                 </div>
                 <div className="basis-full md:basis-2/3 text-xl">
-                  <TitleComponent>Stack</TitleComponent>
+                  <TitleComponent as="h3">Stack</TitleComponent>
                   <StackIcons icons={allStackIcons} iconSize="large" />
                 </div>
               </div>
@@ -234,7 +237,7 @@ export default async function Projects({ params }) {
               {/* Type */}
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3">
-                  <TitleComponent>Type</TitleComponent>
+                  <TitleComponent as="h3">Type</TitleComponent>
                   <ProjectChip>
                     {getProjectTypeFromId(project.type)}
                   </ProjectChip>
@@ -245,7 +248,7 @@ export default async function Projects({ params }) {
               {/* Completed */}
               <div className="flex flex-col md:flex-row">
                 <div className="basis-full md:basis-1/3">
-                  <TitleComponent>Completed</TitleComponent>
+                  <TitleComponent as="h3">Completed</TitleComponent>
                   <ProjectChip>
                     {project.isOngoing
                       ? "Project ongoing"
@@ -259,7 +262,7 @@ export default async function Projects({ params }) {
               {project.url && (
                 <div className="flex flex-col md:flex-row">
                   <div className="basis-full md:basis-1/3">
-                    <TitleComponent>Website / URL</TitleComponent>
+                    <TitleComponent as="h3">Website / URL</TitleComponent>
 
                     <ProjectChip>
                       <Link href={project.url} target="_blank" rel="nofollow">
@@ -283,6 +286,8 @@ export default async function Projects({ params }) {
   );
 }
 
-const TitleComponent = ({ children }: PropsWithChildren) => {
-  return <h3 className="font-bold text-xl mb-4">{children}</h3>;
+const TitleComponent = ({ children, as: As = 'h3' }: PropsWithChildren<{
+  as: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6';
+}>) => {
+  return <As className="font-bold text-xl mb-4">{children}</As>;
 };

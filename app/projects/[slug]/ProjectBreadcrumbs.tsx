@@ -15,7 +15,7 @@ const ProjectBreadcrumbs = ({
   crumbs,
 }: ProjectBreadcrumbsProps) => {
   return (
-    <div className="text-sm md:text-base my-8 md:my-16 flex flex-wrap justify-start items-center gap-1.5 leading-relaxed">
+    <div className="text-sm md:text-base my-4 md:my-16 flex flex-wrap justify-start items-center gap-1.5 leading-relaxed">
       {!hideHome && (
         <Crumb
           item={{

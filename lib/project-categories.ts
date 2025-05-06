@@ -44,10 +44,10 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     id: 10,
     title: "Landing Page",
   },
-  {
-    id: 11,
-    title: "Responsive Landing Page",
-  },
+  // {
+  //   id: 11,
+  //   title: "Responsive Landing Page",
+  // },
   {
     id: 12,
     title: "Framework",
@@ -56,17 +56,17 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     id: 13,
     title: "Proof of Concept",
   },
-  {
-    id: 14,
-    title: "Retina Responsive Website",
-  },
-  {
-    id: 15,
-    title: "Retina Responsive Landing Page",
-  },
+  // {
+  //   id: 14,
+  //   title: "Retina Responsive Website",
+  // },
+  // {
+  //   id: 15,
+  //   title: "Retina Responsive Landing Page",
+  // },
   {
     id: 16,
-    title: "SPA (Single Page Application)",
+    title: "Single Page Application",
   },
   {
     id: 17,
@@ -74,7 +74,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
   },
   {
     id: 18,
-    title: "UI/UX",
+    title: "UI/UX Project",
   },
   {
     id: 19,

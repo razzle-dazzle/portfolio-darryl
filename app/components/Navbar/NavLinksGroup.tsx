@@ -20,7 +20,7 @@ export default function NavLinksGroup() {
         className="flex flex-row items-start relative px-2 pb-0 fade md:overflow-auto scroll-pr-6"
         id="nav"
       >
-        <div className="flex flex-row space-x-0 md:pr-6 mb-2 mt-2 gap-2">
+        <div className="flex flex-row space-x-0 md:pr-6 mb-2 mt-2 gap-2 relative">
           {Object.entries(NAV_ITEMS).map(([navName, { name, path }]) => {
             const isActive = path === pathname;
             return (

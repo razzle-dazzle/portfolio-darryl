@@ -21,7 +21,7 @@ const IconImage = ({
   const iconSrc = getThemedIcon(theme, filename);
 
   const handleClickEvent = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (e) {
       e.preventDefault();
@@ -29,12 +29,12 @@ const IconImage = ({
     }
   };
 
-  const handleMouseOver = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleMouseOver = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // console.log(e)
   }
 
   return (
-    <a
+    <button
       // biome-ignore lint/a11y/useKeyWithMouseEvents: <explanation>
       // biome-ignore lint/a11y/useValidAnchor: <explanation>
       onClick={(e) => handleClickEvent(e)}
@@ -45,6 +45,7 @@ const IconImage = ({
       tabIndex={-1}
       className={clsx(
         greyscale ? "grayscale filter opacity-30" : "",
+        "outline-none border-none m-0 p-0",
         "hover:filter-none hover:grayscale-0 hover:opacity-100 transition-opacity"
       )}
     >
@@ -53,7 +54,6 @@ const IconImage = ({
         // fill={true}
         width={widthHeight}
         height={widthHeight}
-        priority
         // sizes="(max-width: 32px) 100vw, 60px"
         style={{
           // objectFit: "contain",
@@ -63,7 +63,7 @@ const IconImage = ({
         }}
         alt={filename}
       />
-    </a>
+    </button>
   );
 };
 export default IconImage;

@@ -119,7 +119,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
           <body className="antialiased flex flex-col mx-auto bg-white dark:bg-[#161616] min-h-[100vh]">
             <Navbar />
-            <main className="flex-auto min-w-0 flex flex-col px-0 !pt-[100px]">
+            <main className="flex-auto min-w-0 flex flex-col px-0 !pt-[72px] md:!pt-[100px]">
               {children}
               {/* <Analytics /> */}
             </main>

@@ -98,9 +98,7 @@ export function getProjectDateFriendly(project: ProjectType): string {
 
 /** Returns since date, from project.created */
 export function getProjectOngoingDateFriendly(project: ProjectType): string {
-  const month = getMonthFromDate(project.created);
-  const year = getYearFromDate(project.created);
-  return `Since ${month} ${year}`;
+  return `Project ongoing`;
 }
 
 export function capitalizeFirstLetter(str: string): string {

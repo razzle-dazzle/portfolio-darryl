@@ -11,6 +11,8 @@ import StackIcons from "./StackList";
 import Button from "../Button";
 import type { ProjectType } from "lib/types";
 import { getProjectImages } from "app/utils/utils";
+import { useIntersection } from "app/hooks/useIntersection";
+import styles from "./ProjectBox.module.scss";
 
 interface ProjectBoxProps {
   project: ProjectType;
@@ -21,20 +23,31 @@ interface ProjectBoxProps {
 
 const ProjectBox = ({ project, flip, otherClasses }: ProjectBoxProps) => {
   // const [swiper, setSwiper] = React.useState<Swiper>();
+  const {
+    elementRef: projectsBoxRef
+  } = useIntersection<HTMLAnchorElement>({
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 0.25,
+    onFirstInteraction: () => {
+      projectsBoxRef.current?.classList.add(styles.slideUpFadeIn);
+    }
+  });
   const projectImages = getProjectImages(project);
   return (
     <Link
       href={`${NAV_ITEMS.projects.path}${project.alias}`}
+      ref={projectsBoxRef}
       className={clsx(
         "text-orange-300 font-medium text-md md:text-lg",
         "transform transition duration-500 md:hover:scale-105 block",
+        "opacity-0",
         otherClasses
       )}
     >
       <article className="grid grid-cols-12 mb-12 md:mb-16 lg:mb-32 gap-5 md:gap-10">
         <div
           className={clsx(
-            "project-image col-span-12 md:col-span-6 relative flex"
+            "col-span-12 md:col-span-6 relative flex",
             // flip ? "md:order-last md:justify-end" : ""
           )}
         >

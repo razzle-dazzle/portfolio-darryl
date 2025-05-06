@@ -37,8 +37,6 @@ export default async function ProjectsPage() {
       <div className="my-4 md:my-16 md:mt-12">
         <IconsCloud data={cloudData} />
       </div>
-      
-
       <Suspense fallback={<div className="text-center my-12">Loading...</div>}>
         <ProjectsList />
       </Suspense>

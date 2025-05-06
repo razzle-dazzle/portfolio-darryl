@@ -196,7 +196,7 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         </div>
 
         {/* repeat rows needs to allow all icons to fit on the page! Update as needed... */}
-        <div className="grid md:hidden grid-cols-[repeat(6,_1fr)] grid-rows-[repeat(11,_1fr)] text-white gap-2">
+        <div className="grid md:hidden grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(9,_1fr)] text-white gap-0.5">
           {iconsList.map((icon, index) => {
             // // how many icons do we need to show?
             // const iconsToShow = pattern.filter((isSet) => isSet === 1).length;
@@ -231,22 +231,22 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
       </div>
 
       {filterBy ? (
-        <div className="my-8 mt-2 flex flex-col md:flex-row md:gap-4 md:justify-center">
-          <p className="text-black dark:text-white text-center text-3xl font-300">
-            <span className="flex flex-row gap-2">
-              <span className="inline-block">Filtering by:</span>
-              <span className="inline-block pl-1 text-red-700 font-bold">
-                {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}.
+        <div className="my-8 mt-4 flex flex-row gap-4 justify-between items-center md:justify-center sticky top-0">
+          <p className="text-black dark:text-white text-center text-lg md:text-3xl font-300">
+            <span className="flex flex-row gap-2 items-center">
+              <span className="inline-block whitespace-nowrap leading-tight">Filtering by:</span>
+              <span className="inline-block leading-tight text-red-700 font-bold">
+                {myProjectService.getSpecialStackLabel(filterBy as StackIcon)}
               </span>
             </span>
           </p>
           <div className="flex justify-end">
             <button
-              className="text-right text-lg text-black dark:text-yellow-300 underline"
+              className="text-right md:text-lg text-black dark:text-yellow-300 underline"
               type="button"
               onClick={() => handleClick(filterBy as StackIcon)}
             >
-              clear filter &raquo;
+              clear filter
             </button>
           </div>
         </div>

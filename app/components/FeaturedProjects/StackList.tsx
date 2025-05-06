@@ -8,8 +8,9 @@ interface Props {
   /** If true, icons will be aligned right */
   flip?: boolean;
   iconSize?: "default" | "large";
+  lazyLoad?: boolean;
 }
-function StackIcons({ icons, flip, iconSize = "default" }: Props) {
+function StackIcons({ icons, flip, iconSize = "default", lazyLoad = true }: Props) {
   const { theme } = useTheme();
 
   return (
@@ -35,6 +36,7 @@ function StackIcons({ icons, flip, iconSize = "default" }: Props) {
             )}
             // rounded-md border-1 p-1 border-neutral-800 border-solid bg-white
             src={iconSrc}
+            loading={lazyLoad ? "lazy" : undefined}
           />
         );
       })}
