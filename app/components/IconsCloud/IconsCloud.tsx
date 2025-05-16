@@ -1,4 +1,5 @@
 "use client";
+
 import React, { type ReactNode } from "react";
 import {
   IconBlockThreeByThree,
@@ -12,27 +13,12 @@ import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
 
 export type IconBit = 1 | 0;
-/**
- * This is old...!
- * Boxes:
- * Left Top End:    0,0,1 0,1,1 1,1,1
- * Left Middle End: 0,0,0 0,0,1 0,0,0
- * Left Bottom End: 0,1,1 0,0,1 0,0,0
- * Full Block:      1,1,1 1,1,1 1,1,1
- * Big Icon Block:  I (3x3)
- * Right End:       1,0,0 1,1,0 1,1,1
- * Special Middle:  1,1 BBB 1,1
- *                  1,1 BBB 1,1
- *                  1,1 BBB 1,1
- *
- *
- * On Desktop, the cloud is like this:
- * LTE FB BIB BIB
- */
+
 type IconsCloudProps = {
   data: Record<StackIcon, number>;
   filterByTag?: (tag: StackIcon) => void;
 };
+
 type Tile1 = [
   IconBit,
   IconBit,
@@ -48,6 +34,7 @@ type Tile2 = [IconBit, IconBit, IconBit, IconBit, IconBit, IconBit];
 type Tile3 = [IconBit, IconBit, IconBit];
 type Tile4 = [IconBit];
 type PatternBitTypes = Tile1 | Tile2 | Tile3 | Tile4;
+
 const patterns: Record<string, PatternBitTypes> = {
   // row 1
   p1: [0, 0, 1, 0, 1, 1, 1, 1, 1],
@@ -80,10 +67,6 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
   const router = useRouter();
 
   const handleClick = (icon: StackIcon) => {
-    // @todo - if already filtering by this icon, remove filter from url
-    // console.log(icon);
-
-    // get URL query params
     const urlParams = new URLSearchParams(window.location.search);
     const filterIcon = urlParams.get("filter");
 
@@ -95,10 +78,6 @@ export const IconsCloud = ({ data }: IconsCloudProps) => {
         setFilterBy(icon);
         router.push(`/projects?filter=${icon}`);
       }
-      //  else {
-      //   setFilterBy(icon);
-      //   router.push("/projects");
-      // }
     }
   };
 

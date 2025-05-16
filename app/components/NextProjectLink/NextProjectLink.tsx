@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import myProjectService from "app/services/projects.service";
-import Button from "app/components/Button";
+import Button from "app/components/Button/Button";
 import type { ProjectType } from "lib/types";
 
 type Props = {
@@ -15,10 +15,10 @@ export default function NextProject({ currentProject }: Props) {
   const nextPrev = myProjectService.getNextPrevProjects(currentProject.id);
   if (!nextPrev.next && !nextPrev.prev) return null;
 
-  function goToProject(newProject: ProjectType | null) {
+  const goToProject = (newProject: ProjectType | null) => {
     if (!newProject) return;
     router.push(myProjectService.getProjectRoute(newProject));
-  }
+  };
 
   return (
     <div className="flex justify-between my-6 md:my-12">

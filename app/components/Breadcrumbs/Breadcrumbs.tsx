@@ -6,14 +6,15 @@ type CrumbNode = {
   link?: string;
   isLast?: boolean;
 };
-export type ProjectBreadcrumbsProps = {
+
+export type BreadcrumbsProps = {
   hideHome?: boolean;
   crumbs: CrumbNode[];
 };
-const ProjectBreadcrumbs = ({
+const Breadcrumbs = ({
   hideHome = false,
   crumbs,
-}: ProjectBreadcrumbsProps) => {
+}: BreadcrumbsProps) => {
   return (
     <div className="text-sm md:text-base my-4 md:my-16 flex flex-wrap justify-start items-center gap-1.5 leading-relaxed">
       {!hideHome && (
@@ -23,17 +24,16 @@ const ProjectBreadcrumbs = ({
             link: "/",
           }}
           key={0}
-        ></Crumb>
+        />
       )}
-      <>
-        {crumbs.map((crumb, index) => (
-          <Crumb item={crumb} key={index + 1} />
-        ))}
-      </>
+      {crumbs.map((crumb, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+        <Crumb item={crumb} key={index + 1} />
+      ))}
     </div>
   );
 };
-export default ProjectBreadcrumbs;
+export default Breadcrumbs;
 
 type CrumbProps = {
   item: CrumbNode;
@@ -42,7 +42,11 @@ type CrumbProps = {
 function Crumb({ item: { label, link = "" }, ...rest }: CrumbProps) {
   // const key = link ?? `link-${index}`;
   if (!link) {
-    return <div className={"text-black dark:text-white"} {...rest}>{label}</div>;
+    return (
+      <div className={"text-black dark:text-white"} {...rest}>
+        {label}
+      </div>
+    );
   }
   const linkColor = "text-klein dark:text-mustard";
 

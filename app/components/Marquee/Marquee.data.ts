@@ -130,20 +130,6 @@ export const marqueeTexts: string[][] = [
   ],
 ];
 
-// now in tailwind config
-// export const marqueeColors: string[] = [
-//   "#EDEDEF",
-//   "#1795FF",
-//   "#90D6FC",
-//   "#45C2A7",
-//   "#D7D7A0",
-//   "#4C91D0",
-//   "#cccccc",
-//   "#bc8670",
-//   "#e3c042",
-//   "#e3c042",
-// ];
-
 export const marqueeColors: string[] = [
   "dark:text-marquee1",
   "dark:text-marquee2",

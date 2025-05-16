@@ -1,12 +1,12 @@
 "use client";
 
-import ProjectListItem from "app/components/ProjectListItem";
-import myProjectService from "app/services/projects.service";
-import { sortProjects } from "app/utils/utils";
-import clsx from "clsx";
-import type { ProjectType } from "lib/types";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
+import { useSearchParams } from "next/navigation";
+import type { ProjectType } from "lib/types";
+import myProjectService from "app/services/projects.service";
+import ProjectListItem from "app/components/ProjectListItem/ProjectListItem";
+import { sortProjects } from "app/utils/utils";
 
 // async function getData(): Promise<ProjectType[]> {
 //   const data = await myProjectService.getProjects();
@@ -27,7 +27,6 @@ export default function ProjectsList() {
     // code for handling search query change
     const filter = searchParams.get("filter");
     myProjectService.getProjectsByTag(filter).then((resp) => {
-      // projects = [...resp];
       setProjects([...resp]);
     });
   }, [searchParams]);
@@ -43,7 +42,7 @@ export default function ProjectsList() {
           const ancientProject = thisProjectYear <= archiveThresholdYear;
 
           let heading = "";
-          let headingId = `year-${thisProjectYear}`;
+          const headingId = `year-${thisProjectYear}`;
           if (
             thisProjectYear !== currentYearHeading &&
             !hasShownArchiveHeading

@@ -1,4 +1,4 @@
-import Logo from "../Logo";
+import Logo from "../Logo/Logo";
 import { footerLinks } from './Footer.data';
 
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
                     key={index}
                   >
                     <div className="flex flex-row items-center justify-start gap-4">
-                      <div className='w-8 h-8 md:w-10 md:h-10 rounded-full dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>
+                      <div className='w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>
                       <div className="text-base sm:text-xl md:text-xl">{link.title}</div>
                     </div>
                   </a>

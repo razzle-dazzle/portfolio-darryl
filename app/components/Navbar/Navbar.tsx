@@ -1,6 +1,6 @@
-import Logo from "../Logo";
-import ThemeSwitch from "../ThemeSwitch";
-import NavLinksGroup from "./NavLinksGroup";
+import Logo from "../Logo/Logo";
+import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
+import NavLinksGroup from "./parts/NavLinksGroup";
 
 export default function Navbar() {
   return (

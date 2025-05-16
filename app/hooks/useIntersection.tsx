@@ -33,7 +33,7 @@ export const useIntersection = <T extends HTMLElement>(
         observer?.unobserve(current);
       }
     }
-  }, []);
+  }, [options]);
 
   return { elementRef, isVisible, hasFired: fired.current };
 };

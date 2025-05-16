@@ -1,3 +1,5 @@
+import { WEBSITE_URL } from "./constants";
+
 export default function robots() {
   return {
     rules: [
@@ -5,7 +7,7 @@ export default function robots() {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://darryloctober.co.uk/sitemap.xml',
-    host: 'https://darryloctober.co.uk',
+    sitemap: `${WEBSITE_URL}/sitemap.xml`,
+    host: WEBSITE_URL,
   };
 }

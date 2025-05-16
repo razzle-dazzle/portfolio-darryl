@@ -8,7 +8,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { NAV_ITEMS } from "app/constants";
 import StackIcons from "./StackList";
-import Button from "../Button";
+import Button from "../../Button/Button";
 import type { ProjectType } from "lib/types";
 import { getProjectImages } from "app/utils/utils";
 import { useIntersection } from "app/hooks/useIntersection";

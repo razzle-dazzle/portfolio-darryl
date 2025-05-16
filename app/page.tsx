@@ -1,15 +1,14 @@
-import Marquee from "./components/Marquee";
-import FeaturedProjects from "./components/FeaturedProjects";
+import Marquee from "./components/Marquee/Marquee";
+import FeaturedProjects from "./components/FeaturedProjects/FeaturedProjects";
 import Balancer from "react-wrap-balancer";
-import FrontendHeading from "./components/FrontendHeading";
+import FrontendHeading from "./components/FrontendHeading/FrontendHeading";
 import myProjectService from "./services/projects.service";
 
-// export const revalidate = 60;
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const projects = await myProjectService.getProjects();
-  
+
   return (
     <>
       <section className="xl:max-w-7xl px-4 md:px-6 md:mx-auto container my-8 md:mb-32 relative pb-4 md:pb-8 md:mt-32 xl:min-h-[35vh] 2xl:min-h-[45vh]">

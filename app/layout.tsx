@@ -1,26 +1,15 @@
 import type { PropsWithChildren } from "react";
-import "./global.css";
-import clsx from "clsx";
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
-import Navbar from "./components/Navbar";
 import localFont from "next/font/local";
-import { ServerThemeProvider, ThemeProvider } from "@wits/next-themes";
-import { Constants } from "./constants";
-import Footer from './components/Footer';
-// import 'swiper/css'; // this causes a font error in console
-// modules styles
-// import 'swiper/css/navigation'
-// import 'swiper/css/pagination'
+import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/react";
+import "./global.css";
+import Navbar from "./components/Navbar/Navbar";
+import { ServerThemeProvider } from "@wits/next-themes";
+import { Constants, WEBSITE_URL } from "./constants";
+import Footer from './components/Footer/Footer';
 
-// const kaisei = localFont({
-//   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
-//   weight: "700",
-//   variable: "--font-kaisei",
-//   display: "swap",
-// });
 const libre = localFont({
-  // src: "../public/fonts/LibreFranklin-Regular.woff",
   src: [
     {
       path: "../public/fonts/LibreFranklin-Regular.woff",
@@ -63,7 +52,6 @@ const libre = localFont({
       style: 'italic',
     },
   ],
-  // weight: "400",
   variable: "--font-libre",
   display: "swap",
 });
@@ -77,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Darryl October",
     description: "Front End Engineer and tech enthusiast.",
-    url: "https://darryloctober.co.uk",
+    url: WEBSITE_URL,
     siteName: "Darryl October",
     locale: "es-ES",
     type: "website",
@@ -97,11 +85,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Darryl October",
     card: "summary_large_image",
-  },
-  // verification: {
-  //   google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-  //   yandex: "14d2e73487fa6c71",
-  // },
+  }
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -125,16 +109,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </main>
             <Footer />
           </body>
-        {/* <ThemeProvider attribute="class" defaultTheme={Constants.defaultTheme}>
-
-        </ThemeProvider> */}
       </html>
     </ServerThemeProvider>
   );
-  
-  // return (
-  //   <MasterLayout>
-  //     {children}
-  //   </MasterLayout>
-  // );
 }

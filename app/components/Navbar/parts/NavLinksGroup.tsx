@@ -8,7 +8,7 @@ import { NAV_ITEMS } from "app/constants";
 import { capitalizeFirstLetter } from "app/utils/utils";
 
 export default function NavLinksGroup() {
-  // support for active page - @todo - can be improved!
+  // support for active page - @todo - improve!
   let pathname = usePathname() || "/";
   if (pathname.includes("/projects/")) {
     pathname = "/projects";
@@ -21,7 +21,7 @@ export default function NavLinksGroup() {
         id="nav"
       >
         <div className="flex flex-row space-x-0 md:pr-6 mb-2 mt-2 gap-2 relative">
-          {Object.entries(NAV_ITEMS).map(([navName, { name, path }]) => {
+          {Object.entries(NAV_ITEMS).map(([_navName, { name, path }]) => {
             const isActive = path === pathname;
             return (
               <Link
@@ -33,7 +33,6 @@ export default function NavLinksGroup() {
                   "font-medium",
                   {
                     "text-black dark:text-white": !isActive,
-                    // "font-bold": isActive,
                   }
                 )}
               >
@@ -48,7 +47,7 @@ export default function NavLinksGroup() {
                   {capitalizeFirstLetter(name)}
                   {path === pathname ? (
                     <Motion.div
-                      /* @ts-ignore */
+                      /* @ts-ignore - bug in Framer Motion! */
                       className="absolute inset-0 bg-klein dark:bg-mustard rounded-md z-[-1]"
                       layoutId="sidebar"
                       transition={{

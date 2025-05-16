@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { NAV_ITEMS } from "app/constants";
-import Button from "../Button";
+import Button from "../../Button/Button";
 
 type SeeAllProjectsProps = {
   projectsCount: number;

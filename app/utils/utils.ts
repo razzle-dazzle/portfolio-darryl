@@ -1,9 +1,12 @@
-import { PROJECT_CATEGORIES, ProjectCategory } from 'lib/project-categories';
-import type { ProjectImageCollection, ProjectType } from 'lib/types';
+import {
+  PROJECT_CATEGORIES,
+  type ProjectCategory,
+} from "lib/project-categories";
+import type { ProjectImageCollection, ProjectType } from "lib/types";
 
-const DATE_LOCALE = 'en-GB';
+const DATE_LOCALE = "en-GB";
 
-/** Return the path to an SVG stack icon given the theme and the icon filename */
+/** Returns the path to an SVG stack icon based on the theme and the icon filename */
 export function getThemedIcon(
   theme: string | undefined,
   filename: string
@@ -13,27 +16,23 @@ export function getThemedIcon(
   return iconSrc;
 }
 
-/** Return the path to the themed SVG website logo */
-export function getThemedWebsiteLogo(
-  theme: string
-): string {
+/** Returns the path to the themed SVG website logo */
+export function getThemedWebsiteLogo(theme: string): string {
   const themeMode = theme === "dark" || theme === "light" ? theme : "dark";
   const iconSrc = `/logo/logo-${themeMode}.svg`;
   return iconSrc;
 }
 
-/** 
- * Get a structured project images object, based on the image folder
- */
+/** Build project images data based on the image folder in the data */
 export function getProjectImages(project: ProjectType): ProjectImageCollection {
   const basePath = `/projects/${project.images}/${project.images}`;
-  const hasFeaturedImage = !!project.featured
+  const hasFeaturedImage = !!project.featured;
   const images = {
     original: `${basePath}.jpg`,
     small: `${basePath}_small.jpg`,
     medium: `${basePath}_medium.jpg`,
     large: `${basePath}_large.jpg`,
-    featured: hasFeaturedImage ? `${basePath}_featured.jpg` : '',
+    featured: hasFeaturedImage ? `${basePath}_featured.jpg` : "",
   };
   return images;
 }
@@ -44,17 +43,21 @@ export function getProjectImages(project: ProjectType): ProjectImageCollection {
  */
 export function getProjectPosterImage(project: ProjectType): string {
   const images = getProjectImages(project);
-  return images.featured && project.featured ? images.featured : images.original;
+  return images.featured && project.featured
+    ? images.featured
+    : images.original;
 }
 
-export const getProjectTypeFromId = (projectType: ProjectType['type']): ProjectCategory['title'] => {
-  const type = PROJECT_CATEGORIES.find(p => p.id === projectType);
+export function getProjectTypeFromId(
+  projectType: ProjectType["type"]
+): ProjectCategory["title"] {
+  const type = PROJECT_CATEGORIES.find((p) => p.id === projectType);
   if (type) return type.title;
-  return '';
-};
+  return "";
+}
 
 /** Sort projects by completed date */
-export const sortProjects = (a: ProjectType, b: ProjectType) => {
+export function sortProjects(a: ProjectType, b: ProjectType) {
   const aDate = new Date(a.completed);
   const bDate = new Date(b.completed);
 
@@ -66,7 +69,7 @@ export const sortProjects = (a: ProjectType, b: ProjectType) => {
   }
 
   return -1;
-};
+}
 
 /** Take a date like "2023-03-21" and return the full year like 2023 */
 export function getYearFromDate(dateStr: string): string {
@@ -96,14 +99,14 @@ export function getProjectDateFriendly(project: ProjectType): string {
   return `${month} ${year}`;
 }
 
-/** Returns since date, from project.created */
-export function getProjectOngoingDateFriendly(project: ProjectType): string {
-  return `Project ongoing`;
+export function getProjectOngoingDateFriendly() {
+  return "Project ongoing";
 }
 
 export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
-  // str.substring(0, 1).toUpperCase() + str.substring(1);
 }
 
-export const getProjectBookmarkFromUrl = (project: ProjectType) => `project-${project.alias.replace('/', '').toLowerCase()}`;
+export function getProjectBookmarkFromUrl(project: ProjectType) {
+  return `project-${project.alias.replace("/", "").toLowerCase()}`;
+}

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -6,20 +6,16 @@ import Image from "next/image";
 import type { PropsWithChildren } from "react";
 import type { ProjectType, StackIcon } from "lib/types";
 import {
-  getMonthFromDate,
   getProjectDateFriendly,
   getProjectImages,
-  getProjectOngoingDateFriendly,
-  getProjectPosterImage,
   getProjectTypeFromId,
-  getYearFromDate,
 } from "app/utils/utils";
-import ProjectChip from "./ProjectChip";
-import ProjectBreadcrumbs, {
-  type ProjectBreadcrumbsProps,
-} from "./ProjectBreadcrumbs";
-import StackIcons from "./../../components/FeaturedProjects/StackList";
-import NextProject from "./NextProject";
+import ProjectChip from "../../components/ProjectChip/ProjectChip";
+import Breadcrumbs, {
+  type BreadcrumbsProps,
+} from "../../components/Breadcrumbs/Breadcrumbs";
+import StackIcons from "../../components/FeaturedProjects/parts/StackList";
+import NextProject from "../../components/NextProjectLink/NextProjectLink";
 import myProjectService from "app/services/projects.service";
 
 export async function generateMetadata({
@@ -32,13 +28,12 @@ export async function generateMetadata({
   if (!project) {
     return;
   }
-  // const image = getProjectPosterImage(project);
 
+  // const image = getProjectPosterImage(project);
   const { title, completed, description, alias } = project;
   const ogImage = `https://www.darryloctober.co.uk/og?title=${encodeURIComponent(
     title
   )}`;
-  // const ogImage = `https://www.darryloctober.co.uk/projects/`;
 
   return {
     title,
@@ -87,7 +82,7 @@ export default async function Project({ params }) {
 
   const projectImages = getProjectImages(project);
 
-  const breadcrumbs: ProjectBreadcrumbsProps = {
+  const breadcrumbs: BreadcrumbsProps = {
     crumbs: [
       {
         label: "Projects",
@@ -125,12 +120,12 @@ export default async function Project({ params }) {
     <section className="text-black dark:text-white">
       {/* Breadcrumbs, Heading, Summary */}
       <div className="container xl:max-w-7xl m-auto relative px-4 md:px-6">
-        <ProjectBreadcrumbs {...breadcrumbs} />
+        <Breadcrumbs {...breadcrumbs} />
         <h1 className="text-4xl md:text-5xl xl:text-7xl font-medium text-black dark:text-white my-6">
           {project.title}{" "}
           <span className="text-gray-400 dark:text-gray-200 text-sm md:text-[20px] inline-block md:pl-2">
             {project.isOngoing
-              ? '(Project ongoing)'
+              ? "(Project ongoing)"
               : getProjectDateFriendly(project)}
           </span>
         </h1>
@@ -151,9 +146,7 @@ export default async function Project({ params }) {
             fill={true}
             sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
             style={{
-              // objectFit: "contain",
               objectFit: "cover",
-              // objectPosition: "top"
             }}
             alt={project.title}
             priority
@@ -169,9 +162,7 @@ export default async function Project({ params }) {
             fill={true}
             sizes="(max-width: 768px) 768, (max-width: 1200px) 1920px, 2400px"
             style={{
-              // objectFit: "contain",
               objectFit: "cover",
-              // objectPosition: "top"
               aspectRatio: 3 / 4,
             }}
             alt={project.title}
@@ -198,9 +189,9 @@ export default async function Project({ params }) {
           featured: doc.featured,
           images: doc.images,
           image: doc.image
-            ? `https://darryloctober.co.uk${doc.image}`
-            : `https://darryloctober.co.uk/og?title=${doc.title}`,
-          url: `https://darryloctober.co.uk/projects/${doc._raw.flattenedPath}`,
+            ? `${WEBSITE_URL}${doc.image}`
+            : `${WEBSITE_URL}/og?title=${doc.title}`,
+          url: `${WEBSITE_URL}/projects/${doc._raw.flattenedPath}`,
           author: {
             '@type': 'Person',
             name: 'Darryl October',
@@ -258,7 +249,7 @@ export default async function Project({ params }) {
                 <div className="basis-full md:basis-2/3 text-xl" />
               </div>
 
-              {/* Website - optional */}
+              {/* Website */}
               {project.url && (
                 <div className="flex flex-col md:flex-row">
                   <div className="basis-full md:basis-1/3">
@@ -277,7 +268,6 @@ export default async function Project({ params }) {
 
             <div className="my-8 mt-12 text-neutral-800 dark:text-orange-300 text-xl">
               <NextProject currentProject={project} />
-              {/* <Link href="/projects">&laquo; Back to all projects</Link> */}
             </div>
           </div>
         </div>
@@ -286,8 +276,11 @@ export default async function Project({ params }) {
   );
 }
 
-const TitleComponent = ({ children, as: As = 'h3' }: PropsWithChildren<{
-  as: 'h1'|'h2'|'h3'|'h4'|'h5'|'h6';
+const TitleComponent = ({
+  children,
+  as: As = "h3",
+}: PropsWithChildren<{
+  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }>) => {
   return <As className="font-bold text-xl mb-4">{children}</As>;
 };

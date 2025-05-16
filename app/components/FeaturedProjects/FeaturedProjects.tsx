@@ -1,8 +1,8 @@
 "use client";
 
-import ProjectBox from "./ProjectBox";
+import ProjectBox from "./parts/ProjectBox";
 import { projects } from "lib/_all-db";
-import SeeAllProjects from "./SeeAllProjects";
+import SeeAllProjects from "./parts/SeeAllProjects";
 import type { ProjectType } from "lib/types";
 
 const featuredProjects: ProjectType[] = projects

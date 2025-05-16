@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getThemedWebsiteLogo } from "app/utils/utils";
 import clsx from "clsx";
+import { getThemedWebsiteLogo } from "app/utils/utils";
 
 type Props = {
   size: "small" | "medium" | "large";

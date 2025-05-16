@@ -1,8 +1,4 @@
 export const NAV_ITEMS = {
-  // home: {
-  //   name: "home",
-  //   path: "/",
-  // },
   projects: {
     name: "projects",
     path: "/projects",
@@ -16,3 +12,5 @@ export const NAV_ITEMS = {
 export const Constants = {
   defaultTheme: "dark", // system, dark or light
 } as const;
+
+export const WEBSITE_URL = 'https://darryloctober.co.uk';

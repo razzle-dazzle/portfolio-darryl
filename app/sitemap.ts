@@ -1,9 +1,9 @@
 import { projects } from 'lib/_all-db';
-import { NAV_ITEMS } from './constants';
+import { NAV_ITEMS, WEBSITE_URL } from './constants';
 
 export default async function sitemap() {
   const projectsList = projects.map((post) => ({
-    url: `https://darryloctober.co.uk/projects${post.alias}`,
+    url: `${WEBSITE_URL}/projects${post.alias}`,
     lastModified: post.completed,
   }));
 
@@ -11,7 +11,7 @@ export default async function sitemap() {
   .map( ([key, value]) => value).map(i => i.path);
   const routes = ['', ...websitePages].map(
     (route) => ({
-      url: `https://darryloctober.co.uk${route}`,
+      url: `${WEBSITE_URL}${route}`,
       lastModified: new Date().toISOString().split('T')[0],
     })
   );

@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import { ProjectLink } from "./ProjectListItem";
 import type { ProjectType } from "lib/types";
-import { getProjectBookmarkFromUrl, getProjectImages, getProjectTypeFromId } from "app/utils/utils";
+import {
+  getProjectBookmarkFromUrl,
+  getProjectImages,
+  getProjectTypeFromId,
+} from "app/utils/utils";
+import { ProjectLink } from "./ProjectLink";
 
 type FullProps = {
   project: ProjectType;
@@ -10,7 +14,7 @@ type FullProps = {
 
 export default function Full({ project }: FullProps) {
   const projectImages = getProjectImages(project);
-  const hasSubProjects = project?.projects && project.projects.length > 0;
+  // const hasSubProjects = project?.projects && project.projects.length > 0;
   const projectBookmark = getProjectBookmarkFromUrl(project);
 
   return (
@@ -18,7 +22,10 @@ export default function Full({ project }: FullProps) {
       <ProjectLink project={project}>
         <article className="w-full py-2 md:py-4">
           <div className="mb-4">
-            <h2 id={projectBookmark} className="text-xl md:text-[28px] mb-1.5 text-black dark:text-white font-bold">
+            <h2
+              id={projectBookmark}
+              className="text-xl md:text-[28px] mb-1.5 text-black dark:text-white font-bold"
+            >
               {project.title}
               <span className="text-sm md:text-lg inline-block pl-4 text-gray-400 font-medium">
                 {project.completed.substring(0, 4)}
@@ -35,7 +42,7 @@ export default function Full({ project }: FullProps) {
                   src={projectImages.featured || projectImages.original}
                   className="rounded md:rounded-xl"
                   quality={96}
-                  loading='lazy'
+                  loading="lazy"
                   style={{
                     width: "100%",
                     objectFit: "cover",
@@ -52,12 +59,13 @@ export default function Full({ project }: FullProps) {
                   <React.Fragment>
                     {project.projects.map((subProject, subKey) => {
                       return (
-                        <div className="mt-8 hidden md:block" key={subProject.id}>
+                        <div
+                          className="mt-8 hidden md:block"
+                          key={subProject.id}
+                        >
                           <ProjectTypeBlock>
-                            {/* {getProjectTypeFromId(subProject.type)} */}
                             {subProject.title}
                           </ProjectTypeBlock>
-
                           <ProjectDescBlock>
                             {subProject.description}
                           </ProjectDescBlock>

@@ -1,6 +1,32 @@
 import clsx from "clsx";
 import FastMarquee from "react-fast-marquee";
-import { marqueeColors, marqueeTexts } from './Marquee.data';
+import { marqueeColors, marqueeTexts } from "./Marquee.data";
+
+const Marquee = () => {
+  return (
+    <>
+      {marqueeTexts.map((row, index) => {
+        const speeds = [15, 30, 38, 8, 26];
+        return (
+          <FastMarquee
+            autoFill
+            pauseOnHover
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            key={index}
+            speed={speeds[index % speeds.length]}
+            direction={index % 2 === 0 ? "left" : "right"}
+            className={clsx(
+              "border-b border-solid border-klein dark:border-mustard",
+              index + 1 >= marqueeTexts.length && "!border-b-transparent"
+            )}
+          >
+            <MarqueeRow row={row} />
+          </FastMarquee>
+        );
+      })}
+    </>
+  );
+};
 
 type MarqueeRowProps = {
   row: string[];
@@ -25,36 +51,9 @@ const MarqueeRow = ({ row }: MarqueeRowProps) => {
                 : "font-normal",
               [3, 6, 13, 18].includes(idx) ? "italic" : ""
             )}
-            // style={{ color: idxColor }}
           >
             {text}
           </p>
-        );
-      })}
-    </>
-  );
-};
-
-const Marquee = () => {
-  return (
-    <>
-      {marqueeTexts.map((row, index) => {
-        const speeds = [15, 30, 38, 8, 26];
-        return (
-          <FastMarquee
-            autoFill
-            pauseOnHover
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            key={index}
-            speed={speeds[index % speeds.length]}
-            direction={index % 2 === 0 ? "left" : "right"}
-            className={clsx(
-              "border-b border-solid border-klein dark:border-mustard",
-              index + 1 >= marqueeTexts.length && "!border-b-transparent"
-            )}
-          >
-            <MarqueeRow row={row} />
-          </FastMarquee>
         );
       })}
     </>
