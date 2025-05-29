@@ -3,7 +3,7 @@ import { footerLinks } from './Footer.data';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f6f6f6] dark:bg-[#1D1D1D] text-[#1D1D1D] dark:text-white py-4">
+    <footer className="bg-[#f6f6f6] dark:bg-[#1D1D1D] text-[#1D1D1D] dark:text-white py-4 print:hidden">
       <div className="container mx-auto p-6 md:p-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Logo */}
@@ -25,8 +25,7 @@ const Footer = () => {
                     title={link.title}
                     target={link.target}
                     className="flex flex-row gap-4 items-center"
-                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                    key={index}
+                    key={link.title}
                   >
                     <div className="flex flex-row items-center justify-start gap-4">
                       <div className='w-8 h-8 md:w-10 md:h-10 rounded-full bg-white dark:bg-[#F8CB01] dark:text-gray-900 flex items-center justify-center'>{link.icon}</div>

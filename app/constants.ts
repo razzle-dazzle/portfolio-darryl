@@ -3,6 +3,10 @@ export const NAV_ITEMS = {
     name: "projects",
     path: "/projects",
   },
+  cv: {
+    name: "CV",
+    path: "/cv",
+  },
   contact: {
     name: "contact",
     path: "/contact",

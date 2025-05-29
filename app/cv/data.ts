@@ -1,0 +1,208 @@
+import type { CVBlockProps } from "app/components/CVBlock/CVBlock";
+
+export const cv: CVBlockProps["items"] = [
+  {
+    company: "Autónomo",
+    companyAbout: "Senior Front End Engineer, Self-employed",
+    roles: [
+      {
+        company: 'Nestlé Nespresso',
+        role: 'Front End Engineer',
+        location: 'Barcelona',
+        dateDesc: "July 2023 - Present",
+        tasks: [
+          "Developing Nespresso's popular site, selling coffee capsules, machines and accessories",
+          "Building the product listing page, filters, product cards and the product details pages",
+        ],
+        tags: ["astro", "preact", "webcomponents", "react", "typescript", "javascript", "vitejs", "vitest", "storybook", "playwright", "figma", "html5", "css3"],
+      },
+      {
+        company: 'Arcturus',
+        role: "Frontend Lead",
+        location: 'Barcelona',
+        dateDesc: "February 2023 - July 2023",
+        tasks: [
+          "Building core products: ArcCore, ArcCorp and other digital products for major international banks",
+          "Building dashboard components for data ingestion and visualisation",
+          "Control of frontend stack and choosing UI technology",
+        ],
+        tags: ["react", "angular", "nextjs", "typescript", "python", "graphql", "tailwind", "aws", "mui", "rollup", "figma", "amplify", "apollo", "github-packages"],
+      },
+      {
+        company: 'Orbit29',
+        role: "Lead Developer, Barcelona",
+        location: 'Barcelona',
+        dateDesc: "July 2022 - February 2023",
+        tasks: [
+          "Lead Full Stack Developer on several web apps featured around mental health companies based in Australia and the U.K.",
+          "Building Herding Cats, an app to help people organise social events",
+          "Movember - Development of a rugby app, ported to the Australian Football League market",
+        ],
+        tags: ["expo", "reactnative", "aws", "dynamodb", "nodejs", "express", "sendgrid", "react", "typescript", "pwa", "cypress", "jest", "cloudflare", "auth0"],
+      },
+    ],
+  },
+  {
+    company: 'DGTLS',
+    companyAbout: "A digital agency creating web and online solutions for clients in Germany and Austria rest of Europe.",
+    roles: [
+      {
+        role: "Senior Front End Engineer",
+        location: 'Barcelona',
+        dateDesc: "July 2020 - July 2022",
+        tasks: [
+          "Building CMS-driven websites with React widgets for complex UI's",
+          "Building API routes in Symfony, MVC architectures",
+          "Deploying, managing and updating websites, DevOps",
+        ],
+        tags: ["apache", "php", "symfony", "pimcore", "twig", "react", "typescript", "javascript", "sass", "html5", "webpack", "npm", "uikit", "css3", "storybook"],
+      },
+    ],
+  },
+  {
+    company: 'Esoft',
+    companyAbout: "Post-production services in Photo, Video, Floorplan, and 3D Visualization for real estate companies worldwide.",
+    roles: [
+      {
+        company: 'Esoft Systems / Esoft Creative',
+        role: "Senior Front End Engineer",
+        location: 'Barcelona',
+        dateDesc: "September 2016 - March 2020",
+        tasks: [
+          "Building a multi-tenancy dashboard for companies to deploy digital ad campaigns & banners for real-time bidding",
+          "Allowing property agents in New York, Denmark and Sweden to view marketing campaigns for their properties"
+        ],
+        tags: ["angular", "typescript", "mui", "java", "grails", "nodejs", "fuse", "sass", "mysql", "stripe", "ruby", "rails", "mongodb", "redis", "css3"],
+      },
+    ],
+  },
+  {
+    company: 'reed.co.uk',
+    companyAbout: "The UK's #1 job website and recruitment company, based in the UK.",
+    roles: [
+      {
+        company: 'Startup Startup / Reed Commercial',
+        role: "Web Developer",
+        location: 'London',
+        dateDesc: "March 2015 - July 2016",
+        tasks: [
+          "Lead Developer for a company designed to showcase and promote startups worldwide (like LinkedIn for startups)",
+          "Developing an e-commerce website helping people to start their own franchise in the U.K.",
+        ],
+        tags: [],
+      },
+      {
+        company: 'reed.co.uk',
+        role: "Front End Developer",
+        location: 'London',
+        dateDesc: "November 2014 - March 2015",
+        tasks: [
+          "Building the reed website and landing pages in the technical fulfilment team",
+        ],
+        tags: [],
+      },
+    ],
+  },
+  {
+    company: 'HTA Design',
+    companyAbout: "A multi-disciplinary architecture and design consultancy based in London and Edinburgh.",
+    roles: [
+      {
+        company: '',
+        role: "Front End Developer",
+        location: 'London',
+        dateDesc: "March 2012 - October 2014",
+        tasks: [
+          "Lead Developer in the tech department, delivering websites to promote new housing developments",
+        ],
+        tags: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+      },
+    ],
+  },
+  {
+    company: 'Traveller & Backpacker, South America',
+    companyAbout: "October 2011 - February 2012: Backpacking tour of Colombia, Ecuador, Peru, Bolivia, Chile, Argentina and Brazil.",
+    roles: [
+    ],
+  },
+  {
+    company: 'Evoluted',
+    companyAbout: "A full-service digital agency specializing in web products.",
+    roles: [
+      {
+        company: '',
+        role: "PHP Developer",
+        location: 'Sheffield',
+        dateDesc: "May 2010 - October 2011",
+        tasks: [
+          "Web Developer and SEO Specialist for CMS-managed websites for U.K. based clients",
+        ],
+        tags: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+      },
+    ],
+  },
+  {
+    company: 'S8 Design',
+    companyAbout: "A small web company offering CMS-managed websites.",
+    roles: [
+      {
+        company: '',
+        role: "Partner and Business Owner",
+        location: 'Sheffield',
+        dateDesc: "January 2007 - April 2011",
+        tasks: [
+          "Web Developer for CMS-managed websites for U.K. based clients",
+        ],
+        tags: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+      },
+    ],
+  },
+  {
+    company: 'NHS',
+    companyAbout: "The National Health Service in the U.K.",
+    roles: [
+      {
+        company: 'Sheffield Children\'s Hospital',
+        role: "Data Admin Clerk",
+        location: 'Sheffield',
+        dateDesc: "January 2005 - August 2005",
+        tasks: [
+          "Database & Information Analyst for the NHS",
+        ],
+        tags: ["apache", "php", "mysql", "bootstrap", "html5", "javascript", "jquery", "css3"],
+      },
+    ],
+  },
+  {
+    company: 'Wig & Pen / Platillos',
+    companyAbout: "",
+    roles: [
+      {
+        company: '',
+        role: "Waiter & Barman",
+        location: 'Sheffield',
+        dateDesc: "June 2004 - April 2010",
+        tasks: [
+        ],
+        tags: [],
+      },
+    ],
+  },
+  {
+    company: 'Batchelor of Science',
+    companyAbout: "",
+    roles: [
+      {
+        company: 'University of Derby',
+        role: "",
+        location: 'Derby',
+        dateDesc: "January 2002 - January 2005",
+        tasks: [
+          "Degree with honours, Music Technology & Audio System Design",
+        ],
+        tags: [],
+      },
+    ],
+  }
+];
+

@@ -94,27 +94,7 @@ export default async function Project({ params }) {
     ],
   };
 
-  const getAllStackIcons = (project: ProjectType): StackIcon[] => {
-    const iconMap = new Map<string, StackIcon>();
-    // biome-ignore lint/complexity/noForEach: <explanation>
-    project.stack.forEach((icon) => {
-      iconMap.set(icon, icon as StackIcon);
-    });
-    if (project.projects) {
-      // biome-ignore lint/complexity/noForEach: <explanation>
-      project.projects.forEach((subProject) => {
-        // biome-ignore lint/complexity/noForEach: <explanation>
-        subProject.stack.forEach((item) => {
-          if (!iconMap.get(item)) {
-            iconMap.set(item, item as StackIcon);
-          }
-        });
-      });
-    }
-    return Array.from(iconMap.values());
-  };
-
-  const allStackIcons = getAllStackIcons(project);
+  const allStackIcons = myProjectService.getAllStackIcons(project);
 
   return (
     <section className="text-black dark:text-white">

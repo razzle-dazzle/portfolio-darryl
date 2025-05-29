@@ -5,7 +5,7 @@ import NavLinksGroup from "./parts/NavLinksGroup";
 export default function Navbar() {
   return (
     <div
-      className="fixed bg-neutral-500 bg-opacity-5 z-[9999] left-0 right-0"
+      className="fixed bg-neutral-500 bg-opacity-5 z-[9999] left-0 right-0 print:hidden"
       style={{
         backdropFilter: "blur(10px) contrast(100%)",
         backgroundBlendMode: "overlay",

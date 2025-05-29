@@ -98,31 +98,55 @@ class ProjectService {
 
   getSpecialStackLabel(stack: StackIcon): string {
     const specialLabels: Partial<Record<StackIcon, string>> = {
-      html5: "HTML5",
-      css3: "CSS3",
-      sass: "SASS",
-      nextjs: "NextJS",
+      astro: "AstroJS",
       aws: "AWS",
-      dynamodb: "DynamoDB",
-      nativebase: "Native Base",
-      mui: "MUI",
-      uikit: "UIKit",
-      graphql: "GraphQL",
-      php: "PHP",
-      "github-packages": "GitHub Packages",
-      npm: "NPM",
-      mysql: "MySQL",
       csharp: "C#",
+      css3: "CSS3",
       dotnet: "DOTNET",
+      dynamodb: "DynamoDB",
+      graphql: "GraphQL",
+      "github-packages": "GitHub Packages",
+      html5: "HTML5",
       ios: "iOS",
-      nodejs: "NodeJS",
-      pwa: "PWA",
       jquery: "jQuery",
       mongodb: "MongoDB",
+      mui: "MUI",
+      mysql: "MySQL",
+      nativebase: "Native Base",
+      nextjs: "NextJS",
+      nodejs: "NodeJS",
+      npm: "NPM",
+      php: "PHP",
+      pwa: "PWA",
+      reactnative: "React Native",
+      sass: "SASS",
       sendgrid: "SendGrid",
+      uikit: "UIKit",
+      webcomponents: "Web Components",
     };
     return specialLabels[stack] || capitalizeFirstLetter(stack);
   }
+
+  getAllStackIcons(project: ProjectType): StackIcon[] {
+    const iconMap = new Map<string, StackIcon>();
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    project.stack.forEach((icon) => {
+      iconMap.set(icon, icon as StackIcon);
+    });
+    if (project.projects) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
+      project.projects.forEach((subProject) => {
+        // biome-ignore lint/complexity/noForEach: <explanation>
+        subProject.stack.forEach((item) => {
+          if (!iconMap.get(item)) {
+            iconMap.set(item, item as StackIcon);
+          }
+        });
+      });
+    }
+    return Array.from(iconMap.values());
+  };
+
 }
 
 const myProjectService = new ProjectService();

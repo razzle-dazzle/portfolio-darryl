@@ -81,6 +81,7 @@ export default function ProjectsList() {
                 key={project.alias}
                 project={project}
                 viewType={isArchiveProject ? "mini" : "full"}
+                priority={pIndex === 0}
               />
             </React.Fragment>
           );

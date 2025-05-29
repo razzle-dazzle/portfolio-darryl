@@ -10,9 +10,10 @@ import { ProjectLink } from "./ProjectLink";
 
 type FullProps = {
   project: ProjectType;
+  priority: boolean;
 };
 
-export default function Full({ project }: FullProps) {
+export default function Full({ project, priority }: FullProps) {
   const projectImages = getProjectImages(project);
   // const hasSubProjects = project?.projects && project.projects.length > 0;
   const projectBookmark = getProjectBookmarkFromUrl(project);
@@ -42,7 +43,8 @@ export default function Full({ project }: FullProps) {
                   src={projectImages.featured || projectImages.original}
                   className="rounded md:rounded-xl"
                   quality={96}
-                  loading="lazy"
+                  priority={priority}
+                  loading={priority ? "eager" : "lazy"}
                   style={{
                     width: "100%",
                     objectFit: "cover",

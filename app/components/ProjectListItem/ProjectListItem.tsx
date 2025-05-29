@@ -7,11 +7,12 @@ type ProjectListItemProps = {
   project: ProjectType;
   /** If the project will be full width or 3-per-column */
   viewType: "full" | "mini";
+  priority: boolean;
 };
 
-const ProjectListItem = ({ project, viewType }: ProjectListItemProps) => {
+const ProjectListItem = ({ project, viewType, priority }: ProjectListItemProps) => {
   return viewType === "full" ? (
-    <Full project={project} />
+    <Full project={project} priority={priority} />
   ) : (
     <Mini project={project} />
   );

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTheme } from "@wits/next-themes";
 import clsx from 'clsx';
 import { getThemedIcon } from "app/utils/utils";
+import myProjectService from "app/services/projects.service";
 
 type IconImageProps = {
   filename: string;
@@ -46,6 +47,7 @@ const IconImage = ({
         "outline-none border-none m-0 p-0 cursor-pointer",
         "hover:filter-none hover:grayscale-0 hover:opacity-100 transition-opacity"
       )}
+      title={myProjectService.getSpecialStackLabel(filename)}
     >
       <Image
         src={iconSrc}

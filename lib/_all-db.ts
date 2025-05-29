@@ -3149,7 +3149,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "kraemmel",
-    stack: ["apache", "php", "pimcore", "twig", "jquery", "typescript", "javascript", "sass", "html5"],
+    stack: ["apache", "php", "symfony", "pimcore", "twig", "jquery", "typescript", "javascript", "sass", "html5"],
     role: "Senior Frontend Developer",
   },
   {
@@ -3172,7 +3172,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "wolf-digital",
-    stack: ["apache", "php", "pimcore", "twig", "react", "typescript", "javascript", "sass", "html5", "webpack", "npm", "uikit", "css3", "storybook"],
+    stack: ["apache", "php", "symfony", "pimcore", "twig", "react", "typescript", "javascript", "sass", "html5", "webpack", "npm", "uikit", "css3", "storybook"],
     role: "Senior Frontend Developer",
   },
   {
@@ -3219,7 +3219,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "roadsurfer-spots",
-    stack: ["apache", "php", "pimcore", "twig", "react", "redux", "typescript", "sass", "html5", "css3", "mui"],
+    stack: ["apache", "php", "symfony", "pimcore", "twig", "react", "redux", "typescript", "sass", "html5", "css3", "mui"],
     role: "Senior Frontend Developer",
   },
   {
@@ -3264,7 +3264,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "aotg",
-    stack: ["ios", "apple", "android", "aws", "react", "typescript", "pwa", "cypress", "jest", "auth0"],
+    stack: ["reactnative", "react", "ios", "apple", "android", "aws", "typescript", "pwa", "cypress", "jest", "auth0"],
     role: "Lead Developer",
   },
   {
@@ -3287,7 +3287,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "herdcats-app",
-    stack: ["ios", "apple", "android", "aws", "dynamodb", "firebase", "nodejs", "express", "sendgrid", "expo", "react", "typescript"],
+    stack: ["reactnative", "react", "typescript", "expo", "ios", "apple", "android", "aws", "dynamodb", "firebase", "nodejs", "express", "sendgrid"],
     role: "Lead Developer",
     projects: [
       {
@@ -3309,7 +3309,7 @@ export const projects: ProjectType[] = [
         created: "2020-09-22 09:00:00",
         modified: "2020-09-22 09:00:00",
         images: "herdcats-web",
-        stack: ["aws", "dynamodb", "nodejs", "express", "sendgrid", "react", "typescript", "cloudflare"],
+        stack: ["react", "aws", "dynamodb", "nodejs", "express", "sendgrid", "typescript", "cloudflare"],
         role: "Lead Developer",
       },
     ]
@@ -3451,7 +3451,7 @@ export const projects: ProjectType[] = [
     created: "2020-09-22 09:00:00",
     modified: "2020-09-22 09:00:00",
     images: "pocketbcn-app",
-    stack: ["ios", "apple", "android", "expo", "xcode", "react", "redux", "nativebase", "typescript"],
+    stack: ["reactnative", "react", "ios", "apple", "android", "expo", "xcode", "redux", "nativebase", "typescript"],
     role: "Founder & Lead Developer",
     projects: [
       {
@@ -3573,7 +3573,7 @@ export const projects: ProjectType[] = [
     homepage: true,
     alias: "/nespresso",
     title: "Nespresso",
-    description: "Developing Nespresso's popular site, selling coffee capsules, accessories and machines.",
+    description: "Developing Nespresso's popular site, selling coffee capsules, machines and accessories.",
     description_secondary: "The main work involved upgrading the main product list page, filters and product cards as well as the product detail pages and machine configuration feature.",
     type: 23,
     url: "https://nespresso.com",
@@ -3588,7 +3588,7 @@ export const projects: ProjectType[] = [
     created: "2023-07-17",
     modified: "2023-07-17",
     images: "nespresso",
-    stack: ["astro", "preact", "webcomponents", "react", "typescript", "javascript", "vitejs", "vitest", "figma", "html5", "storybook"],
+    stack: ["astro", "preact", "webcomponents", "react", "typescript", "javascript", "vitejs", "vitest", "figma", "html5", "storybook", "playwright"],
     role: "Senior Front End Engineer",
     projects: [
       {
@@ -3640,3 +3640,8 @@ export const projects: ProjectType[] = [
   },
   // PK?
 ];
+
+// @todo - move to product service and replace old one?
+export const getProjectById = (id: number) => {
+  return projects.find((project) => project.id === id);
+};

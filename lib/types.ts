@@ -8,6 +8,7 @@ export type StackIcon =
   | "angular"
   | "astro"
   | "react"
+  | "reactnative"
   | "preact"
   | "webcomponents"
   | "alpinejs"
@@ -79,6 +80,7 @@ export type StackIcon =
   | "vitest"
   | "playwright"
   | "markdown"
+  | (string & {})
   ;
 
 export interface ProjectType {

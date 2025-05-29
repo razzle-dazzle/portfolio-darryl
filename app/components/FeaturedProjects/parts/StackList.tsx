@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { useTheme } from "@wits/next-themes";
 import { getThemedIcon } from "app/utils/utils";
 import type { StackIcon } from 'lib/types';
+import myProjectService from "app/services/projects.service";
+
 interface Props {
   icons: StackIcon[];
   /** If true, icons will be aligned right */
@@ -26,8 +28,8 @@ function StackIcons({ icons, flip, iconSize = "default", lazyLoad = true }: Prop
         const iconSrc = getThemedIcon(theme, icon);
         return (
           <img
-            title={icon}
-            alt={icon}
+            title={myProjectService.getSpecialStackLabel(icon)}
+            alt={myProjectService.getSpecialStackLabel(icon)}
             key={icon}
             className={clsx(
               iconSize === "default"
