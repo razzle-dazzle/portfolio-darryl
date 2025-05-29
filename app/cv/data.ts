@@ -2,8 +2,8 @@ import type { CVBlockProps } from "app/components/CVBlock/CVBlock";
 
 export const cv: CVBlockProps["items"] = [
   {
-    company: "Autónomo",
-    companyAbout: "Senior Front End Engineer, Self-employed",
+    company: "Senior Front End Engineer",
+    companyAbout: "",
     roles: [
       {
         company: 'Nestlé Nespresso',
