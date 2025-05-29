@@ -130,7 +130,7 @@ export const cv: CVBlockProps["items"] = [
     duration: "September 2016 - March 2020",
     roles: [
       {
-        company: "Esoft Systems / Esoft Creative",
+        // company: "Esoft Systems / Esoft Creative",
         role: "Senior Front End Engineer",
         location: "Barcelona",
         // dateDesc: "September 2016 - March 2020",
