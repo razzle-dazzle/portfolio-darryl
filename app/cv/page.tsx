@@ -48,7 +48,12 @@ export default async function CVPage() {
         <header className="flex flex-row items-center justify-start gap-4 mb-4">
           <Logo size="small" />
           <h1 className="font-bold text-3xl">Darryl October</h1>
-          <a className="text-base print:text-sm text-gray-800 dark:text-white ml-auto underline" href="https://darryloctober.co.uk" target="_blank" rel="noreferrer">
+          <a
+            className="text-base print:text-sm text-gray-800 dark:text-white ml-auto underline"
+            href="https://darryloctober.co.uk"
+            target="_blank"
+            rel="noreferrer"
+          >
             darryloctober.co.uk
           </a>
         </header>
@@ -113,9 +118,17 @@ export default async function CVPage() {
       <Section>
         <h2 className="font-bold text-2xl my-4">Soft Skills</h2>
         <p>
-          I have developed strong skills in <strong>analytical problem solving</strong>, <strong>pro-active decision making</strong> and <strong>strategic thinking</strong> while working in my professional career.
-          I am <strong>patient</strong> and like to be <strong>empathetic</strong> and <strong>passionate</strong> and have a strong <strong>attention to detail</strong> when working on projects, as to bring out the best.
-          In my spare time I play a lot of music, learn languages and enjoy cooking, socialising, sports and working on side-projects.</p>
+          I have developed strong skills in{" "}
+          <strong>analytical problem solving</strong>,{" "}
+          <strong>pro-active decision making</strong> and{" "}
+          <strong>strategic thinking</strong> while working in my professional
+          career. I am <strong>patient</strong> and like to be{" "}
+          <strong>empathetic</strong> and <strong>passionate</strong> and have a
+          strong <strong>attention to detail</strong> when working on projects,
+          as to bring out the best. In my spare time I play a lot of music,
+          learn languages and enjoy cooking, socialising, sports and working on
+          side-projects.
+        </p>
       </Section>
     </div>
   );
