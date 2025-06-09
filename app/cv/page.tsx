@@ -45,46 +45,50 @@ export default async function CVPage() {
   return (
     <div className="flex flex-col gap-4 md:gap-8 p-6 md:px-16 my-4 md:my-12 print:my-0 print:p-0">
       <Section>
-        <header className="flex flex-row items-center justify-start gap-4 mb-4">
-          <Logo size="small" />
-          <h1 className="font-bold text-3xl">Darryl October</h1>
-          <a
-            className="text-base print:text-sm text-gray-800 dark:text-white ml-auto underline"
-            href="https://darryloctober.co.uk"
-            target="_blank"
-            rel="noreferrer"
-          >
-            darryloctober.co.uk
-          </a>
-        </header>
-
-        <div className="grid grid-cols-3 gap-2 items-start">
-          <div className="col-span-2">
+        <header className="grid grid-cols-2 grid-rows-2 gap-4 mb-4">
+          <div className="flex gap-4 items-start">
+            <Logo size="small" />
+            <h1 className="font-bold text-3xl/tight">Darryl October</h1>
+          </div>
+          <div className="flex flex-col items-end">
+            <a
+              className="text-base/tight print:text-sm text-gray-800 dark:text-white ml-auto underline"
+              href="https://darryloctober.co.uk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              www.darryloctober.co.uk
+            </a>
+            <a
+              className="text-base/tight print:text-sm text-gray-800 dark:text-white ml-auto underline"
+              href="mailto:yo@darryloctober.co.uk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              yo@darryloctober.co.uk
+            </a>
+          </div>
+          <div>
             <p className="text-md font-bold">Senior Frontend Developer</p>
             <p className="text-md">Barcelona, Spain</p>
           </div>
-          <div className="">
-            {/* <p className="text-md font-medium hidden print:block">
-              www.darryloctober.co.uk
-            </p> */}
-
-            <div className="flex flex-row gap-4 justify-end">
-              {iconLinks.map((link, index) => {
-                return (
-                  <a
-                    href={link.link}
-                    title={link.title}
-                    target={link.target}
-                    className="flex flex-row gap-4 items-center"
-                    key={link.title}
-                  >
-                    <span>{link.icon}</span>
-                  </a>
-                );
-              })}
-            </div>
+          <div className="flex flex-row gap-4 justify-end">
+            {iconLinks.map((link, index) => {
+              return (
+                <a
+                  href={link.link}
+                  title={link.title}
+                  target={link.target}
+                  className="flex flex-row gap-4 items-center"
+                  key={link.title}
+                >
+                  <span>{link.icon}</span>
+                </a>
+              );
+            })}
           </div>
-        </div>
+        </header>
+
         <p className="text-sm print:text-xs italic text-gray-800 dark:text-white my-4">
           Working mainly with AstroJS, Next.js, Preact, React, React Native -
           check out my portfolio for a full list of skills and technologies.{" "}
